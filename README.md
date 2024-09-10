@@ -1,4 +1,4 @@
-# 9月9日→20.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址  更新时间 2024-09-09 10:12:48
+# 9月10日→20.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址  更新时间 2024-09-10 09:56:03
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://kitsunebinode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,19 +9,19 @@
 
 ### Clash订阅链接
 
-- https://kitsunebinode.github.io/uploads/2024/09/0-20240909.yaml
-- https://kitsunebinode.github.io/uploads/2024/09/1-20240909.yaml
-- https://kitsunebinode.github.io/uploads/2024/09/2-20240909.yaml
-- https://kitsunebinode.github.io/uploads/2024/09/3-20240909.yaml
-- https://kitsunebinode.github.io/uploads/2024/09/4-20240909.yml
+- https://kitsunebinode.github.io/uploads/2024/09/0-20240910.yaml
+- https://kitsunebinode.github.io/uploads/2024/09/1-20240910.yaml
+- https://kitsunebinode.github.io/uploads/2024/09/2-20240910.yaml
+- https://kitsunebinode.github.io/uploads/2024/09/3-20240910.yaml
+- https://kitsunebinode.github.io/uploads/2024/09/4-20240910.yml
 
 ### V2ray订阅链接
 
-- https://kitsunebinode.github.io/uploads/2024/09/0-20240909.txt
-- https://kitsunebinode.github.io/uploads/2024/09/1-20240909.txt
-- https://kitsunebinode.github.io/uploads/2024/09/2-20240909.txt
-- https://kitsunebinode.github.io/uploads/2024/09/3-20240909.txt
-- https://kitsunebinode.github.io/uploads/2024/09/4-20240909.txt
+- https://kitsunebinode.github.io/uploads/2024/09/0-20240910.txt
+- https://kitsunebinode.github.io/uploads/2024/09/1-20240910.txt
+- https://kitsunebinode.github.io/uploads/2024/09/2-20240910.txt
+- https://kitsunebinode.github.io/uploads/2024/09/3-20240910.txt
+- https://kitsunebinode.github.io/uploads/2024/09/4-20240910.txt
 
 ## 更多clash节点订阅 ：
 
