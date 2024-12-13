@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-24646.htm" />
+    <meta charset="utf-8">
+    <title>C# 实现登录并跳转界面</title>
+        <meta name="description" content="前言：本篇文章没有使用连接数据库验证登录名和密码，只是最基本的字符串对比，下篇文章会在本文基础上增加数据库连接和验证。 正文： 1. 登录窗口界面的布局设计 &nbsp; &nbsp; （1）新建一个" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="godocs" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                                <a class="navbar-brand" href="/">
+                    <span>Kitsunebi Node</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">C# 实现登录并跳转界面</h1>
+                                      				  				  				<div id="content_views" class="htmledit_views"> <p><strong>前言：</strong>本篇文章没有使用连接数据库验证登录名和密码，只是最基本的字符串对比，下篇文章会在本文基础上增加数据库连接和验证。</p> <p><strong>正文：</strong></p> <p>1. 登录窗口界面的布局设计</p> <p style="text-indent:0px;">&nbsp; &nbsp; （1）新建一个form窗体，并且修改属性值。如图</p> <p>&nbsp; &nbsp;&nbsp; 属性Text：Form1 改为 登录界面 ；</p> <p>&nbsp; &nbsp; &nbsp;属性Name：Form1 改为 Login ；</p> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="450" src="http://img.555519.xyz/uploads3/20220904/ccb8ceb90d3bed3d63e10f3c222e6763.jpg"></p> <p><img decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/2bcd50e61d8657d416868104c60459b0.jpg"></p> <p><img decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/613b6d7dae9b8aacd042f35e39216b6c.jpg"></p> <p><img loading="lazy" decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/62b0ab4d5be7f4ebdd4f7aba65cbd879.jpg"></p> <p>&nbsp;（2）在工具箱搜索寻找需要的控件，登录界面一般需要Label，Button，TextBox。<br /> &nbsp;&nbsp;同样，在属性窗格修改属性值，方便代码书写的命名。这里命名为：</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="300" src="http://img.555519.xyz/uploads3/20220904/70e2617869b627578327d793e9a1d932.jpg"></p> <p>&nbsp;（3）调整各个控件的大小，字体，布局：</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/631843eb5777b002cda58d9e4fd52ade.jpg"></p> <p>（4）双击登录按钮，进行代码编辑</p> <pre class="has"><code class="language-csharp">private void btnLogin_Click(object sender, EventArgs e)         {             //1. 获取数据             //从TextBox中获取用户输入信息             string userName = this.txtUserName.Text;                  string userPassword = this.txtPassword.Text;              //2. 验证数据             // 验证用户输入是否为空，若为空，提示用户信息             if( userName.Equals("") || userPassword.Equals(""))             {                 MessageBox.Show("用户名或密码不能为空！");             }             // 若不为空，验证用户名和密码是否与数据库匹配             // 这里只做字符串对比验证             else             {                    //用户名和密码验证正确，提示成功，并执行跳转界面。                 if( userName.Equals("admin") &amp;&amp; userPassword.Equals("admin"))                 {                     MessageBox.Show("登录成功！");                      /**                      * 待添加代码区域                      * 实现界面跳转功能                      *                       */                 }                 //用户名和密码验证错误，提示错误。                 else                 {                     MessageBox.Show("用户名或密码错误！");                 }             }              //3. 处理数据         }</code></pre> <p>2. 跳转主界面实现</p> <p><span style="color:#4f4f4f;">&nbsp;（1）右键资源管理器中项目名 "blog1"，依次单击 "添加"、"Windows窗体"。</span></p> <p><img loading="lazy" decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/bb2107e1e97cc2f73dd6bad68b0b7fd6.jpg"><img loading="lazy" decoding="async" alt="" class="has" height="500" src="http://img.555519.xyz/uploads3/20220904/a8202f473a830c6a4a548f20a6be6f62.jpg"></p> <p>（2）单击添加按钮。对新的窗口像前面一样操作，对相应属性进行修改。并且添加一个label，用于界面的辨识。</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="450" src="http://img.555519.xyz/uploads3/20220904/761aedff1d0068e9727e1e3c999b74cf.jpg"></p> <p>（3）在programma.cs中的Main函数中，添加代码：</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="450" src="http://img.555519.xyz/uploads3/20220904/54d4b9c2b7e11838e9c7670842395e24.jpg"></p> <pre class="has"><code class="language-csharp">&nbsp;static void Main()         {             Application.EnableVisualStyles();             Application.SetCompatibleTextRenderingDefault(false);             //Application.Run(new Login());             Login login = new Login();              //界面转换             login.ShowDialog();              if (login.DialogResult == DialogResult.OK)             {                 login.Dispose();                 Application.Run(new MainForm());             }             else if (login.DialogResult == DialogResult.Cancel)             {                 login.Dispose();                 return;             }         }</code>static void Main()         {             Application.EnableVisualStyles();             Application.SetCompatibleTextRenderingDefault(false);             //Application.Run(new Login());             Login login = new Login();              //界面转换             login.ShowDialog();              if (login.DialogResult == DialogResult.OK)             {                 login.Dispose();                 Application.Run(new MainForm());             }             else if (login.DialogResult == DialogResult.Cancel)             {                 login.Dispose();                 return;             }         }</pre> <p>&nbsp;（4）并在Form1.cs中，验证用户名和密码后面（有注释：待添加代码区），添加代码：</p> <pre class="has"><code class="language-csharp">//跳转主界面      this.DialogResult = DialogResult.OK;      this.Dispose();      this.Close();</code></pre> <p>3.启动运行，一起检查代码实现情况。</p> <p style="text-indent:32px;">（1）不输入用户名和密码，单击登录；</p> <p style="text-indent:32px;">（2）正确输入用户名，错误输入密码，单击登录；</p> <p style="text-indent:32px;">（3）正确输入用户名和密码，单击登录；</p> <p style="text-indent:32px;">（4）单击提示框确定按钮，查看跳转情况。</p> <p style="text-indent:32px;"> <p style="text-indent:32px;"><span style="color:#4f4f4f;"><strong>后续：</strong></span><span style="color:#4f4f4f;">我是一个C#的初学者，目前只是学了最基本的语法。想在实践中边练习边学习，</span>于是找了点小项目</p> <p style="text-indent:32px;">作为学习C#的练手利器，文中有错误或者不是很好的地方，望各位大神批评指正。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-24179.htm">动物疫苗审批流程图片（动物疫苗审批流程图片高清）</a></p>
+                                        <p>下一个：<a href="/news/article-24647.htm">宠物领养软件推荐下载（宠物领养软件推荐下载安装）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-today-kitsunebi-node.htm" title="10月18日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月18日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20506.htm" title="宠爱国际中心医院电话 宠爱国际宠物医院电话">宠爱国际中心医院电话 宠爱国际宠物医院电话</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-18-node-share-links.htm" title="9月18日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月18日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-9-free-high-speed-nodes.htm" title="9月9日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月9日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-node-share.htm" title="11月21日→23M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月21日→23M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-18700.htm" title="Runtime: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same">Runtime: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-kitsunebi-node.htm" title="11月2日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月2日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-kitsunebi-node.htm" title="12月7日→18.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月7日→18.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-subscribe-node.htm" title="12月1日→20.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月1日→20.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-kitsunebi-github.htm" title="12月9日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月9日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
