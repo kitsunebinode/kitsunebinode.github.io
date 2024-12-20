@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
     <!-- Main Stylesheet -->
     <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
-    
-<!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -62,7 +61,8 @@
                 </div>
                 <div class="col-md-9">
                     <h1 class="mb-4">vue父子组件之间传值，以及之间方法调用</h1>
-                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>该文章主要记录在工作中经常使用的小知识点、注意点、遇到的小问题</p> <h2> <a id="vue_1" rel="nofollow"></a>vue父子组件传值，调用方法</h2> <h4> <a id="_2" rel="nofollow"></a>父传子值，父调用子方法</h4> <p>父组件向子组件传值（引入子组件→在引入的子组件绑定需要传送的值→子组件props接收）</p> <pre><code>&lt;!-父组件---&gt; &lt;template&gt;   &lt;div&gt;     &lt;child :msg="msg"&gt;&lt;/child&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import child from './child' export default {   components:{     child   }   data () {     return {       msg: '父组件的值'     }   } }  &lt;!-子组件---&gt; &lt;template&gt;   &lt;div&gt;&lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   props:{       msg:{           type:String,           default:''       }   }   mounted(){       console.log(this.msg)   } } </code></pre> <p>父组件调用子组件方法（引入子组件→给注册的子组件注册引用信息→调用子组件方法）</p> <pre><code>&lt;!-父组件---&gt; &lt;template&gt;   &lt;div&gt;     &lt;child ref="child" &gt;&lt;/child&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import child from './child' export default {   components:{     child   }   mounted(){       this.$refs.child.getData() // 调用   } }  &lt;!-子组件---&gt; &lt;template&gt;   &lt;div&gt;&lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   methods:{       getData(){           console.log('父组件调用了我的方法')       }   } } </code></pre> <h4> <a id="_77" rel="nofollow"></a>子传父值，子调用父方法</h4> <p>子组件向父组件传值（方法一）</p> <pre><code>&lt;!-父组件---&gt; &lt;template&gt;   &lt;div&gt;     &lt;child @func="getData"&gt;&lt;/child&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import child from './child' export default {   components:{     child   }   mounted(){       getData(val){           console.log(val) //我是子组件的数据       }   } }  &lt;!-子组件---&gt; &lt;template&gt;   &lt;div&gt;&lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {     data(){         msg: "我是子组件的数据",     }     mounted(){         //func: 是父组件指定的传数据绑定的函数，this.msg:子组件给父组件传递的数据         this.$emit('func', this.msg)      } } </code></pre> <p>子组件向父组件传值（方法二）</p> <pre><code>父组件直接获取子组件里的data数据 this.$ref.child.msg </code></pre> <p>子组件调用父组件方法（方法一）</p> <pre><code>子组件直接通过this.$parent.event调用 //event为需要调用的父组件的事件 </code></pre> <p>子组件调用父组件方法（方法二）</p> <pre><code>子组件里用$emit向父组件触发一个事件，父组件监听这个事件就行了（与子组件向父组件传值（方法一）一致） </code></pre> <p>子组件调用父组件方法（方法三）</p> <pre><code>父组件把方法传入子组件中，在子组件里直接调用这个方法 &lt;!-父组件---&gt; &lt;template&gt;   &lt;div&gt;     &lt;child :getData="getData"&gt;&lt;/child&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import child from './child' export default {   components:{     child   }   methods:{       getData(){         console.log('这是父组件的方法'）        }   } }  &lt;!-子组件---&gt; &lt;template&gt;   &lt;div&gt;&lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   props:{       getData:{           type:Function,           default:null       }   }   mounted(){     if(this.getData){         this.getData()     }   } } </code></pre> </p></div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>该文章主要记录在工作中经常使用的小知识点、注意点、遇到的小问题</p> <h2> <a id="vue_1" rel="nofollow"></a>vue父子组件传值，调用方法</h2> <h4> <a id="_2" rel="nofollow"></a>父传子值，父调用子方法</h4> <p>父组件向子组件传值（引入子组件→在引入的子组件绑定需要传送的值→子组件props接收）</p> <pre><code>&lt;!-父组件---&gt; &lt;template&gt;   &lt;div&gt;     &lt;child :msg="msg"&gt;&lt;/child&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import child from './child' export default {   components:{     child   }   data () {     return {       msg: '父组件的值'     }   } }  &lt;!-子组件---&gt; &lt;template&gt;   &lt;div&gt;&lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   props:{       msg:{           type:String,           default:''       }   }   mounted(){       console.log(this.msg)   } } </code></pre> <p>父组件调用子组件方法（引入子组件→给注册的子组件注册引用信息→调用子组件方法）</p> <pre><code>&lt;!-父组件---&gt; &lt;template&gt;   &lt;div&gt;     &lt;child ref="child" &gt;&lt;/child&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import child from './child' export default {   components:{     child   }   mounted(){       this.$refs.child.getData() // 调用   } }  &lt;!-子组件---&gt; &lt;template&gt;   &lt;div&gt;&lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   methods:{       getData(){           console.log('父组件调用了我的方法')       }   } } </code></pre> <h4> <a id="_77" rel="nofollow"></a>子传父值，子调用父方法</h4> <p>子组件向父组件传值（方法一）</p> <pre><code>&lt;!-父组件---&gt; &lt;template&gt;   &lt;div&gt;     &lt;child @func="getData"&gt;&lt;/child&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import child from './child' export default {   components:{     child   }   mounted(){       getData(val){           console.log(val) //我是子组件的数据       }   } }  &lt;!-子组件---&gt; &lt;template&gt;   &lt;div&gt;&lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {     data(){         msg: "我是子组件的数据",     }     mounted(){         //func: 是父组件指定的传数据绑定的函数，this.msg:子组件给父组件传递的数据         this.$emit('func', this.msg)      } } </code></pre> <p>子组件向父组件传值（方法二）</p> <pre><code>父组件直接获取子组件里的data数据 this.$ref.child.msg </code></pre> <p>子组件调用父组件方法（方法一）</p> <pre><code>子组件直接通过this.$parent.event调用 //event为需要调用的父组件的事件 </code></pre> <p>子组件调用父组件方法（方法二）</p> <pre><code>子组件里用$emit向父组件触发一个事件，父组件监听这个事件就行了（与子组件向父组件传值（方法一）一致） </code></pre> <p>子组件调用父组件方法（方法三）</p> <pre><code>父组件把方法传入子组件中，在子组件里直接调用这个方法 &lt;!-父组件---&gt; &lt;template&gt;   &lt;div&gt;     &lt;child :getData="getData"&gt;&lt;/child&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import child from './child' export default {   components:{     child   }   methods:{       getData(){         console.log('这是父组件的方法'）        }   } }  &lt;!-子组件---&gt; &lt;template&gt;   &lt;div&gt;&lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   props:{       getData:{           type:Function,           default:null       }   }   mounted(){     if(this.getData){         this.getData()     }   } } </code></pre> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-22797.htm">动物诊疗许可证多久能申请下来啊（动物诊疗许可证多久能申请下来啊知乎）</a></p>
                                         <p>下一个：<a href="/news/article-23246.htm">饮料批发一手货源市场（饮料批发一手货源市场合肥）</a></p>
@@ -75,16 +75,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-21875.htm" title="猫咪对主人的喜欢程度及表现（猫咪认主的5大征兆）">猫咪对主人的喜欢程度及表现（猫咪认主的5大征兆）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-today-kitsunebi-node.htm" title="11月1日→18.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月1日→18.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-9-free-high-speed-nodes.htm" title="9月9日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月9日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-23708.htm" title="宠物粮食加工厂需要投资多少钱一个月呢英语 宠物粮食加工厂需要投资多少钱一个月呢英语翻译">宠物粮食加工厂需要投资多少钱一个月呢英语 宠物粮食加工厂需要投资多少钱一个月呢英语翻译</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-30-kitsunebi-node.htm" title="11月30日→22.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月30日→22.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-10-24-kitsunebi-node-share.htm" title="10月24日→21.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月24日→21.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-today-kitsunebi-node.htm" title="9月13日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月13日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-7-free-node-subscribe-links.htm" title="9月7日→22.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月7日→22.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-24-free-high-speed-nodes.htm" title="9月24日→22.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月24日→22.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-13-kitsunebi-github.htm" title="10月13日→21.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月13日→21.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20045.htm" title="狗狗领养平台有哪些软件（狗狗领养免费平台）">狗狗领养平台有哪些软件（狗狗领养免费平台）</a></li>
+                        <li class="py-2"><a href="/news/article-19133.htm" title="猫三针疫苗多少钱一只啊（猫猫的三针疫苗多少钱）">猫三针疫苗多少钱一只啊（猫猫的三针疫苗多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-node-share-links.htm" title="11月13日→20.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月13日→20.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share-links.htm" title="12月13日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月13日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-node-subscribe-links.htm" title="9月27日→22.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月27日→22.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26057.htm" title="猫死后最好的处理方式（猫死了预示家里什么情况）">猫死后最好的处理方式（猫死了预示家里什么情况）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-node-subscribe-links.htm" title="11月23日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月23日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24177.htm" title="动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全">动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-kitsunebi-node.htm" title="11月4日→22.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月4日→22.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -96,7 +96,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -120,6 +120,15 @@
         <div class="container">
             <div class="py-4 text-center">
                 <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                     <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
                 </p>
             </div>
