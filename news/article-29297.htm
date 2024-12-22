@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-29297.htm" />
+    <meta charset="utf-8">
+    <title>服务器使用Nginx部署Springboot项目（jar包）</title>
+        <meta name="description" content="部署SpringBoot项目到后台Nginx实现多项目反向代理  1,将java项目打成jar包   2.准备工具 3.将jar包传入服务器 3.使用Xshell运行jar包 4.下载安装nginx " />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="godocs" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                                <a class="navbar-brand" href="/">
+                    <span>Kitsunebi Node</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">服务器使用Nginx部署Springboot项目（jar包）</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>部署SpringBoot项目到后台Nginx实现多项目反向代理</h3> <ul> <li><a href="#1javajar_2" rel="nofollow">1,将java项目打成jar包</a></li> <li> <ul> <li><a href="#2_6" rel="nofollow">2.准备工具</a></li> <li><a href="#3jar_11" rel="nofollow">3.将jar包传入服务器</a></li> <li><a href="#3Xshelljar_14" rel="nofollow">3.使用Xshell运行jar包</a></li> <li><a href="#4nginx_22" rel="nofollow">4.下载安装nginx</a></li> <li><a href="#5nginxconf_25" rel="nofollow">5.配置nginx.conf</a></li> <li><a href="#6_94" rel="nofollow">6通过域名访问(成功)</a></li> </ul> </li> </ul> </div> </h1> <p>这里我用到的是maven工具<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/c8e74bdf1784af159b4f8cd530968fcf.jpg" alt="服务器使用Nginx部署Springboot项目（jar包）"><br /> 这里有两个项目，打包完成后一个为demo.jar,另一个为jst.jar</p> <h2><a id="2_6" rel="nofollow"></a>2.准备工具</h2> <p>1.<strong>服务器</strong><br /> 2.<strong>域名(注：经过备案)</strong><br /> 3.<strong>Xshell用于连接服务器</strong><br /> 4.<strong>WinScp（注:视图工具，用于传输jar）</strong></p> <h2><a id="3jar_11" rel="nofollow"></a>3.将jar包传入服务器</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/1da6041422957407e1dae04db4242ca5.jpg" alt="服务器使用Nginx部署Springboot项目（jar包）"><br /><strong>直接拖动即可</strong></p> <h2><a id="3Xshelljar_14" rel="nofollow"></a>3.使用Xshell运行jar包</h2> <p>注：（服务器的java环境以及maven环境，各位请自行配置，这里不做描述。）</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/f44cbb5daa08d023d4febab87f07423b.jpg" alt="服务器使用Nginx部署Springboot项目（jar包）"><br /><strong>cd到jar包路径下执行：nohup java -jar demo.jar &gt;temp.txt &amp;</strong><br /><strong>执行启动完两个jar包后使用ip与端口号访问接口</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/bc2c4e59a39c2f787cc2249f680f34f5.jpg" alt="服务器使用Nginx部署Springboot项目（jar包）"><br /><strong>（注:测试接口）</strong></p> <h2><a id="4nginx_22" rel="nofollow"></a>4.下载安装nginx</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/85973013"  rel="nofollow">安装教程</a></p> <h2><a id="5nginxconf_25" rel="nofollow"></a>5.配置nginx.conf</h2> <p>**(注：*********<strong>代表服务器地址)</strong></p> <pre><code class="prism language-java">http<span class="token punctuation">{<!-- --></span>     include       mime<span class="token punctuation">.</span>types<span class="token punctuation">;</span>     default_type  application<span class="token operator">/</span>octet<span class="token operator">-</span>stream<span class="token punctuation">;</span>      #log_format  main<span class="token string">'$remote_addr - $remote_user [$time_local] "$request" '</span>     #<span class="token string">'$status $body_bytes_sent "$http_referer" '</span>     #<span class="token string">'"$http_user_agent" "$http_x_forwarded_for"'</span><span class="token punctuation">;</span>      #access_log  logs<span class="token operator">/</span>access<span class="token punctuation">.</span>log  main<span class="token punctuation">;</span>      sendfile        on<span class="token punctuation">;</span>     #tcp_nopush     on<span class="token punctuation">;</span>      #keepalive_timeout<span class="token number">0</span><span class="token punctuation">;</span>     keepalive_timeout<span class="token number">65</span><span class="token punctuation">;</span>      #gzip  on<span class="token punctuation">;</span>       server<span class="token punctuation">{<!-- --></span>      #监听的端口号         listen<span class="token number">80</span><span class="token punctuation">;</span>         #设置访问的二级域名         server_name  demo<span class="token punctuation">.</span>eysource<span class="token punctuation">.</span>com<span class="token punctuation">;</span>          #charset koi8<span class="token operator">-</span>r<span class="token punctuation">;</span>          #access_log  logs<span class="token operator">/</span>host<span class="token punctuation">.</span>access<span class="token punctuation">.</span>log  main<span class="token punctuation">;</span>          location<span class="token operator">/</span><span class="token punctuation">{<!-- --></span>         #配置访问的项目路径（注<span class="token operator">:</span>这里重点）        proxy_pass  http<span class="token operator">:</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">:</span><span class="token number">9091</span><span class="token operator">/</span>         # root html<span class="token punctuation">;</span>        # index index<span class="token punctuation">.</span>html index<span class="token punctuation">.</span>htm<span class="token punctuation">;</span>         proxy_set_header           Host $host<span class="token punctuation">;</span>         proxy_set_header  X<span class="token operator">-</span>Real<span class="token operator">-</span>IP  $remote_addr<span class="token punctuation">;</span>         proxy_set_header           X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For       $proxy_add_x_forwarded_for<span class="token punctuation">;</span>         client_max_body_size<span class="token number">100</span>m<span class="token punctuation">;</span>         root   html<span class="token punctuation">;</span>         index  index<span class="token punctuation">.</span>html index<span class="token punctuation">.</span>htm<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span>    server<span class="token punctuation">{<!-- --></span>      #监听的端口号         listen<span class="token number">80</span><span class="token punctuation">;</span>         #设置访问的二级域名         server_name  aaa<span class="token punctuation">.</span>eysource<span class="token punctuation">.</span>com<span class="token punctuation">;</span>          #charset koi8<span class="token operator">-</span>r<span class="token punctuation">;</span>          #access_log  logs<span class="token operator">/</span>host<span class="token punctuation">.</span>access<span class="token punctuation">.</span>log  main<span class="token punctuation">;</span>          location<span class="token operator">/</span><span class="token punctuation">{<!-- --></span>         #配置访问的项目路径（注<span class="token operator">:</span>这里重点）        proxy_pass  http<span class="token operator">:</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">:</span><span class="token number">8080</span><span class="token operator">/</span>         # root html<span class="token punctuation">;</span>        # index index<span class="token punctuation">.</span>html index<span class="token punctuation">.</span>htm<span class="token punctuation">;</span>         proxy_set_header           Host $host<span class="token punctuation">;</span>         proxy_set_header  X<span class="token operator">-</span>Real<span class="token operator">-</span>IP  $remote_addr<span class="token punctuation">;</span>         proxy_set_header           X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For       $proxy_add_x_forwarded_for<span class="token punctuation">;</span>         client_max_body_size<span class="token number">100</span>m<span class="token punctuation">;</span>         root   html<span class="token punctuation">;</span>         index  index<span class="token punctuation">.</span>html index<span class="token punctuation">.</span>htm<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <h2><a id="6_94" rel="nofollow"></a>6通过域名访问(成功)</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/a980c7d56baf8de03355b45e47479006.jpg" alt="服务器使用Nginx部署Springboot项目（jar包）"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-28830.htm">猫咪肠胃炎在家自救方法（猫咪呕吐吃什么药可以解决）</a></p>
+                                        <p>下一个：<a href="/news/article-29298.htm">动物疫苗哪里买的到 动物疫苗哪里买的到啊</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-node-share.htm" title="11月25日→21.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月25日→21.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-node-subscribe.htm" title="12月12日→18.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月12日→18.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-kitsunebi-node-share.htm" title="9月28日→18.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月28日→18.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-free-kitsunebi-node.htm" title="11月4日→22.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月4日→22.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-kitsunebi-node.htm" title="12月21日→22.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月21日→22.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-kitsunebi-github.htm" title="12月9日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月9日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-today-kitsunebi-node.htm" title="11月14日→21M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月14日→21M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-kitsunebi-node.htm" title="11月18日→20.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月18日→20.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22796.htm" title="动物疫苗间隔时间多久打第二针呢（动物疫苗多长时间内打）">动物疫苗间隔时间多久打第二针呢（动物疫苗多长时间内打）</a></li>
+                        <li class="py-2"><a href="/news/article-27899.htm" title="沧州宠物医院招聘信息（沧州宠物医院电话）">沧州宠物医院招聘信息（沧州宠物医院电话）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
