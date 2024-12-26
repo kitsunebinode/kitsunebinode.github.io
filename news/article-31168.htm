@@ -2,11 +2,10 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://kitsunebinode.github.io" />
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-31168.htm" />
     <meta charset="utf-8">
-    <title>免责申明 - Kitsunebi Node机场节点订阅官网</title>
-        <meta name="keywords" content="免责申明 - Kitsunebi Node机场节点订阅官网" />
-        <meta name="description" content="免责申明 - Kitsunebi Node机场节点订阅官网" />
+    <title>@DateTimeFormat和@JsonFormat浅解</title>
+        <meta name="description" content="@DateTimeFormat和@JsonFormat浅解  @DateTimeFormat 把传给后台的时间字符串转成Date，但是只会在@RequestParam请求参数的时生效，在@Reques" />
         <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -31,7 +30,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body data-page="newly_discovered_nodes">
+<body data-page="detail">
         <header class="sticky-top navigation">
         <div class=container>
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
@@ -58,32 +57,17 @@
         <div class="container shadow section-sm rounded">
             <div class="row">
                 <div class="col-md-12 pb-5">
-                    <a href="/">首页</a> / 免责申明
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
                 </div>
                 <div class="col-md-9">
-                    <h1 class="mb-4">免责申明</h1>
-                    <p>本平台专注于为用户提供V2ray、Clash等免费节点订阅服务，我们致力于为用户提供便捷、高效的网络访问体验。然而，在使用本平台服务的过程中，用户需要了解并遵守以下免责条款：</p>
-<p>一、服务内容</p>
-<p>本平台提供的所有节点订阅服务均来源于公开信息或合作伙伴，我们不对节点信息的真实性、准确性、合法性以及可用性做任何明示或暗示的保证。用户在使用节点时，请自行判断并承担相关风险。</p>
-<p>二、网络安全</p>
-<p>本平台仅提供节点订阅服务，不参与用户的网络访问行为。用户在使用节点时，应自行负责网络访问的安全性和合法性，不得利用本平台提供的服务从事任何违法、违规或侵犯他人权益的行为。</p>
-<p>三、隐私保护</p>
-<p>我们尊重并保护用户的个人隐私，但用户在使用本平台服务时，可能需要提供部分个人信息以完成相关操作。我们承诺将严格按照相关法律法规的要求，对用户提供的个人信息进行保密处理，并采取相应的安全措施防止信息泄露。但请注意，由于网络环境的复杂性和不确定性，我们无法保证用户个人信息在传输过程中绝对安全，用户应自行承担因信息泄露而可能产生的风险。</p>
-<p>四、版权及知识产权</p>
-<p>本平台上的所有内容（包括但不限于文字、图片、视频等）均受版权及知识产权法律保护。用户在使用本平台服务时，应遵守相关法律法规，不得擅自复制、传播或用于其他商业用途。对于侵犯本平台版权及知识产权的行为，我们将依法追究法律责任。</p>
-<p>五、免责条款</p>
-<ol>
-    <li>因网络故障、服务器维护等原因导致服务中断或无法正常使用时，本平台不承担任何责任。</li>
-    <li>用户在使用本平台服务时，因个人操作不当或第三方因素导致的损失，本平台不承担任何赔偿责任。</li>
-    <li>本平台提供的节点订阅服务仅供参考，用户在使用过程中应自行判断并承担相关风险。对于因使用本平台服务而产生的任何直接或间接损失，本平台不承担任何责任。</li>
-</ol>
-<p>六、其他</p>
-<ol>
-    <li>本免责声明自发布之日起生效，并可能根据法律法规的变化或本平台服务的调整而进行修改。用户在使用本平台服务时，应定期查看并了解最新的免责声明内容。</li>
-    <li>对于本免责声明中未明确的事项，将按照相关法律法规的规定进行处理。如用户在使用本平台服务过程中遇到任何问题或争议，可通过本平台提供的联系方式与我们联系，我们将尽力为用户解决问题。</li>
-</ol>
-<p>总之，本平台将竭诚为用户提供优质的节点订阅服务，但用户在使用服务时应自行承担相关风险并遵守相关法律法规。我们希望与用户共同营造一个安全、和谐、合法的网络环境。</p>
-                </div>
+                    <h1 class="mb-4">@DateTimeFormat和@JsonFormat浅解</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="DateTimeFormatJsonFormat_0" rel="nofollow"></a>@DateTimeFormat和@JsonFormat浅解</h2> <p> @DateTimeFormat 把<strong>传给后台的时间字符串转成Date</strong>，但是<strong>只会在@RequestParam请求参数的时生效，在@RequestBody下是无效的。</strong></p> <p> @JsonFormat<strong>既可以把传给后台的时间字符串转成Date也可以把后台传出的Date转成时间字符串，在@RequestBody下有效。</strong></p> <h4><a id="JsonFormat_6" rel="nofollow"></a>@JsonFormat参数详解</h4> <p><strong>1.locale-地区: zh为中国</strong></p> <p><strong>2.pattern-时间格式</strong><br />  yyyy-year-年</p> <p> MM代表-月</p> <p> dd-date-日</p> <p> HH-hour-时</p> <p> mm-minute-分</p> <p> ss-second-秒</p> <p><strong>3.TimeZone-时区</strong><br />  在操作 Date, Calendar等表示日期/时间的对象时，经常会用到TimeZone；因为不同的时区，时间不同，默认是格林威治时间，比北京时间晚八小时，北京为0点时，格林威治时间为8点。</p> <p><strong>那么timezone加上GMT+8什么意思呢?</strong></p> <p> GMT 就是格林威治标准时间的英文缩写(Greenwich Mean Time 格林尼治标准时间)，是世界标准时间，gmt+8 是格林威治时间+8小时，中国所在时区就是gmt+8 。</p> <pre><code class="prism language-java"><span class="token comment">/** * 截止日期：开始时间 */</span><span class="token annotation punctuation">@JsonFormat</span><span class="token punctuation">(</span>locale<span class="token operator">=</span><span class="token string">"zh"</span><span class="token punctuation">,</span> pattern<span class="token operator">=</span><span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">,</span> timezone<span class="token operator">=</span><span class="token string">"GMT+8"</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token class-name">Date</span> dateRangeBegin<span class="token punctuation">;</span><span class="token comment">/** * 截止日期：结束时间 */</span><span class="token annotation punctuation">@JsonFormat</span><span class="token punctuation">(</span>pattern<span class="token operator">=</span><span class="token string">"yyyy-MM-dd"</span><span class="token punctuation">)</span><span class="token keyword">private</span><span class="token class-name">Date</span> dateRangeEnd<span class="token punctuation">;</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-30728.htm">南京寄养狗狗价格查询（南京宠物寄养价目表）</a></p>
+                                        <p>下一个：<a href="/news/article-31169.htm">动物医院需要几个兽医资格证书呢怎么办（动物医院条件）</a></p>
+                                    </div>
+                                </div>
                 <div class="col-md-3">
                     <div class="panel panel-default">
     <div class="panel-heading">
@@ -91,16 +75,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-22-kitsunebi-node-github.htm" title="12月22日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月22日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-23-kitsunebi-node-github.htm" title="9月23日→22.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月23日→22.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-23707.htm" title="广州宠物领养网免费地址查询电话（广州宠物领养中心具体地址）">广州宠物领养网免费地址查询电话（广州宠物领养中心具体地址）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-27-today-kitsunebi-node.htm" title="11月27日→18.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月27日→18.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-node-subscribe.htm" title="10月7日→18.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月7日→18.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-high-speed-nodes.htm" title="11月29日→20.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月29日→20.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-25576.htm" title="长期养猫人容易得啥病（猫跟人睡在一起吸阳气）">长期养猫人容易得啥病（猫跟人睡在一起吸阳气）</a></li>
-                        <li class="py-2"><a href="/news/article-28359.htm" title="开宠物店亏本怎么办理（开宠物店亏本怎么办理营业执照）">开宠物店亏本怎么办理（开宠物店亏本怎么办理营业执照）</a></li>
-                        <li class="py-2"><a href="/news/article-20045.htm" title="狗狗领养平台有哪些软件（狗狗领养免费平台）">狗狗领养平台有哪些软件（狗狗领养免费平台）</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-12-23-free-subscribe-node.htm" title="12月23日→22.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月23日→22.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-12-kitsunebi-node-github.htm" title="9月12日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月12日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-node-share.htm" title="10月10日→21.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月10日→21.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-node-subscribe-links.htm" title="10月22日→21M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月22日→21M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-9-free-high-speed-nodes.htm" title="9月9日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月9日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-latest-kitsunebi-node.htm" title="11月9日→18.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月9日→18.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20047.htm" title="兽用冷藏疫苗被冷冻后还能用吗多久可以打（兽用疫苗放在冰箱对食物）">兽用冷藏疫苗被冷冻后还能用吗多久可以打（兽用疫苗放在冰箱对食物）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-node-share.htm" title="12月8日→18.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月8日→18.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22797.htm" title="动物诊疗许可证多久能申请下来啊（动物诊疗许可证多久能申请下来啊知乎）">动物诊疗许可证多久能申请下来啊（动物诊疗许可证多久能申请下来啊知乎）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-4-kitsunebi-windows.htm" title="10月4日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月4日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
