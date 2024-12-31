@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-33582.htm" />
+    <meta charset="utf-8">
+    <title>hadoop运行jar包处理文件一直处于Running job状态的解决方法</title>
+        <meta name="description" content="参考博客:https://blog.csdn.net/dai451954706/article/details/50464036 起初一直以为是导出的jar包有问题，百度了很久也没找到解决办法，最后终" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="godocs" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                                <a class="navbar-brand" href="/">
+                    <span>Kitsunebi Node</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">hadoop运行jar包处理文件一直处于Running job状态的解决方法</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>参考博客:<a href="" rel="nofollow">https://blog.csdn.net/dai451954706/article/details/50464036</a></p> <p><strong>起初一直以为是导出的jar包有问题，百度了很久也没找到解决办法，最后终于让我找到了有用的解决办法。</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/280f8bbd81fb65c8cf34a66c86b6cef8.jpg" alt="hadoop运行jar包处理文件一直处于Running job状态的解决方法"></p> <p><strong>在<font color="red">yarn-site.xml</font>中添加</strong></p> <pre><code>&lt;property&gt;     &lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;/name&gt;     &lt;value&gt;20480&lt;/value&gt; &lt;/property&gt; &lt;property&gt;    &lt;name&gt;yarn.scheduler.minimum-allocation-mb&lt;/name&gt;    &lt;value&gt;2048&lt;/value&gt; &lt;/property&gt; &lt;property&gt;     &lt;name&gt;yarn.nodemanager.vmem-pmem-ratio&lt;/name&gt;     &lt;value&gt;2.1&lt;/value&gt; &lt;/property&gt;</code></pre> <p><strong>我改完这个配置文件之后再次运行，发现还是处于Running job的状态，然后在<font color="red">mapred-site.xml</font>中把下面几行配置删掉</strong></p> <pre><code> &lt;property&gt; 	 &lt;name&gt;mapreduce.framework.name&lt;/name&gt; 	  &lt;value&gt;yarn&lt;/value&gt;  &lt;/property&gt;</code></pre> <p><strong>然后再次执行就成功了</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/f4224cb3858b0106dfbaa40c76effd5b.jpg" alt="hadoop运行jar包处理文件一直处于Running job状态的解决方法"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-33103.htm">东北农大动物医院（东北农大动物医院电话号码）</a></p>
+                                        <p>下一个：<a href="/news/article-33584.htm">长沙宠物领养中心官网招聘 长沙宠物领养中心官网招聘信息</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-27900.htm" title="一家宠物店一年利润（宠物店的利润率）">一家宠物店一年利润（宠物店的利润率）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-free-high-speed-nodes.htm" title="10月11日→20.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月11日→20.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-today-kitsunebi-node.htm" title="12月26日→18.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月26日→18.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-free-high-speed-nodes.htm" title="10月1日→19.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月1日→19.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-kitsunebi-node-share.htm" title="9月28日→18.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月28日→18.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-7-free-node-subscribe-links.htm" title="9月7日→22.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月7日→22.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30248.htm" title="哪有免费领养宠物的附近（免费领养宠物的地方）">哪有免费领养宠物的附近（免费领养宠物的地方）</a></li>
+                        <li class="py-2"><a href="/news/article-24177.htm" title="动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全">动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-kitsunebi-node.htm" title="11月30日→22.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月30日→22.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23246.htm" title="饮料批发一手货源市场（饮料批发一手货源市场合肥）">饮料批发一手货源市场（饮料批发一手货源市场合肥）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
