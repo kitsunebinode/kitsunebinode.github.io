@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-35127.htm" />
+    <meta charset="utf-8">
+    <title>Pycharm运行Flask项目指定运行参数</title>
+        <meta name="description" content="某天使用Pycharm开发Flask项目时运行app.py时，没有按照预期的运行监听外网IP和打开开发模式，代码如下： from flaskimport Flask   app= Flask(__na" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="godocs" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                                <a class="navbar-brand" href="/">
+                    <span>Kitsunebi Node</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">Pycharm运行Flask项目指定运行参数</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> </h1> <p>某天使用Pycharm开发Flask项目时运行app.py时，没有按照预期的运行监听外网IP和打开开发模式，代码如下：</p> <pre><code class="prism language-python"><span class="token keyword">from</span> flask<span class="token keyword">import</span> Flask   app<span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>  @app<span class="token punctuation">.</span>route<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token keyword">def</span><span class="token function">hello_world</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token keyword">return</span><span class="token string">'Hello World'</span><span class="token keyword">if</span> __name__<span class="token operator">==</span><span class="token string">"__main__"</span><span class="token punctuation">:</span>     app<span class="token punctuation">.</span>run<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">"0.0.0.0"</span><span class="token punctuation">,</span>debug<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>port<span class="token operator">=</span><span class="token number">80</span><span class="token punctuation">)</span></code></pre> <p>运行结果：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220904/80ef19d4dfea1c129c094a70046093dc.jpg" alt="Pycharm运行Flask项目指定运行参数"></p> </h1> <p>点击右上角的解释器按钮，点击<code>Edit Configurations</code>，勾选或输入所需参数<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220904/145fc984edbd418223ba4ea8836e0653.jpg" alt="Pycharm运行Flask项目指定运行参数">运行成功结果<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220904/86f5bf4b21cdc436be37b51ca5a75db3.jpg" alt="Pycharm运行Flask项目指定运行参数"><br /> 我的个人博客网站是：www.coderyyn.cn<br /> 上面会不定期分享有关爬虫、算法、环境搭建以及有趣的帖子<br /> 欢迎大家一起交流学习</p> <p>转载请注明</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34534.htm">不宜养猫的4个属相有哪些图片和名字（不能养猫的生肖怎么破解）</a></p>
+                                        <p>下一个：<a href="/news/article-35128.htm">vscode指定扩展安装位置</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-node-subscribe.htm" title="11月12日→22.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月12日→22.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-25-free-subscribe-node.htm" title="12月25日→20.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月25日→20.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share-links.htm" title="12月13日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月13日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-kitsunebi-node-share.htm" title="9月21日→18.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月21日→18.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-kitsunebi-node.htm" title="12月21日→22.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月21日→22.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-35128.htm" title="vscode指定扩展安装位置">vscode指定扩展安装位置</a></li>
+                        <li class="py-2"><a href="/news/article-26506.htm" title="maven生成war包的两种方式">maven生成war包的两种方式</a></li>
+                        <li class="py-2"><a href="/news/article-24177.htm" title="动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全">动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-28829.htm" title="动物疫苗一般在哪里打的呢视频（动物疫苗一般在哪里打的呢视频讲解）">动物疫苗一般在哪里打的呢视频（动物疫苗一般在哪里打的呢视频讲解）</a></li>
+                        <li class="py-2"><a href="/news/article-18701.htm" title="自己在家怎么做电商该找哪个平台找货源（在家怎么做电商赚钱）">自己在家怎么做电商该找哪个平台找货源（在家怎么做电商赚钱）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-34533.htm" />
+    <meta charset="utf-8">
+    <title>利用JavaScript实现秒表功能</title>
+        <meta name="description" content="&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;m" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="godocs" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                                <a class="navbar-brand" href="/">
+                    <span>Kitsunebi Node</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">利用JavaScript实现秒表功能</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <pre><code>&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;     &lt;title&gt;Document&lt;/title&gt; &lt;/head&gt; &lt;body&gt;     &lt;div&gt;00:00:00:00&lt;/div&gt;     &lt;button &gt;开始&lt;/button&gt;     &lt;button disabled&gt;暂停&lt;/button&gt;     &lt;button disabled&gt;继续&lt;/button&gt;     &lt;button disabled&gt;重置&lt;/button&gt;     &lt;script&gt;         // 秒表功能分析         // 核心思路:         //   定义一个变量,根据定时器,每秒执行一次,每次执行++自增操作         //               变量存储的数值,就会每秒+1         //   现在需要的记录效果,是每0.01秒,也就是10毫秒执行一次         //   根据累计的数值,执行进位 ms 如果达到 100,就是1秒         //   如果 秒 达到 60 就是 1分钟         //   如果 分钟 达到 60 就是 1小时           // 获取按钮的标签对象         var oBtnStart = document.querySelectorAll('button')[0];         var oBtnPause = document.querySelectorAll('button')[1];         var oBtnContinue = document.querySelectorAll('button')[2];         var oBtnReset = document.querySelectorAll('button')[3];         var hour = minutes = seconds = millisecond = 0;          // 定义存储 时 分 秒 毫秒 字符串的变量         // 如果直接在 millisecond seconds minutes hour 变量上进行 拼接操作,会影响 ++操作的执行         // 单独的建立变量,来存储累加时间的执行结果         var ms = '';         var s = '';         var m = '';         var h = '';          // 因为定时器,是定义在函数内部,         // 必须定义一个全局变量,来存储定时器         // 在函数外部可以调用,终止定时器         var time = 0;                  // 获取div标签对象         var oDiv = document.querySelector('div');           //  开始按钮         oBtnStart.onclick = function(){             // 点击开始按钮,执行函数,执行秒表计时             timer();             oBtnStart.disabled = true;             oBtnPause.disabled = false;             oBtnContinue.disabled = true;             oBtnReset.disabled = true;         }         //  暂停按钮         oBtnPause.onclick = function(){             // 点击暂停按钮,清除定时器,终止秒表执行             clearInterval(time);             oBtnStart.disabled = true;             oBtnPause.disabled = true;             oBtnContinue.disabled = false;             oBtnReset.disabled = false;         }         //  继续按钮         oBtnContinue.onclick = function(){             // 点击继续按钮,继续执行定时器             timer();             oBtnStart.disabled = true;             oBtnPause.disabled = false;             oBtnContinue.disabled = true;             oBtnReset.disabled = true;          }         //  重置按钮         oBtnReset.onclick = function(){             // 点击重置按钮,将所有的数据,都恢复到0的状态             // 所有变量存储的数据都是 0 , div中的内容,也恢复到0             hour = minutes = seconds = millisecond = 0;             oDiv.innerHTML = '00:00:00:00'             oBtnStart.disabled = false;             oBtnPause.disabled = true;             oBtnContinue.disabled = true;             oBtnReset.disabled = true;         }          //  计时函数         function timer(){             // 赋值操作,将定时器,存储在全局作用域变量中             time = setInterval(function(){                 millisecond++;                 if( millisecond == 100){                     seconds++;                     millisecond = 0;                 }                 if( seconds == 60 ){                     minutes++;                     seconds = 0;                 }                 if( minutes == 60 ){                     hour++;                     minutes = 0;                 }              //  补零操作             // 如果记录的时间小于0,要做补零操作                 if( millisecond &lt; 10 ){                     ms = '0' + millisecond;                  }else{                     ms = millisecond;                  }                 if( seconds &lt; 10 ){                     s = '0' + seconds;                  }else{                     s = seconds;                  }                 if( minutes &lt; 10 ){                     m = '0' + minutes;                  }else{                     m = minutes;                  }                 if( hour &lt; 10 ){                     h = '0' + hour;                  }else{                     h = hour;                  }                 // 每次执行,返回一个记录时间的字符串                 // 将这个字符串,写入到div中                 oDiv.innerHTML = ` ${h}:${m}:${s}:${ms} `             },10);         }      &lt;/script&gt; &lt;/body&gt; &lt;/html&gt; </code></pre> <p>实现效果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/748a4c5e411798ad5bbee69bad8026a7.jpg" alt="利用JavaScript实现秒表功能"><br /> 当点击开始时：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/ab006f85a97e54707f98a31d7fa0f26b.jpg" alt="利用JavaScript实现秒表功能"><br /> 当点击暂停时：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/206ae2518f5adb2a3a12b18778454caa.jpg" alt="利用JavaScript实现秒表功能"><br /> 当点击继续时：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/9dd0170bfd5904d40b2d5a6e22ebb198.jpg" alt="利用JavaScript实现秒表功能"></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34058.htm">想寄猫怎么寄（想寄猫怎么寄快递）</a></p>
+                                        <p>下一个：<a href="/news/article-34534.htm">不宜养猫的4个属相有哪些图片和名字（不能养猫的生肖怎么破解）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-24177.htm" title="动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全">动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-high-speed-nodes.htm" title="10月17日→19.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月17日→19.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-node-subscribe-links.htm" title="11月20日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月20日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-node-subscribe.htm" title="11月22日→21.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月22日→21.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-node-subscribe.htm" title="12月12日→18.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月12日→18.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27434.htm" title="url传参的编码与解码">url传参的编码与解码</a></li>
+                        <li class="py-2"><a href="/news/article-19587.htm" title="动物疫苗打到人身上有事吗有影响吗知乎（动物疫苗不小心扎到人身上会怎么样）">动物疫苗打到人身上有事吗有影响吗知乎（动物疫苗不小心扎到人身上会怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-18700.htm" title="Runtime: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same">Runtime: Input type (torch.FloatTensor) and weight type (torch.cuda.FloatTensor) should be the same</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-free-node-subscribe-links.htm" title="10月16日→20.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月16日→20.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-kitsunebi-node-github.htm" title="11月16日→20.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月16日→20.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
