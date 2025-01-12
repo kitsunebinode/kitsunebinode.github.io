@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-38890.htm" />
+    <meta charset="utf-8">
+    <title>LevelDB 学习笔记2：合并</title>
+        <meta name="description" content="部分图片来自RocksDB 文档 LevelDB 中会发生两种不同的合并行为，分别称为 minor compaction 和 major compaction Minor Compaction 将内存" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="godocs" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                                <a class="navbar-brand" href="/">
+                    <span>Kitsunebi Node</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">LevelDB 学习笔记2：合并</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				</h1> <p>部分图片来自<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/facebook/rocksdb/wiki/Leveled-Compaction"  target="_blank" rel="nofollow">RocksDB 文档</a></p> <p>LevelDB 中会发生两种不同的合并行为，分别称为 minor compaction 和 major compaction</p> <h2 id="minor-compaction">Minor Compaction</h2> <p>将内存数据库刷到硬盘的过程称为 minor compaction</p> <ul> <li>产出的 L0 层的 sstable <ul> <li>事实上，LevelDB 不一定会将 minor compaction 产生的 sstable 放到 L0 里</li> </ul> </li> <li>L0 层的 sstable 可能存在 overlap</li> <li>如果上一次产生的 imm memtable 还没能刷盘，而新的 memtable 已写满，写入线程必须等待到 minor compaction 完成才能继续写入 <ul> <li>只允许同时存在一个 imm memtable</li> </ul> </li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9aa75c29d1bcb2ebcb2e1ec008fe34e5.jpg" alt="LevelDB 学习笔记2：合并"></p> <h3 id="minor-compaction-的流程">Minor Compaction 的流程</h3> <p>主要流程在<code>CompactMemTable()</code> 中</p> <ul> <li>借助工具类 TableBuilder 构建 sstable 文件 <ul> <li><code>BuildTable()</code></li> </ul> </li> <li>选择将这个产生的 sstable 文件放到哪一层去 <ul> <li><code>PickLevelForMemTableOutput()</code></li> <li>如果某个 sstable 文件和 L0 层没有重叠部分，就可以考虑将它扔到后面的层级里</li> <li>如果满足 <ul> <li>和 level + 1 层不重叠</li> <li>且不要和 level+ 2 有太多的重叠部分</li> </ul> </li> <li>我们就可以将它扔到 level + 1 层去</li> <li>我们希望它能放到第二层去 <ul> <li>这样可以避免 0 -&gt; 1 层合并的巨大 I/O 开销</li> </ul> </li> <li>但我们不希望它直接扔到最后一层，这样可能带来带来的问题是 <ul> <li>如果某个 key 被重复改写，可能带来磁盘空间的浪费</li> <li>比如你写到 L7 中，然后再改写它时可能又在 L6 里写了一份副本，以此类推，可能每一层里都有这个 key 的副本</li> </ul> </li> <li>最高可以放到<code>config::kMaxMemCompactLevel</code>（默认为 2）层里去</li> </ul> </li> <li>提交版本修改 <ul> <li>增加新的 sstable 文件</li> </ul> </li> <li>删除 imm memtable 的日志文件</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/2f0f0967db3ed5aee0bfc9046663da90.jpg" alt="LevelDB 学习笔记2：合并"></p> <h2 id="major-compaction">Major Compaction</h2> <ul> <li>L0 层的记录有 overlap，搜索的时候可能要遍历所有的 L0 级文件 <ul> <li>当 L0 层文件数量到达阈值（<code>kL0_CompactionTrigger</code>，默认值为 4）时，会被合并到 L1 层中去</li> <li>在没有 overlap 的层里搜索时，只需要找到 key 在哪个文件里，然后遍历这个文件就行了</li> <li>所以针对 L0 层的 major compaction 可以提高数据检索效率</li> </ul> </li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/98fed9f8a5e5e7a266faf85141d80474.jpg" alt="LevelDB 学习笔记2：合并"></p> <ul> <li>major compaction 过程会消耗大量时间，为了防止用户写入速度太快，L0 级文件数量不断增长，LevelDB 设置了两个阈值 <ul> <li><code>kL0_SlowdownWritesTrigger</code>，默认值为 8 <ul> <li>放缓写入，每个合并写操作都会被延迟 1ms</li> </ul> </li> <li><code>kL0_StopWritesTrigger</code>，默认值为 12 <ul> <li>写入暂停，直到后台合并线程工作完成</li> </ul> </li> </ul> </li> </ul> <p>除了 L0 层以外，其他层级内 sstable 文件的 key 是有序且不重叠的</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/69b746147ac84da889eaca2e30b2ef4e.jpg" alt="LevelDB 学习笔记2：合并"></p> <ul> <li>LevelDB 的写入都是 Append 的，也就是不管是修改还是删除，都是添加新的记录，因此数据库里可能存在 key 相同的多条记录 <ul> <li>major compaction 也起到合并相同 key 的记录、减小空间开销的作用</li> </ul> </li> <li>而且如果 L1 层文件积累的太多，L0 层文件做 major compaction 的时候，需要和大量的 L1 层文件做合并，导致 compaction 的 I/O 开销很大 <ul> <li>所以合并操作也能降低 compaction 的 I/O 开销</li> </ul> </li> <li>当 Li（i &gt; 0）层文件大小超过<span class="math inline">\(10^i\)</span> MB 时，也会触发 major compaction，选择至少一个 Li 层文件和 Li+1 层文件合并 <ul> <li>下面这个图来自<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/facebook/rocksdb/wiki/Leveled-Compaction"  target="_blank" rel="nofollow">RocksDB 文档</a>，所以阈值跟 LevelDB 不一样</li> </ul> </li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/46bb4bd467cd488494a7c74d2452f0c7.jpg" alt="LevelDB 学习笔记2：合并"></p> <blockquote> <p>???? major compaction 的作用：</p> <ul> <li>提高数据检索效率</li> <li>合并相同 key 的记录、减小空间开销的作用</li> <li>降低 compaction 的 I/O 开销</li> </ul> </blockquote> <ul> <li>可能发生的一种情况是，L0 合并完成后，L1 也触发合并阈值，需要合并，导致递归的合并 <ul> <li>最坏的情况是每次合并都会引起下一层触发合并</li> </ul> </li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/2811fc7f1a915f1d445a3ed7bcfd0614.jpg" alt="LevelDB 学习笔记2：合并"></p> <h3 id="trivial-move">Trivial Move</h3> <ul> <li>LevelDB 做的一种优化是当满足下列条件的情况下 <ul> <li>level 层的文件个数只有一个</li> <li>level 层文件与 level+1 层文件没有重叠</li> <li>level 层文件与 level+2 层的文件重叠部分的文件大小不超过阈值</li> </ul> </li> <li>直接将 level 层的文件移动到 level+1 层去</li> <li>这种优化称为 trivial move</li> </ul> <h3 id="seek-compaction">Seek Compaction</h3> <p>如果某个文件上，发生了多次无效检索（搜索某个 key，但没找到），我们希望对该文件做压缩</p> <p>LevelDB 假设</p> <ul> <li>检索耗时 10ms</li> <li>读写 1MB 消耗 10ms（100MB/s）</li> <li>压缩 1MB 文件需要做 25MB 的 I/O <ul> <li>从这次层读 1MB 数据</li> <li>从下一层读 10-12MB 数据</li> <li>写 10-12MB 数据到下一层</li> </ul> </li> </ul> <p>因此，做 25 次检索的代价等价于对 1MB 的数据做合并，也就是说，一次检索的代价等价于对 40KB 数据做合并</p> <p>LevelDB 最终的选择比较保守，文件里每有 16KB 数据就允许对该文件做一次无效检索，当允许无效检索的次数耗尽，就会触发合并</p> <p>文件的元数据里有一个<code>allowed_seeks</code> 字段，存储的就是该文件剩余无效检索的次数</p> <ul> <li><code>allowed_seeks</code> 的初始化方式</li> </ul> <pre><code class="language-cpp">f-&gt;allowed_seeks = static_cast&lt;int&gt;((f-&gt;file_size / 16384U)); if (f-&gt;allowed_seeks &lt; 100) f-&gt;allowed_seeks = 100;</code></pre> <ul> <li>每次<code>Get()</code> 调用，如果检索了文件，LevelDB 就会做判断，是否检索了一个以上的文件，如果是，就减少这个文件的<code>allowed_seeks</code></li> <li>当文件的<code>allowed_seeks</code> 减少为 0，就会触发 seek compaction</li> </ul> <h3 id="压缩计分">压缩计分</h3> <p>LevelDB 中采取计分机制来决定下一次压缩应该在哪个层内进行</p> <ul> <li>每次版本变动都会更新压缩计分 <ul> <li><code>VersionSet::Finalize()</code></li> <li>计算每一层的计分，下次压缩应该在计分最大的层里进行 <ul> <li>计分最大层和最大计分会被存到当前版本的<code>compaction_level_</code> 和<code>compaction_score_</code> 中</li> </ul> </li> <li><code>score &gt;= 1</code> 说明已经触发了压缩的条件，必须要做压缩</li> </ul> </li> <li>L0 的计分算法 <ul> <li>L0 级文件数量 / L0 级压缩阈值（<code>config::kL0_CompactionTrigger</code>，默认为 4）</li> </ul> </li> <li>其他层的计分算法 <ul> <li>Li 级文件大小总和 / Li 级大小阈值</li> <li>大小阈值为<span class="math inline">\(10^i\)</span> MB</li> </ul> </li> </ul> <h4 id="为什么-l0-层要特殊处理">为什么 L0 层要特殊处理</h4> <ul> <li>使用更大的 write buffer 的情况下，这样就不会做太多的 L0-&gt;L1 的合并 <ul> <li>write buffer size 是指 memtable 转换为 imm memtable 的大小阈值 <ul> <li><code>options_.write_buffer_size</code></li> </ul> </li> <li>比如设置 write buffer 为 10MB，且 L0 层的大小阈值为 10MB，每做一次 minor compaction 就需要做一次 L0-&gt;L1 的合并，开销太大</li> </ul> </li> <li>L0 层文件每次读的时候都要做归并（因为 key 是有重叠的），因此我们不希望 L0 层有太多文件 <ul> <li>如果你设置一个很小的 write buffer，且使用大小阈值，就 L0 就可能堆积大量的文件</li> </ul> </li> </ul> <h3 id="major-compaction-的流程">Major Compaction 的流程</h3> <h4 id="准备工作">准备工作</h4> <ul> <li>判断合并类型 <ul> <li>如果<code>compaction_score_ &gt; 1</code> 做 size compaction</li> <li>如果是有文件<code>allowed_seeks == 0</code> 而引起的合并，做 seek compaction</li> </ul> </li> <li>选择合并初始文件 <ul> <li>size compaction <ul> <li>轮转 <ul> <li>初始文件的最大 key 要大于该层上次合并时，所有参与合并文件的最大 key</li> <li>每层上次合并的最大 key 记录在 VersionSet 的<code>compact_pointer_</code> 字段中</li> </ul> </li> </ul> </li> <li>seek compaction <ul> <li>引起 seek compaction 的那个文件 <ul> <li>也就是<code>allowed_seeks</code> 归 0 的那个文件</li> </ul> </li> </ul> </li> </ul> </li> <li>选择所有参与合并的文件 <ul> <li>总的来说就是根据文件的重叠部分不断扩大参与合并的文件范围 <ul> <li>先拓展 Li 的边界</li> <li>再拓展 Li+1 的边界</li> <li>再反过来继续拓展 Li 的边界 <ul> <li>这次拓展不应该导致 Li+1 的边界扩大（产生更多的重叠文件），否则不做这次拓展</li> </ul> </li> </ul> </li> <li>具体过程在<code>PickCompaction()</code> 和<code>SetupOtherInputs()</code> 中</li> <li>关键函数有两个 <ul> <li><code>GetOverlappingInputs()</code> <ul> <li>给定一个 key 的范围，选择 Li 中所有和该范围有重叠的 sstable 文件加入集合</li> </ul> </li> <li><code>AddBoundaryInputs()</code> <ul> <li>假设有两个 block<code>b1=(l1, u1)</code> 和<code>b2=(l2, u2)</code></li> <li>其中 b1 的上界和 b2 的下界的 user_key 相等 <ul> <li>也就是说这两个块是相邻的</li> </ul> </li> <li>如果只是合并 b1，也就是将它移动到下一层去 <ul> <li>那么后续查这条 user_key 时，从 b2 中查到后，就不会再去下一层查找</li> <li>如果 b2 中的数据比 b1 中的旧，那么这样查到的数据就是错误的</li> </ul> </li> <li>因此 b1 和 b2 必须同时被合并</li> </ul> </li> </ul> </li> </ul> </li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/cb25f0bdc31c1eb2d0a2b36bfc349ace.jpg" alt="LevelDB 学习笔记2：合并"></p> <p>拓展边界的示例：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f7b8f45a988443381d75600fd6dc7de8.jpg" alt="LevelDB 学习笔记2：合并"></p> <h4 id="执行合并">执行合并</h4> <ul> <li>判断是否满足 [[#Trivial Move]] 的条件 <ul> <li>满足就做 trivial move，不再执行后续流程</li> </ul> </li> <li>开始执行合并 <ul> <li>合并主要流程在<code>DoCompactionWork()</code> 中</li> <li>用合并的输入文件构造 MergingIterator</li> <li>遍历 MergingIterator <ul> <li>这个过程就是对输入文件做归并排序的过程</li> <li>如果遍历过程中发现有 imm memtable 文件存在，就会转而先做 minor compaction <ul> <li>并且会唤醒在<code>MakeRoomForWrite()</code> 中等待 minor compaction 完成的线程</li> </ul> </li> </ul> </li> <li>借助工具类 TableBuilder 构建 sstable 文件 <ul> <li>将遍历迭代器产生的 kv 对加入 builder</li> </ul> </li> <li>如果当前文件大小超过阈值或和 level+2 层有太多的重叠部分 <ul> <li>完成对该文件的写入，并打开新的 TableBuilder</li> </ul> </li> </ul> </li> <li>提交版本更改</li> <li>调用<code>RemoveObsoleteFiles()</code> 删除不再需要的文件</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/5513142cba1d86215782fe9d4671ff89.jpg" alt="LevelDB 学习笔记2：合并"></p> <h5 id="抛弃无用的数据项">抛弃无用的数据项</h5> <ul> <li>满足以下条件的数据项会被抛弃，不会加入到合并后的文件里 <ul> <li>数据项的类型是删除</li> <li>这个数据项比当前最老的 snapshot 还要老</li> <li>level + 2 以上的层都不包含这个 user_key <ul> <li>不然你把这项在合并阶段删掉了，用户读的时候就会读到错误的数据</li> </ul> </li> </ul> </li> <li>比这些数据项更老的所有相同 user_key 的数据项都会被抛弃</li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38393.htm">Elasticsearch 三种分页方式</a></p>
+                                        <p>下一个：<a href="/news/article-38891.htm">动物疫苗价格表最新图片（动物疫苗价格表最新图片及价格）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-latest-kitsunebi-node.htm" title="11月3日→23M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月3日→23M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-28829.htm" title="动物疫苗一般在哪里打的呢视频（动物疫苗一般在哪里打的呢视频讲解）">动物疫苗一般在哪里打的呢视频（动物疫苗一般在哪里打的呢视频讲解）</a></li>
+                        <li class="py-2"><a href="/news/article-27900.htm" title="一家宠物店一年利润（宠物店的利润率）">一家宠物店一年利润（宠物店的利润率）</a></li>
+                        <li class="py-2"><a href="/news/article-38891.htm" title="动物疫苗价格表最新图片（动物疫苗价格表最新图片及价格）">动物疫苗价格表最新图片（动物疫苗价格表最新图片及价格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-kitsunebi-node.htm" title="12月2日→19.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月2日→19.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-kitsunebi-node.htm" title="12月27日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月27日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26057.htm" title="猫死后最好的处理方式（猫死了预示家里什么情况）">猫死后最好的处理方式（猫死了预示家里什么情况）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-node-share.htm" title="11月10日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月10日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-kitsunebi-node-share.htm" title="1月5日→21.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月5日→21.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-node-subscribe-links.htm" title="12月3日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月3日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
