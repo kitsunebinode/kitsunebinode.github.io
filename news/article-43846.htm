@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-43846.htm" />
+    <meta charset="utf-8">
+    <title>Django请求与响应</title>
+        <meta name="description" content="利用HTTP协议向服务器传参的几种途径.  提取URL的特定部分，如/weather/wuhan/2018/month/day，可以在服务器端的路由中用正则表达式截取； 查询字符串（query str" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-43846.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="Django请求与响应" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/ccc671fa99c8a486e85337ec06d944c8.webp" />
+        <meta property="og:release_date" content="2025-01-21T09:49:11" />
+    <meta property="og:updated_time" content="2025-01-21T09:49:11" />
+        <meta property="og:description" content="利用HTTP协议向服务器传参的几种途径.  提取URL的特定部分，如/weather/wuhan/2018/month/day，可以在服务器端的路由中用正则表达式截取； 查询字符串（query str" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Django请求与响应">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                                <a class="navbar-brand" href="/">
+                    <span>Kitsunebi Node</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">Django请求与响应</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body"> <p>利用HTTP协议向服务器传参的几种途径.</p> <ul> <li>提取URL的特定部分，如/weather/wuhan/2018/month/day，可以在服务器端的路由中用正则表达式截取；</li> <li>查询字符串（query string)，形如key1=value1&amp;key2=value2；</li> <li>请求体（body）中发送的数据，比如表单数据、json、xml；</li> <li>在http报文的头（header）中。</li> </ul> <h2 id="1-url路径参数">1 URL路径参数</h2> <p>在定义路由URL时，可以使用正则表达式提取参数的方法从URL中获取请求参数，Django会将提取的参数直接传递到视图的传入参数中。</p> <ul> <li> <p>未命名参数按定义顺序传递， 如</p> <pre><code class="lang-python">url(<span class="hljs-string">r'^weather/([a-z]+)/(\d{4})/$', views.weather),  <span class="hljs-function"><span class="hljs-keyword">def <span class="hljs-title">weather<span class="hljs-params">(request, city, year): print(<span class="hljs-string">'city=%s' % city) print(<span class="hljs-string">'year=%s' % year) <span class="hljs-keyword">return HttpResponse(<span class="hljs-string">'OK') </span></span></span></span></span></span></span></span></span></code></pre> </li> <li> <p>命名参数按名字传递，如</p> <pre><code class="lang-python">url(<span class="hljs-string">r'^weather/(?P&lt;city&gt;[a-z]+)/(?P&lt;year&gt;\d{4})/$', views.weather),  <span class="hljs-function"><span class="hljs-keyword">def <span class="hljs-title">weather<span class="hljs-params">(request, year, city): print(<span class="hljs-string">'city=%s' % city) print(<span class="hljs-string">'year=%s' % year) <span class="hljs-keyword">return HttpResponse(<span class="hljs-string">'OK') </span></span></span></span></span></span></span></span></span></code></pre> </li> </ul> <h2 id="2-django中的querydict对象">2 Django中的QueryDict对象</h2> <p>定义在django.http.QueryDict</p> <p>HttpRequest对象的属性GET、POST都是QueryDict类型的对象</p> <p>与python字典不同，QueryDict类型的对象用来处理同一个键带有多个值的情况</p> <ul> <li> <p>方法get()：根据键获取值</p> <p>如果一个键同时拥有多个值将获取最后一个值</p> <p>如果键不存在则返回None值，可以设置默认值进行后续处理</p> <pre><code class="lang-python">dict.get(<span class="hljs-string">'键',默认值) 可简写为 dict[<span class="hljs-string">'键'] </span></span></code></pre> </li> <li> <p>方法getlist()：根据键获取值，值以列表返回，可以获取指定键的所有值</p> <p>如果键不存在则返回空列表[]，可以设置默认值进行后续处理</p> <pre><code class="lang-python">dict.getlist(<span class="hljs-string">'键',默认值) </span></code></pre> </li> </ul> <h2 id="3-查询字符串query-string">3. 查询字符串Query String</h2> <p>获取请求路径中的查询字符串参数（形如?k1=v1&amp;k2=v2），可以通过request.GET属性获取，返回QueryDict对象。</p> <pre><code class="lang-python"><span class="hljs-comment"># /qs/?a=1&amp;b=2&amp;a=3  <span class="hljs-function"><span class="hljs-keyword">def <span class="hljs-title">qs<span class="hljs-params">(request): a = request.GET.get(<span class="hljs-string">'a') b = request.GET.get(<span class="hljs-string">'b') alist = request.GET.getlist(<span class="hljs-string">'a') print(a) <span class="hljs-comment"># 3 print(b) <span class="hljs-comment"># 2 print(alist) <span class="hljs-comment"># ['1', '3'] <span class="hljs-keyword">return HttpResponse(<span class="hljs-string">'OK') </span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre> <p>重要：查询字符串不区分请求方式，即假使客户端进行POST方式的请求，依然可以通过request.GET获取请求中的查询字符串数据。</p> <h2 id="4-请求体">4 请求体</h2> <p>请求体数据格式不固定，可以是表单类型字符串，可以是JSON字符串，可以是XML字符串，应区别对待。</p> <p>可以发送请求体数据的请求方式有POST、PUT、PATCH、DELETE。</p> <p>Django默认开启了CSRF防护，会对上述请求方式进行CSRF防护验证，在测试时可以关闭CSRF防护机制，方法为在settings.py文件中注释掉CSRF中间件.</p> <h3 id="41-表单类型-form-data">4.1 表单类型 Form Data</h3> <p>前端发送的表单类型的请求体数据，可以通过request.POST属性获取，返回QueryDict对象。</p> <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def <span class="hljs-title">get_body<span class="hljs-params">(request):     a = request.POST.get(<span class="hljs-string">'a') b = request.POST.get(<span class="hljs-string">'b') alist = request.POST.getlist(<span class="hljs-string">'a') print(a) print(b) print(alist) <span class="hljs-keyword">return HttpResponse(<span class="hljs-string">'OK') </span></span></span></span></span></span></span></span></span></code></pre> <p>重要：只要请求体的数据是表单类型，请求方式POST,可以使用request.POST来获取请求体的表单数据。</p> <h2 id="42-非表单类型-nonform-data">4.2 非表单类型 Non-Form Data</h2> <p>非表单类型的请求体数据，Django无法自动解析，可以通过request.body属性获取最原始的请求体数据，自己按照请求体格式（JSON、XML等）进行解析。request.body返回<strong>bytes</strong>类型。</p> <p>例如要获取请求体中的如下JSON数据</p> <pre><code class="lang-json">{<!-- --><span class="hljs-string">"a": <span class="hljs-number">1, <span class="hljs-string">"b": <span class="hljs-number">2}  注意:JSON数据最后一个键值对后面不能加逗号 </span></span></span></span></code></pre> <p>可以进行如下方法操作：</p> <pre><code class="lang-python"><span class="hljs-keyword">import json  <span class="hljs-function"><span class="hljs-keyword">def <span class="hljs-title">get_body_json<span class="hljs-params">(request): json_str = request.body json_str = json_str.decode() <span class="hljs-comment"># 将字节类型转换为字符串,python3.6 无需执行此步 req_data = json.loads(json_str) # 将json字符串转换为字典 print(req_data[<span class="hljs-string">'a']) print(req_data[<span class="hljs-string">'b']) <span class="hljs-keyword">return HttpResponse(<span class="hljs-string">'OK')<br/><br/></span></span></span></span></span></span></span></span></span></span></code></pre> <h2 id="5-请求头">5 请求头</h2> <p>可以通过request.META属性获取请求头headers中的数据，request.META为字典类型。</p> <p>常见的请求头如：</p> <ul> <li> <code>CONTENT_LENGTH</code>&nbsp;– The length of the request body (as a string).</li> <li> <code>CONTENT_TYPE</code>&nbsp;– The MIME type of the request body.</li> <li> <code>HTTP_ACCEPT</code>&nbsp;– Acceptable content types for the response.</li> <li> <code>HTTP_ACCEPT_ENCODING</code>&nbsp;– Acceptable encodings for the response.</li> <li> <code>HTTP_ACCEPT_LANGUAGE</code>&nbsp;– Acceptable languages for the response.</li> <li> <code>HTTP_HOST</code>&nbsp;– The HTTP Host header sent by the client.</li> <li> <code>HTTP_REFERER</code>&nbsp;– The referring page, if any.</li> <li> <code>HTTP_USER_AGENT</code>&nbsp;– The client’s user-agent string.</li> <li> <code>QUERY_STRING</code>&nbsp;– The query string, as a single (unparsed) string.</li> <li> <code>REMOTE_ADDR</code>&nbsp;– The IP address of the client.</li> <li> <code>REMOTE_HOST</code>&nbsp;– The hostname of the client.</li> <li> <code>REMOTE_USER</code>&nbsp;– The user authenticated by the Web server, if any.</li> <li> <code>REQUEST_METHOD</code>&nbsp;– A string such as&nbsp;<code>"GET"</code>&nbsp;or&nbsp;<code>"POST"</code>.</li> <li> <code>SERVER_NAME</code>&nbsp;– The hostname of the server.</li> <li> <code>SERVER_PORT</code>&nbsp;– The port of the server (as a string).</li> </ul> <p>具体使用如:</p> <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def <span class="hljs-title">get_headers<span class="hljs-params">(request):     print(request.META[<span class="hljs-string">'CONTENT_TYPE']) <span class="hljs-keyword">return HttpResponse(<span class="hljs-string">'OK')</span></span></span></span></span></span></span></code><br/><br/></pre> <h2 id="6-其他常用httprequest对象属性">6 其他常用HttpRequest对象属性</h2> <ul> <li>method：一个字符串，表示请求使用的HTTP方法，常用值包括：'GET'、'POST'。</li> <li>user：请求的用户对象。</li> <li>path：一个字符串，表示请求的页面的完整路径，不包含域名和参数部分。</li> <li>encoding：一个字符串，表示提交的数据的编码方式。 <ul> <li>如果为None则表示使用浏览器的默认设置，一般为utf-8。</li> <li>这个属性是可写的，可以通过修改它来修改访问表单数据使用的编码，接下来对属性的任何访问将使用新的encoding值。</li> </ul> </li> </ul> <ul> <li>FILES：一个类似于字典的对象，包含所有的上传文件。</li> </ul> <pre><code class="lang-python"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword"><span class="hljs-title"><span class="hljs-params"><span class="hljs-comment"><span class="hljs-string"><span class="hljs-string"><span class="hljs-keyword"><span class="hljs-string">&nbsp;</span></span></span></span></span></span></span></span></span></span></code></pre> </h1> <p>视图在接收请求并处理后，必须返回HttpResponse对象或子对象。HttpRequest对象由Django创建，HttpResponse对象由开发人员创建。</p> <h2 id="1-httpresponse">1 HttpResponse</h2> <p>可以使用django.http.HttpResponse来构造响应对象。</p> <pre><code class="lang-python">HttpResponse(content=响应体, content_type=响应体数据类型, status=状态码) </code></pre> <p>也可通过HttpResponse对象属性来设置响应体、响应体数据类型、状态码：</p> <ul> <li>content：表示返回的内容。</li> <li>status_code：返回的HTTP响应状态码。</li> <li>content_type：指定返回数据的的MIME类型。</li> </ul> <p>响应头可以直接将HttpResponse对象当做字典进行响应头键值对的设置：</p> <pre><code class="lang-python">response = HttpResponse() response[<span class="hljs-string">'web'] = <span class="hljs-string">'Django'  <span class="hljs-comment"># 自定义响应头web, 值为</span></span></span></code><code class="lang-python">Django</code></pre> <p>示例：</p> <pre><code class="lang-python"><span class="hljs-keyword">from django.http <span class="hljs-keyword">import HttpResponse  <span class="hljs-function"><span class="hljs-keyword">def <span class="hljs-title">demo_view<span class="hljs-params">(request): <span class="hljs-keyword">return HttpResponse(<span class="hljs-string">'hello python', status=<span class="hljs-number">400) 或者 response = HttpResponse(<span class="hljs-string">'hello python') response.status_code = <span class="hljs-number">400 response[<span class="hljs-string">'web'] = <span class="hljs-string">'Django' <span class="hljs-keyword">return response<br/><br/></span></span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre> <h2 id="2-httpresponse子类">2 HttpResponse子类</h2> <p>Django提供了一系列HttpResponse的子类，可以快速设置状态码,使用方法和HttpResponse一样,直接return,不用写状态码,</p> <p>例如:&nbsp;return&nbsp;HttpResponseNotFound("not&nbsp;found",Content-Type:applicationjson)</p> <ul> <li>HttpResponseRedirect 301</li> <li>HttpResponsePermanentRedirect 302</li> <li>HttpResponseNotModified 304</li> <li>HttpResponseBadRequest 400</li> <li>HttpResponseNotFound 404</li> <li>HttpResponseForbidden 403</li> <li>HttpResponseNotAllowed 405</li> <li>HttpResponseGone 410</li> <li>HttpResponseServerError 500</li> </ul> <h2 id="3-jsonresponse">3 JsonResponse(不是Httpresponse的子类)</h2> <p>若要返回json数据，可以使用JsonResponse来构造响应对象，比较常用,作用：</p> <ul> <li>帮助我们将数据转换为json字符串</li> <li>设置响应头Content-Type为&nbsp;application/json</li> </ul> <pre><code class="lang-python"><span class="hljs-keyword">from django.http <span class="hljs-keyword">import JsonResponse  <span class="hljs-function"><span class="hljs-keyword">def <span class="hljs-title">demo_view<span class="hljs-params">(request): <span class="hljs-keyword">return JsonResponse({<!-- --><span class="hljs-string">'city': <span class="hljs-string">'beijing', <span class="hljs-string">'subject': <span class="hljs-string">'python'}) </span></span></span></span></span></span></span></span></span></span></span></code></pre> <h2 id="4-redirect重定向">4 redirect重定向</h2> <pre><code class="lang-python"><span class="hljs-keyword">from django.shortcuts <span class="hljs-keyword">import redirect  <span class="hljs-function"><span class="hljs-keyword">def <span class="hljs-title">demo_view<span class="hljs-params">(request): # <span class="hljs-keyword">return redirect(<span class="hljs-string">'/index.html')<br/>　　# 最好还是和reverse反解析一起用<br/>　　return redirect('users:index') # 可以重定向到users/index<br/></span></span></span></span></span></span></span></span></code></pre> <pre><code class="lang-python"><span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword"><span class="hljs-title"><span class="hljs-params"><span class="hljs-keyword"><span class="hljs-string"><span class="hljs-number"><span class="hljs-string"><span class="hljs-number"><span class="hljs-string"><span class="hljs-string"><span class="hljs-keyword">　　</span></span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre> </div> <p>转载于:https://www.cnblogs.com/yinjiangchong/p/9255555.html</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-43350.htm">动物疫苗新法案例分析题及答案 动物疫苗新法案例分析题及答案解析</a></p>
+                                        <p>下一个：<a href="/news/article-43847.htm">动物疫苗的作用有哪些方面 动物疫苗的作用有哪些方面呢</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-43846.htm" title="Django请求与响应">Django请求与响应</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-today-kitsunebi-node.htm" title="11月14日→21M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月14日→21M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25575.htm" title="tensorflow根据输入更改tensor shape">tensorflow根据输入更改tensor shape</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-high-speed-nodes.htm" title="10月15日→19.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月15日→19.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-kitsunebi-node.htm" title="11月26日→20.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月26日→20.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-node-share.htm" title="12月20日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月20日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21430.htm" title="java多线程之自定义消息队列">java多线程之自定义消息队列</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-node-share.htm" title="10月10日→21.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月10日→21.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-8-node-share-links.htm" title="10月8日→21.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月8日→21.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38393.htm" title="Elasticsearch 三种分页方式">Elasticsearch 三种分页方式</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
