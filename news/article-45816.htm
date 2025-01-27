@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-45816.htm" />
+    <meta charset="utf-8">
+    <title>JavaScript案例——04tab选项卡功能</title>
+        <meta name="description" content="1.1 实现效果  2.1 移动到某个选项卡上，自己的背景颜色要改变，对应的内容区域要显示 2.1.1 由于要移动到选项卡，背景也要变化，所以要先取到li标签和img标签 //li和img都是一个数组" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-45816.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="JavaScript案例——04tab选项卡功能" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/5f2be55fff5d2195c25b4a817fad70b7.webp" />
+        <meta property="og:release_date" content="2025-01-25T09:51:52" />
+    <meta property="og:updated_time" content="2025-01-25T09:51:52" />
+        <meta property="og:description" content="1.1 实现效果  2.1 移动到某个选项卡上，自己的背景颜色要改变，对应的内容区域要显示 2.1.1 由于要移动到选项卡，背景也要变化，所以要先取到li标签和img标签 //li和img都是一个数组" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JavaScript案例——04tab选项卡功能">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                                <a class="navbar-brand" href="/">
+                    <span>Kitsunebi Node</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">JavaScript案例——04tab选项卡功能</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2 id="user-content-11-实现效果">1.1 实现效果</h2> <p><img fetchpriority="high" decoding="async" alt="" height="349" src="http://img.555519.xyz/uploads3/20220604/f4f87e5039e324fd74b9d1312e19138e.jpg"></p> <h2 id="user-content-21-移动到某个选项卡上，自己的背景颜色要改变，对应的内容区域要显示">2.1 移动到某个选项卡上，自己的背景颜色要改变，对应的内容区域要显示</h2> <h3 id="user-content-211-由于要移动到选项卡，背景也要变化，所以要先取到li标签和img标签">2.1.1 由于要移动到选项卡，背景也要变化，所以要先取到li标签和img标签</h3> <pre><code>//li和img都是一个数组 let li = document.getElementsByTagName("li"); let img = document.getElementsByTagName("img");</code></pre> <h3 id="user-content-212-由于不知道选中的是哪个li，所以用数组循环">2.1.2 由于不知道选中的是哪个li，所以用数组循环</h3> <pre><code>for (let i = 0 ; i&lt;li.length ; i++){     li[i].onmouseover = function(){         li[i].style.backgroundColor = '#aaa';     } }</code></pre> <h3 id="user-content-213-同理，移除时，背景的颜色要恢复，对应内容区域要隐藏">2.1.3 同理，移除时，背景的颜色要恢复，对应内容区域要隐藏</h3> <pre><code>for (let i = 0 ; i&lt;li.length ; i++){     li[i].onmouseover = function(){         li[i].style.backgroundColor = '#aaa';     }      li[i].onmouseout = function(){         li[i].style.backgroundColor = '#eee';     } }</code></pre> <h2 id="user-content-31-实现图片和列表的一一对应">3.1 实现图片和列表的一一对应</h2> <h3 id="user-content-311-首先要让图片和列表的下标都一致">3.1.1 首先要让图片和列表的下标都一致</h3> <p><img decoding="async" alt="" height="63" src="http://img.555519.xyz/uploads3/20220604/552a4e5710cc634ce6f62ad008306439.jpg"></p> <pre><code>//先让li数组的下标等于i，然后让img的数组下标也等于i，然后让img的下标为li[i].index，变成这样的连接结构: li[i].index = i;  img[this.index].style.display = 'block';</code></pre> <h2 id="user-content-41-由于没有设置隐藏，经过图片时会全部显示出来，所以要进行修改">4.1 由于没有设置隐藏，经过图片时会全部显示出来，所以要进行修改</h2> <h3 id="user-content-411-先让所有的img数组的图片都隐藏，使用for循环，然后让鼠标经过的图片显示即可">4.1.1 先让所有的img数组的图片都隐藏，使用for循环，然后让鼠标经过的图片显示即可</h3> <pre><code>//先把所有的图片隐藏，再让对应的图片显示 for(let j = 0;j&lt;img.length;j++){     img[j].style.display = 'none'; } img[this.index].style.display = 'block';</code></pre> <h3 id="user-content-412-或者在鼠标移出的函数那里加上上述这个for循环的代码即可">4.1.2 或者在鼠标移出的函数那里加上上述这个for循环的代码即可</h3> <p>资料来源：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bilibili.com/video/BV1ca4y1i7Lz?spm_id_from=333.999.0.0"  title="20个JavaScript经典案例_哔哩哔哩_bilibili" rel="nofollow">20个JavaScript经典案例_哔哩哔哩_bilibili</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-45348.htm">动物接种疫苗的好处有哪些呢（动物疫苗接种禁忌症和注意事项）</a></p>
+                                        <p>下一个：<a href="/news/article-45817.htm">动物疫苗的使用方法及注意事项视频教程大全下载（动物疫苗注射注意事项）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-23245.htm" title="vue父子组件之间传值，以及之间方法调用">vue父子组件之间传值，以及之间方法调用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-node-share.htm" title="11月10日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月10日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-44836.htm" title="Docker基础实战：自定义CentOS镜像详解">Docker基础实战：自定义CentOS镜像详解</a></li>
+                        <li class="py-2"><a href="/news/article-46804.htm" title="小白学习MySQL &#8211; 闲聊聊">小白学习MySQL &#8211; 闲聊聊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share-links.htm" title="12月13日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月13日→18.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37920.htm" title="南京宠物领养吧百度贴吧论坛（南京领养宠物都要做什么条件）">南京宠物领养吧百度贴吧论坛（南京领养宠物都要做什么条件）</a></li>
+                        <li class="py-2"><a href="/news/article-31676.htm" title="宠物店医疗许可证图片（宠物医疗许可证哪里办）">宠物店医疗许可证图片（宠物医疗许可证哪里办）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-subscribe-node.htm" title="12月19日→20.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月19日→20.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24647.htm" title="宠物领养软件推荐下载（宠物领养软件推荐下载安装）">宠物领养软件推荐下载（宠物领养软件推荐下载安装）</a></li>
+                        <li class="py-2"><a href="/news/article-29297.htm" title="服务器使用Nginx部署Springboot项目（jar包）">服务器使用Nginx部署Springboot项目（jar包）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
