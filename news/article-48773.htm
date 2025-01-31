@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-48773.htm" />
+    <meta charset="utf-8">
+    <title>python PIL Image 图像处理基本操作实例_python</title>
+        <meta name="description" content="1. 图片加载、灰度图、 显示和保存  from PIL import Image    img = Image.open('01.jpg')  imgGrey = img.convert('L') " />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-48773.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="python PIL Image 图像处理基本操作实例_python" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/d9374e5d29d2ea61a873a40f0b796378.webp" />
+        <meta property="og:release_date" content="2025-01-31T07:17:04" />
+    <meta property="og:updated_time" content="2025-01-31T07:17:04" />
+        <meta property="og:description" content="1. 图片加载、灰度图、 显示和保存  from PIL import Image    img = Image.open('01.jpg')  imgGrey = img.convert('L') " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python PIL Image 图像处理基本操作实例_python">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                                <a class="navbar-brand" href="/">
+                    <span>Kitsunebi Node</span>
+                </a>
+                                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">python PIL Image 图像处理基本操作实例_python</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<h3>1. 图片加载、灰度图、 显示和保存</h3> <div class="ay1code"> <pre class="brush:py;">from PIL import Image    img = Image.open('01.jpg')  imgGrey = img.convert('L')    img.show()  imgGrey.show()    img.save('img_copy.jpg')  imgGrey.save('img_gray.jpg')</pre> </div> <h3>2. 图片宽、高、通道模式、平均值获取</h3> <div class="ay1code"> <pre class="brush:py;">from PIL import Image  import numpy as np    img = Image.open('01.jpg')    width, height = img.size  channel_mode = img.mode  mean_value = np.mean(img)    print(width)  print(height)  print(channel_mode)  print(mean_value)</pre> </div> <h3>3. 创建指定大小，指定通道类型的空图像</h3> <div class="ay1code"> <pre class="brush:py;">from PIL import Image    width = 200  height = 100    img_white = Image.new('RGB', (width,height), (255,255,255))  img_black = Image.new('RGB', (width,height), (0,0,0))  img_L = Image.new('L', (width, height), (255))    img_white.show()  img_black.show()  img_L.show()</pre> </div> <h3>4. 访问和操作图像像素</h3> <div class="ay1code"> <pre class="brush:py;">from PIL import Image    img = Image.open('01.jpg')    width, height = img.size    # 获取指定坐标位置像素值  pixel_value = img.getpixel((width/2, height/2))  print(pixel_value)    # 或者使用load方法  pim = img.load()  pixel_value1 = pim[width/2, height/2]  print(pixel_value1)    # 设置指定坐标位置像素的值  pim[width/2, height/2] = (0, 0, 0)    # 或使用putpixel方法  img.putpixel((w//2, h//2), (255,255,255))    # 设置指定区域像素的值  for w in range(int(width/2) - 40, int(width/2) + 40):  for h in range(int(height/2) - 20, int(height/2) + 20):  pim[w, h] = (255, 0, 0)  # img.putpixel((w, h), (255,255,255))  img.show()</pre> </div> <h3>5. 图像通道分离和合并</h3> <div class="ay1code"> <pre class="brush:py;">from PIL import Image    img = Image.open('01.jpg')    # 通道分离  R, G, B = img.split()    R.show)  G.show()  B.show()    # 通道合并  img_RGB = Image.merge('RGB', (R, G, B))  img_BGR = Image.merge('RGB', (B, G, R))  img_RGB.show()  img_BGR.show()</pre> </div> <h3>6. 在图像上输出文字</h3> <div class="ay1code"> <pre class="brush:py;">from PIL import Image, ImageDraw, ImageFont    img = Image.open('01.jpg')    # 创建Draw对象:  draw = ImageDraw.Draw(img)  # 字体颜色  fillColor = (255, 0, 0)    text = 'print text on PIL Image'  position = (200,100)    draw.text(position, text, fill=fillColor)  img.show()</pre> </div> <h3>7. 图像缩放</h3> <div class="ay1code"> <pre class="brush:py;">from PIL import Image    img = Image.open('01.jpg')    width, height = img.size    img_NEARESET = img.resize((width//2, height//2)) # 缩放默认模式是NEARESET(最近邻插值)  img_BILINEAR = img.resize((width//2, height//2), Image.BILINEAR) # BILINEAR 2x2区域的双线性插值  img_BICUBIC = img.resize((width//2, height//2), Image.BICUBIC) # BICUBIC 4x4区域的双三次插值  img_ANTIALIAS = img.resize((width//2, height//2), Image.ANTIALIAS) # ANTIALIAS 高质量下采样滤波</pre> </div> <h3>8. 图像遍历操作</h3> <div class="ay1code"> <pre class="brush:py;">from PIL import Image    img = Image.open('01.jpg').convert('L')    width, height = img.size    pim = img.load()    for w in range(width):  for h in range(height):  if pim[w, h] &gt; 100:  img.putpixel((w, h), 255)  # pim[w, h] = 255  else:  img.putpixel((w, h), 0)  # pim[w, h] = 0    img.show()</pre> </div> <h3>9. 图像阈值分割、 二值化</h3> <div class="ay1code"> <pre class="brush:py;">from PIL import Image    img = Image.open('01.jpg').convert('L')    width, height = img.size    threshold = 125    for w in range(width):  for h in range(height):  if img.getpixel((w, h)) &gt; threshold:  img.putpixel((w, h), 255)  else:  img.putpixel((w, h), 0)    img.save('binary.jpg')</pre> </div> <h3>10. 图像裁剪</h3> <div class="ay1code"> <pre class="brush:py;">from PIL import Image    img = Image.open('01.jpg')    width, height = img.size    # 前两个坐标点是左上角坐标  # 后两个坐标点是右下角坐标  # width在前， height在后  box = (100, 100, 550, 350)    region = img.crop(box)    region.save('crop.jpg')</pre> </div> <h3><strong>11. 图像边界扩展</strong></h3> <div class="ay1code"> <pre class="brush:py;"># 边界扩展  from PIL import Image    img = Image.open('test.png')    width, height = img.size  channel_mode = img.mode    img_makeBorder_full = Image.new(channel_mode, (2*width, height))  img_makeBorder_part = Image.new(channel_mode, (width+200, height))    # 图像水平扩展整个图像  img_makeBorder_full.paste(img, (0, 0, width, height))  img_makeBorder_full.paste(img, (width, 0, 2*width, height))    # 前两个坐标点是左上角坐标  # 后两个坐标点是右下角坐标  # width在前， height在后  box = (width-200, 0, width, height)  region = img.crop(box)    # 图像水平右侧扩展一个ROI  img_makeBorder_part.paste(img, (0, 0, width, height))  img_makeBorder_part.paste(region, (width, 0, width+200, height))  img_makeBorder_part.show()  img_makeBorder_full.show()</pre> </div> <h3>12. PIL.Image 和 numpy 格式相互转换</h3> <div class="ay1code"> <pre class="brush:py;">from PIL import Image  import numpy as np    img = Image.open('01.jpg')    array = np.array(img) # PIL.Image 转 numpy    img1 = Image.fromarray(array) # numpy转 PIL.Image  img1 = Image.fromarray(array.astype('uint8'))    img1.save('from_array.jpg')</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-48248.htm">动物打疫苗需要多少钱一针（动物打疫苗有什么用）</a></p>
+                                        <p>下一个：<a href="/news/article-48774.htm">南京宠物狗领养地址在哪里啊（南京宠物狗领养地址在哪里啊电话）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-25575.htm" title="tensorflow根据输入更改tensor shape">tensorflow根据输入更改tensor shape</a></li>
+                        <li class="py-2"><a href="/news/article-45348.htm" title="动物接种疫苗的好处有哪些呢（动物疫苗接种禁忌症和注意事项）">动物接种疫苗的好处有哪些呢（动物疫苗接种禁忌症和注意事项）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-9-node-share-links.htm" title="10月9日→20.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月9日→20.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-42362.htm" title="动物医院有哪些功能区域（动物医院有哪些功能区域呢）">动物医院有哪些功能区域（动物医院有哪些功能区域呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-high-speed-nodes.htm" title="10月21日→21.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月21日→21.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-free-node-subscribe-links.htm" title="1月14日→19.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月14日→19.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-kitsunebi-node.htm" title="12月21日→22.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月21日→22.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-node-subscribe-links.htm" title="12月3日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月3日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-33582.htm" title="hadoop运行jar包处理文件一直处于Running job状态的解决方法">hadoop运行jar包处理文件一直处于Running job状态的解决方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-today-kitsunebi-node.htm" title="12月26日→18.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月26日→18.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
