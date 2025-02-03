@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://kitsunebinode.github.io/news/article-23245.htm" />
@@ -7,10 +7,37 @@
     <title>vue父子组件之间传值，以及之间方法调用</title>
         <meta name="description" content="该文章主要记录在工作中经常使用的小知识点、注意点、遇到的小问题  vue父子组件传值，调用方法  父传子值，父调用子方法 父组件向子组件传值（引入子组件→在引入的子组件绑定需要传送的值→子组件prop" />
         <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-23245.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="vue父子组件之间传值，以及之间方法调用" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/800c9d6b6fecfa4342344882367a8555.webp" />
+        <meta property="og:release_date" content="2024-12-09T10:27:04" />
+    <meta property="og:updated_time" content="2024-12-09T10:27:04" />
+        <meta property="og:description" content="该文章主要记录在工作中经常使用的小知识点、注意点、遇到的小问题  vue父子组件传值，调用方法  父传子值，父调用子方法 父组件向子组件传值（引入子组件→在引入的子组件绑定需要传送的值→子组件prop" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue父子组件之间传值，以及之间方法调用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- theme meta -->
-    <meta name="theme-name" content="godocs" />
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
     <!-- ** Plugins Needed for the Project ** -->
     <!-- plugins -->
     <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
@@ -75,16 +102,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-20045.htm" title="狗狗领养平台有哪些软件（狗狗领养免费平台）">狗狗领养平台有哪些软件（狗狗领养免费平台）</a></li>
-                        <li class="py-2"><a href="/news/article-34057.htm" title="动物医院实践心得2500字内容怎么写（动物医院实践心得5000）">动物医院实践心得2500字内容怎么写（动物医院实践心得5000）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-3-today-kitsunebi-node.htm" title="10月3日→21.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月3日→21.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-23708.htm" title="宠物粮食加工厂需要投资多少钱一个月呢英语 宠物粮食加工厂需要投资多少钱一个月呢英语翻译">宠物粮食加工厂需要投资多少钱一个月呢英语 宠物粮食加工厂需要投资多少钱一个月呢英语翻译</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-latest-kitsunebi-node.htm" title="11月3日→23M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月3日→23M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-7-kitsunebi-node-github.htm" title="11月7日→21.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月7日→21.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-9-kitsunebi-github.htm" title="12月9日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月9日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-today-kitsunebi-node.htm" title="9月13日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月13日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-18-node-share-links.htm" title="9月18日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月18日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-20505.htm" title="动物疫苗经营许可证办理条件 动物疫苗经营许可证办理条件及流程">动物疫苗经营许可证办理条件 动物疫苗经营许可证办理条件及流程</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-latest-kitsunebi-node.htm" title="12月16日→20.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月16日→20.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36932.htm" title="动物疫苗证书图片（动物注射疫苗证明）">动物疫苗证书图片（动物注射疫苗证明）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-node-subscribe-links.htm" title="1月12日→22.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月12日→22.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21875.htm" title="猫咪对主人的喜欢程度及表现（猫咪认主的5大征兆）">猫咪对主人的喜欢程度及表现（猫咪认主的5大征兆）</a></li>
+                        <li class="py-2"><a href="/news/article-25575.htm" title="tensorflow根据输入更改tensor shape">tensorflow根据输入更改tensor shape</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-kitsunebi-node-share.htm" title="2月2日→22.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月2日→22.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-kitsunebi-node.htm" title="12月21日→22.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月21日→22.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-kitsunebi-node-share.htm" title="1月4日→18.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月4日→18.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-node-subscribe-links.htm" title="11月23日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月23日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24647.htm" title="宠物领养软件推荐下载（宠物领养软件推荐下载安装）">宠物领养软件推荐下载（宠物领养软件推荐下载安装）</a></li>
                     </ul>
     </div>
 </div>
@@ -96,19 +123,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

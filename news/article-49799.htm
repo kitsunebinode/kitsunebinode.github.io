@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-49799.htm" />
+    <meta charset="utf-8">
+    <title>Java中的多态</title>
+        <meta name="description" content="多态： 从字面意思理解就是多种形态。而在Java中多态是同一个行为具有多个不同表现形式或形态的能力。 多态分为: 方法多态：方法的重写和重载就是方法的多态的体现形式 对象多态： 1.一个对象 的编译类" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-49799.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="Java中的多态" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/1eb496a6cd382a122e41f0de054ab4d5.webp" />
+        <meta property="og:release_date" content="2025-02-02T09:26:07" />
+    <meta property="og:updated_time" content="2025-02-02T09:26:07" />
+        <meta property="og:description" content="多态： 从字面意思理解就是多种形态。而在Java中多态是同一个行为具有多个不同表现形式或形态的能力。 多态分为: 方法多态：方法的重写和重载就是方法的多态的体现形式 对象多态： 1.一个对象 的编译类" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java中的多态">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">Java中的多态</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h3><strong>多态：</strong></h3> <p>从字面意思理解就是多种形态。而在Java中多态是同一个行为具有多个不同表现形式或形态的能力。</p> <p><strong>多态分为:</strong></p> <p><strong>方法多态：方法的重写和重载就是方法的多态的体现形式</strong></p> <p><strong>对象多态：</strong></p> <p>1.一个对象 的编译类型和运行类型是不一样</p> <p>2.编译类型是在定义对象的时候，就已经确定好的</p> <p>3.运行类型是可以改变的</p> <p>4.编译类型看=的左边 运行类型看 =的右边</p> <p>例：<strong>Person person = new Person();</strong></p> <p><strong>注意：</strong></p> <p>1.必须有继承</p> <p>2.必须有重写</p> <p>3.等号左边是父类的引用，等号右边是子类的对象。</p> <p><strong>多态的转型：【向上转型和向下转型】</strong></p> <h3><strong>1.向上转型</strong></h3> <p>本质就是：父类的引用指向子类对象。</p> <p>语法格式：</p> <p> 父类 父类引用 = new 子类（）；</p> <pre><code class="language-java">示例：package com.qfedu.d_duotai;  class Person { 	public void eat () { 		 	} } class Student extends Person { 	@Override 	public void eat() { 		System.out.println("学生吃饭，吃披萨"); 	} 	public void sleep () { 		System.out.println("中午不谁下午崩溃！！！"); 	} } public class Demo1 { 	public static void main(String[] args) { 		Person person = new Student();//向上转型 		person.eat(); 		//person.sleep(); 	}  } </code></pre> <p>将子类的对象赋值给了父类的引用。小范围（子类） 转为大范围（父类）自动转</p> <p>父类的引用可以调用父类的所有成员方法，可以调用子类的重写父类的方法，但是不能调用子类独有的方法。</p> <h3><strong>2.向下转型</strong></h3> <p>语法格式：</p> <p>父类 父类引用 = new 子类（）；</p> <p>子类 子类引用 = （子类）父类的引用；</p> <pre><code class="language-java">实例：package com.qfedu.d_duotai;  class TestA { 	//Object 是所有类的父类 	public void test (Object obj ) { 		//必须给我打印一个String类型的狗蛋，我不要Object类型的狗蛋 //		String str = (String) obj;  //		System.out.println(str); 		int i1 = (int)obj; 		System.out.println(i1); 		 	} } public class Demo4 { 	public static void main(String[] args) { 		TestA testA = new TestA(); 		//testA.test("狗蛋"); 		Object object = "狗蛋"; 		testA.test(98); 		testA.test('狗'); 	}  } </code></pre> <h3><strong>instenceof 关键字</strong></h3> <p>是比较操作符，返回值是布尔&nbsp;<strong>Boolean</strong>类型数据</p> <p>语法格式：</p> <p>对象引用&nbsp;<strong>instenceof</strong>&nbsp;类（运行类型）</p> <p>用来判断对象的运行类型（=右边）， 是否是xx类型或者xx类型的子类</p> <p><strong>目的：是为了在强转的时候不出现问题</strong></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-49284.htm">上海宠物领养网点 上海宠物领养网点地址</a></p>
+                                        <p>下一个：<a href="/news/article-49800.htm">宠物粮业务员好干吗工资多少一个月（宠物粮食业务员）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-26974.htm" title="将时间戳值增加微秒以将其转换为整数，MySQL将返回什么？">将时间戳值增加微秒以将其转换为整数，MySQL将返回什么？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-kitsunebi-github.htm" title="1月8日→22.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月8日→22.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-40381.htm" title="宠物店培训机构（宠物培训机构咋收费的）">宠物店培训机构（宠物培训机构咋收费的）</a></li>
+                        <li class="py-2"><a href="/news/article-19587.htm" title="动物疫苗打到人身上有事吗有影响吗知乎（动物疫苗不小心扎到人身上会怎么样）">动物疫苗打到人身上有事吗有影响吗知乎（动物疫苗不小心扎到人身上会怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-subscribe-node.htm" title="1月23日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月23日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-kitsunebi-node-share.htm" title="1月5日→21.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月5日→21.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-kitsunebi-node.htm" title="12月27日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月27日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-47785.htm" title="工厂养猫聚财还是破财（厂里养猫会带来好运吗）">工厂养猫聚财还是破财（厂里养猫会带来好运吗）</a></li>
+                        <li class="py-2"><a href="/news/article-28359.htm" title="开宠物店亏本怎么办理（开宠物店亏本怎么办理营业执照）">开宠物店亏本怎么办理（开宠物店亏本怎么办理营业执照）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-free-subscribe-node.htm" title="1月21日→18.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月21日→18.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

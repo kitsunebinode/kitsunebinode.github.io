@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://kitsunebinode.github.io/news/article-29297.htm" />
@@ -7,10 +7,37 @@
     <title>服务器使用Nginx部署Springboot项目（jar包）</title>
         <meta name="description" content="部署SpringBoot项目到后台Nginx实现多项目反向代理  1,将java项目打成jar包   2.准备工具 3.将jar包传入服务器 3.使用Xshell运行jar包 4.下载安装nginx " />
         <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-29297.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="服务器使用Nginx部署Springboot项目（jar包）" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/9d39aef58c6508301d2cd6d712f1488b.webp" />
+        <meta property="og:release_date" content="2024-12-22T11:01:02" />
+    <meta property="og:updated_time" content="2024-12-22T11:01:02" />
+        <meta property="og:description" content="部署SpringBoot项目到后台Nginx实现多项目反向代理  1,将java项目打成jar包   2.准备工具 3.将jar包传入服务器 3.使用Xshell运行jar包 4.下载安装nginx " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="服务器使用Nginx部署Springboot项目（jar包）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- theme meta -->
-    <meta name="theme-name" content="godocs" />
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
     <!-- ** Plugins Needed for the Project ** -->
     <!-- plugins -->
     <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
@@ -75,16 +102,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-subscribe-node.htm" title="10月25日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月25日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-32634.htm" title="Vue3项目中动态组件component的使用">Vue3项目中动态组件component的使用</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-10-latest-kitsunebi-node.htm" title="9月10日→22.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月10日→22.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-23-kitsunebi-node-github.htm" title="9月23日→22.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月23日→22.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-20506.htm" title="宠爱国际中心医院电话 宠爱国际宠物医院电话">宠爱国际中心医院电话 宠爱国际宠物医院电话</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-21-kitsunebi-node-share.htm" title="9月21日→18.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月21日→18.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-1-free-high-speed-nodes.htm" title="10月1日→19.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">10月1日→19.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-21875.htm" title="猫咪对主人的喜欢程度及表现（猫咪认主的5大征兆）">猫咪对主人的喜欢程度及表现（猫咪认主的5大征兆）</a></li>
-                        <li class="py-2"><a href="/news/article-22796.htm" title="动物疫苗间隔时间多久打第二针呢（动物疫苗多长时间内打）">动物疫苗间隔时间多久打第二针呢（动物疫苗多长时间内打）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-25-kitsunebi-node-github.htm" title="9月25日→22.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">9月25日→22.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21876.htm" title="猫驱虫多少钱一只（猫驱虫多少钱一次）">猫驱虫多少钱一只（猫驱虫多少钱一次）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-kitsunebi-node-github.htm" title="1月15日→20.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月15日→20.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-41362.htm" title="动物医院科室执业兽医数量 动物医院科室执业兽医数量要求">动物医院科室执业兽医数量 动物医院科室执业兽医数量要求</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-today-kitsunebi-node.htm" title="12月15日→19.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月15日→19.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-kitsunebi-node.htm" title="12月27日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月27日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-subscribe-node.htm" title="12月19日→20.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月19日→20.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30727.htm" title="被猫挠了一直流血（被猫挠伤出血一点点）">被猫挠了一直流血（被猫挠伤出血一点点）</a></li>
+                        <li class="py-2"><a href="/news/article-19133.htm" title="猫三针疫苗多少钱一只啊（猫猫的三针疫苗多少钱）">猫三针疫苗多少钱一只啊（猫猫的三针疫苗多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-34534.htm" title="不宜养猫的4个属相有哪些图片和名字（不能养猫的生肖怎么破解）">不宜养猫的4个属相有哪些图片和名字（不能养猫的生肖怎么破解）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-node-subscribe-links.htm" title="11月23日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月23日→19.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -96,19 +123,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

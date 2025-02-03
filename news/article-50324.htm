@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-50324.htm" />
+    <meta charset="utf-8">
+    <title>C++ functional库中的仿函数</title>
+        <meta name="description" content="一、仿函数简介 仿函数（functor）又称之为函数对象（function object），实际上就是 重载了()操作符 的 struct或class。 由于重载了（）操作符，所以使用他的时候就像在调" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-50324.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="C++ functional库中的仿函数" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/d8482214045d80859c0008a0d4493802.webp" />
+        <meta property="og:release_date" content="2025-02-03T09:25:27" />
+    <meta property="og:updated_time" content="2025-02-03T09:25:27" />
+        <meta property="og:description" content="一、仿函数简介 仿函数（functor）又称之为函数对象（function object），实际上就是 重载了()操作符 的 struct或class。 由于重载了（）操作符，所以使用他的时候就像在调" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C++ functional库中的仿函数">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">C++ functional库中的仿函数</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<h2 id="一仿函数简介">一、仿函数简介</h2> <p>仿函数（functor）又称之为函数对象（function object），实际上就是 重载了()操作符 的 struct或class。<br /> 由于重载了（）操作符，所以使用他的时候就像在调用函数一样，于是就被称为“仿”函数啦。</p> <h2 id="二仿函数简要写法示例">二、仿函数简要写法示例</h2> <p>一个很正常的需求，定义一个仿函数作为一个数组的排序规则：<br /><strong>将数组从大到小排序</strong></p> <pre><code class="language-C++">class Cmp { public:     bool operator()(const int &amp;a, const int &amp;b) {         return a &gt; b;     } };</code></pre> <p><strong>使用</strong>：</p> <pre><code class="language-C++">vector&lt;int&gt; a(10); iota(begin(a), end(a), 1);  sort(begin(a), end(a), Cmp());  // 使用()  for (auto x : a) {   cout &lt;&lt; x &lt;&lt; " "; }</code></pre> <p><strong>输出</strong>：<br /><code>10 9 8 7 6 5 4 3 2 1</code></p> <h2 id="三使用c自带的仿函数">三、使用C++自带的仿函数</h2> <p>在C++ 的functional头文件中，已经为我们提供好了一些仿函数，可以直接使用。</p> <h3 id="1算术仿函数">(1)算术仿函数</h3> <p>1.plus 计算两数之和<br /> 例：将两个等长数组相加</p> <pre><code class="language-C++">    vector&lt;int&gt; a(10), b(a);     iota(begin(a), end(a), 1);     iota(begin(b), end(b), 1);      transform(begin(a), end(a), begin(b), begin(a), plus&lt;int&gt;());      for (auto x : a) {         cout &lt;&lt; x &lt;&lt; " ";     }</code></pre> <p><strong>输出</strong>：<br /><code>2 4 6 8 10 12 14 16 18 20</code><br /> 2.minus 两数相减<br /> 将上面那个例子改一改：</p> <pre><code class="language-C++">transform(begin(a), end(a), begin(b), begin(a), minus&lt;int&gt;());</code></pre> <p><strong>输出</strong>：<br /><code>0 0 0 0 0 0 0 0 0 0</code></p> <p>3.multiplies 两数相乘<br /> 再将上面那个例子改一改：</p> <pre><code class="language-C++">transform(begin(a), end(a), begin(b), begin(a), multiplies&lt;int&gt;());</code></pre> <p><strong>输出</strong>：<br /><code>1 4 9 16 25 36 49 64 81 100</code></p> <p>4.divides 两数相除<br /> 还将上面那个例子改一改：</p> <pre><code class="language-C++">transform(begin(a), end(a), begin(b), begin(a), divides&lt;int&gt;());</code></pre> <p><strong>输出</strong>：<br /><code>1 1 1 1 1 1 1 1 1 1</code></p> <p>5.modules  取模运算<br /> 继续将上面那个例子改一改：</p> <pre><code class="language-C++">transform(begin(a), end(a), begin(b), begin(a), modulus&lt;int&gt;());</code></pre> <p><strong>输出</strong>：<br /><code>0 0 0 0 0 0 0 0 0 0</code></p> <p>6.negate 相反数<br /> 这次不能那样改了，因为上述的五个仿函数是二元仿函数，是对两个操作数而言的。<br /> negate是一元仿函数，只能对一个参数求相反数。<br /> 所以我们对a数组求相反数：</p> <pre><code class="language-C++">transform(begin(a), end(a), begin(a), negate&lt;int&gt;());</code></pre> <p><strong>输出</strong>：<br /><code>-1 -2 -3 -4 -5 -6 -7 -8 -9 -10</code></p> <h3 id="2关系仿函数">(2)关系仿函数</h3> <p>1.equal_to 是否相等<br /> 2.not_equal_to  是否不相等<br /> 3.greater  大于<br /> 4.less     小于<br /> 5.greater_equal  大于等于<br /> 6.less_equal     小于等于<br /> 到这时，我们就可以看出，可以使用 greater<int>() 来代替我们开头实现的例子<br /><strong>将数组从大到小排序</strong>:</int></p> <pre><code class="language-C++">vector&lt;int&gt; a(10); iota(begin(a), end(a), 1);  sort(begin(a), end(a), greater&lt;int&gt;());  // 使用()  for (auto x : a) {   cout &lt;&lt; x &lt;&lt; " "; }</code></pre> <p><strong>输出</strong>：<br /><code>10 9 8 7 6 5 4 3 2 1</code></p> <h3 id="3逻辑仿函数">(3)逻辑仿函数</h3> <p>1.logical_and   二元，求&amp;<br /> 2.logical_or    二元，求|<br /> 3.logical_not   一元，求！</p> <p>使用方法同上.<br /> 话说，并没有发现求异或的仿函数..</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-49800.htm">宠物粮业务员好干吗工资多少一个月（宠物粮食业务员）</a></p>
+                                        <p>下一个：<a href="/news/article-50325.htm">宠物领养协议有法律效力吗知乎文章 宠物领养协议有法律效力吗知乎文章</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-latest-kitsunebi-node.htm" title="1月13日→18.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月13日→18.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36182.htm" title="未来10大暴利养殖股票（养殖行业股票）">未来10大暴利养殖股票（养殖行业股票）</a></li>
+                        <li class="py-2"><a href="/news/article-47289.htm" title="动物疾病预防控制中心可以打狂犬疫苗吗（动物防疫监督站可以打狂犬疫苗吗）">动物疾病预防控制中心可以打狂犬疫苗吗（动物防疫监督站可以打狂犬疫苗吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-node-subscribe.htm" title="12月5日→22M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月5日→22M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-kitsunebi-node-github.htm" title="11月7日→21.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月7日→21.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32634.htm" title="Vue3项目中动态组件component的使用">Vue3项目中动态组件component的使用</a></li>
+                        <li class="py-2"><a href="/news/article-29774.htm" title="开宠物店大概需要多少钱（开宠物店需要多少资金）">开宠物店大概需要多少钱（开宠物店需要多少资金）</a></li>
+                        <li class="py-2"><a href="/news/article-41866.htm" title="长沙市宠物领养（长沙哪里有宠物领养）">长沙市宠物领养（长沙哪里有宠物领养）</a></li>
+                        <li class="py-2"><a href="/news/article-36446.htm" title="益康动物医院地址（益康宠物诊所）">益康动物医院地址（益康宠物诊所）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-node-subscribe.htm" title="11月19日→18M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月19日→18M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
