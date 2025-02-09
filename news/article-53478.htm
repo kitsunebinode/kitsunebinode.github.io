@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-53478.htm" />
+    <meta charset="utf-8">
+    <title>Vue2.0 Vue路由 全局后置路由守卫</title>
+        <meta name="description" content="前置路由守卫知识 全局后置路由守卫 router.afterEach((to,from,next)=&gt;{     console.log(to,from,next)}) 输出: {name: '" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-53478.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="Vue2.0 Vue路由 全局后置路由守卫" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/9c93bc5ee6b61b64284024756edb05c0.webp" />
+        <meta property="og:release_date" content="2025-02-09T10:03:32" />
+    <meta property="og:updated_time" content="2025-02-09T10:03:32" />
+        <meta property="og:description" content="前置路由守卫知识 全局后置路由守卫 router.afterEach((to,from,next)=&gt;{     console.log(to,from,next)}) 输出: {name: '" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vue2.0 Vue路由 全局后置路由守卫">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">Vue2.0 Vue路由 全局后置路由守卫</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/yasinawolaopo/article/details/122439624"  rel="nofollow">前置路由守卫知识</a></p> <h3><a id="_2" rel="nofollow"></a>全局后置路由守卫</h3> <pre><code class="prism language-js">router<span class="token punctuation">.</span><span class="token function">afterEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">,</span>next<span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">,</span>next<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <p>输出:</p> <pre><code>{name: 'zhuye', meta: {…}, path: '/home', hash: '', query: {…},&nbsp;…}  {name: null, meta: {…}, path: '/', hash: '', query: {…},&nbsp;…}[[Prototype]]: undefined</code></pre> <p>所以在后置路由守卫中<code>next</code>是没有的。切换已经完成了，再给你<code>next</code>有什么用吗?</p> <p>从某种角度来说，我得有个<code>next</code>才能控制</p> <h4><a id="_23" rel="nofollow"></a>后置路由的作用</h4> <p>一般来说好一点的项目他都会做一个功能:</p> <blockquote> <p>标签确实是你一上来的标题，点击<code>about</code>的时候，把你的标签变了，叫<code>关于</code></p> <p>点击<code>home</code>的时候标签变成<code>主页</code></p> <p>登录(要有一个本地存储值为<code>school-bilibili</code>)点击News变成<code>信息</code>,点击<code>Message</code>标题变成<code>消息</code></p> </blockquote> <p>js可以</p> <pre><code class="prism language-js">document<span class="token punctuation">.</span>title<span class="token operator">=</span><span class="token string">"名字"</span></code></pre> <p>但是这样固定死标题了，所以:</p> <pre><code class="prism language-js"><span class="token comment">//给每一个路由都添加一个元信息</span><span class="token comment">//比如guanyu</span> meta<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>title<span class="token punctuation">.</span><span class="token string">'关于'</span><span class="token punctuation">}</span></code></pre> <p>然后:</p> <pre><code class="prism language-js">router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">,</span>next<span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'to='</span><span class="token punctuation">,</span>to<span class="token punctuation">,</span><span class="token string">'from='</span><span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">)</span>     document<span class="token punctuation">.</span>title<span class="token operator">=</span> to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>title<span class="token comment">//添加这一行</span><span class="token keyword">if</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>isAuth<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'school'</span><span class="token punctuation">)</span><span class="token operator">===</span><span class="token string">'bilibili'</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'学校名不对或没有，无权限查看'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <p>但是你写的不对，因为一上来<code>undefined</code>,所以:</p> <pre><code class="prism language-js">document<span class="token punctuation">.</span>title<span class="token operator">=</span> to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>title<span class="token operator">||</span><span class="token string">'学习Vue'</span></code></pre> <p>在刷新的时候有一瞬间还是你的项目名，你要么改package里面的名字或者index.html里面的<code>&lt;title&gt;</code></p> <p>但是你本地存储没有<code>school-bilibili</code>但是点击了<code>news</code>虽然不给你呈现和发出弹窗警告，但是你的<code>title</code>却改成了<code>News</code>的名字，所以你直接改改早了</p> <p>你写在放行前，这里要写俩次，所以放在这里不合适,所以说可以用到<code>后置路由守卫</code></p> <pre><code class="prism language-js">router<span class="token punctuation">.</span><span class="token function">afterEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">)</span>     document<span class="token punctuation">.</span>title<span class="token operator">=</span> to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>title<span class="token operator">||</span><span class="token string">'学习Vue'</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <p><strong>全局后置路由守卫作用:初始化的时候被调用、每次切换路由之后被调用</strong></p> <p><strong>全局体现在我都是跟<code>router</code>进行对话的；切换之前都走<code>前置路由守卫</code>，切换之后都是走<code>后置路由守卫</code></strong></p> <h3><a id="_88" rel="nofollow"></a>总结</h3> <p><strong>路由守卫</strong></p> <p><strong>1.作用:对路由进行权限控制</strong></p> <p><strong>2.分类:全局守卫、独享守卫、组件内守卫</strong></p> <p><strong>3.全局守卫:</strong></p> <pre><code class="prism language-js"><span class="token comment">//全局前置守卫:初始化时执行、每次路由切换前执行</span> router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">,</span>next<span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'beforEach'</span><span class="token punctuation">,</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">,</span>next<span class="token punctuation">)</span><span class="token keyword">if</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>isAuth<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">//判断当前路由是否需要进行权限控制</span><span class="token keyword">if</span><span class="token punctuation">(</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'school'</span><span class="token punctuation">)</span><span class="token operator">===</span><span class="token string">'bilibili'</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//放行</span><span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span><span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'无权限查看'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//放行</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment">//全局后置守卫:初始化时执行、每次路由切换后执行</span> router<span class="token punctuation">.</span><span class="token function">afterEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'afterEach'</span><span class="token punctuation">,</span>to<span class="token punctuation">,</span><span class="token keyword">from</span><span class="token punctuation">)</span><span class="token keyword">if</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>title<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         document<span class="token punctuation">.</span>title<span class="token operator">=</span> to<span class="token punctuation">.</span>meta<span class="token punctuation">.</span>title<span class="token comment">//修改网页的title</span><span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span>         document<span class="token punctuation">.</span>title<span class="token operator">=</span><span class="token string">'项目名'</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-52939.htm">长沙市宠物领养中心地址查询（长沙宠物猫领养中心在哪）</a></p>
+                                        <p>下一个：<a href="/news/article-53479.htm">ASP.NET Core使用AutoMapper组件_实用技巧</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-20967.htm" title="在我的城市里有一家宠物医院英语 在我的城市里有一家宠物医院英语翻译">在我的城市里有一家宠物医院英语 在我的城市里有一家宠物医院英语翻译</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-subscribe-node.htm" title="12月23日→22.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月23日→22.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26506.htm" title="maven生成war包的两种方式">maven生成war包的两种方式</a></li>
+                        <li class="py-2"><a href="/news/article-30727.htm" title="被猫挠了一直流血（被猫挠伤出血一点点）">被猫挠了一直流血（被猫挠伤出血一点点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-node-share.htm" title="12月20日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月20日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45817.htm" title="动物疫苗的使用方法及注意事项视频教程大全下载（动物疫苗注射注意事项）">动物疫苗的使用方法及注意事项视频教程大全下载（动物疫苗注射注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-27434.htm" title="url传参的编码与解码">url传参的编码与解码</a></li>
+                        <li class="py-2"><a href="/news/article-50836.htm" title="宠物领养的平台有哪些呢（宠物领养的平台有哪些呢）">宠物领养的平台有哪些呢（宠物领养的平台有哪些呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-kitsunebi-node.htm" title="12月7日→18.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月7日→18.6M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24177.htm" title="动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全">动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

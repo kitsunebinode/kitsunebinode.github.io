@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-53479.htm" />
+    <meta charset="utf-8">
+    <title>ASP.NET Core使用AutoMapper组件_实用技巧</title>
+        <meta name="description" content="1.什么是AutoMapper？ AutoMapper是一个对象-对象映射器。对象-对象映射通过将一种类型的输入对象转换为另一种类型的输出对象来工作。使AutoMapper变得有趣的是，它提供了一些有" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-53479.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="ASP.NET Core使用AutoMapper组件_实用技巧" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/9f0306b1d3986c24a7569f5087fca36b.webp" />
+        <meta property="og:release_date" content="2025-02-09T10:03:32" />
+    <meta property="og:updated_time" content="2025-02-09T10:03:32" />
+        <meta property="og:description" content="1.什么是AutoMapper？ AutoMapper是一个对象-对象映射器。对象-对象映射通过将一种类型的输入对象转换为另一种类型的输出对象来工作。使AutoMapper变得有趣的是，它提供了一些有" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ASP.NET Core使用AutoMapper组件_实用技巧">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">ASP.NET Core使用AutoMapper组件_实用技巧</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<h2>1.什么是AutoMapper？</h2> <p>AutoMapper是一个对象-对象映射器。对象-对象映射通过将一种类型的输入对象转换为另一种类型的输出对象来工作。使AutoMapper变得有趣的是，它提供了一些有趣的约定，免去用户不需要了解如何将类型A映射为类型B。只要类型B遵循AutoMapper既定的约定，就需要几乎零配置来映射两个类型。映射代码虽然比较无聊，但是AutoMapper为我们提供简单的类型配置以及简单的映射测试，而映射可以在应用程序中的许多地方发生，但主要发生在层之间的边界中，比如，UI /域层之间或服务/域层之间。一层的关注点通常与另一层的关注点冲突，因此对象-对象映射导致分离的模型，其中每一层的关注点仅会影响该层中的类型。</p> <h2>2.如何在Core上面使用AutoMapper组件？</h2> <p>先在Startup.ConfigureServices注入AutoMapper组件服务，然后在Startup.Configure上获取AutoMapper服务配置扩展类创建对象-对象映射关系，为了好统一管理代码，可以新建一个AutoMapperExtension静态类，把以下代码封装一下：</p> <div class="ay1code"> <pre class="brush:csharp;">public static class AutoMapperExtension  {      /// &lt;summary&gt;      /// 新增自动映射服务      /// &lt;/summary&gt;      /// &lt;param name="service"&gt;&lt;/param&gt;      /// &lt;returns&gt;&lt;/returns&gt;      public static IServiceCollection AddAutoMapper(this IServiceCollection services)      {          #region 方案一          //注册AutoMapper配置扩展类服务          services.TryAddSingleton&lt;MapperConfigurationExpression&gt;();          //注册AutoMapper配置扩展类到AutoMapper配置服务去          services.TryAddSingleton(serviceProvider =&gt;          {              var mapperConfigurationExpression = serviceProvider.GetRequiredService&lt;MapperConfigurationExpression&gt;();              var mapperConfiguration = new MapperConfiguration(mapperConfigurationExpression);              mapperConfiguration.AssertConfigurationIsValid();              return mapperConfiguration;          });          //注入IMapper接口DI服务          services.TryAddSingleton(serviceProvider =&gt;          {              var mapperConfiguration = serviceProvider.GetRequiredService&lt;MapperConfiguration&gt;();              return mapperConfiguration.CreateMapper();          });          return services;          #endregion      }        /// &lt;summary&gt;      /// 使用自动映射配置扩展类      /// &lt;/summary&gt;      /// &lt;param name="applicationBuilder"&gt;&lt;/param&gt;      /// &lt;returns&gt;&lt;/returns&gt;      public static IMapperConfigurationExpression UseAutoMapper(this IApplicationBuilder applicationBuilder)      {          //获取已注册服务AutoMapper配置扩展类          return applicationBuilder.ApplicationServices.GetRequiredService&lt;MapperConfigurationExpression&gt;();      }  }  // This method gets called by the runtime. Use this method to add services to the container.  public void ConfigureServices(IServiceCollection services)  {      ......      //添加自动映射组件DI服务      services.AddAutoMapper();  }  // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.  public void Configure(IApplicationBuilder app, IHostingEnvironment env)  {      ......      //注册组件之后，创建映射对象  　　var expression = app.UseAutoMapper();      expression.CreateMap&lt;Customer, CustomerDto&gt;();      expression.CreateMap&lt;Address, AddressDto&gt;();  }</pre> </div> <p>因为IMapper接口已经在ConfigureServices方法注入DI服务了，所以无需再重新注入，只需要直接使用IMapper调用其方法就可以：</p> <div class="ay1code"> <pre class="brush:csharp;">public class BlogsController : Controller  {      private IMapper _iMapper { get; }      public BlogsController(IMapper iMapper)      {          _iMapper = iMapper;      }      // GET: Blogs      public async Task&lt;IActionResult&gt; Index()      {      //对象-对象数据传输          var dto = _iMapper.Map&lt;CustomerDto&gt;(CustomerInitialize());          ......      }      //手动赋值客户对象数据      private Customer CustomerInitialize()      {          var _customer = new Customer()          {              Id = 1,              Name = "Eduardo Najera",              Credit = 234.7m,              Address = new Address() { City = "istanbul", Country = "turkey", Id = 1, Street = "istiklal cad." },              HomeAddress = new Address() { City = "istanbul", Country = "turkey", Id = 2, Street = "istiklal cad." },              WorkAddresses = new List&lt;Address&gt;()              {                  new Address() {City = "istanbul", Country = "turkey", Id = 5, Street = "istiklal cad."},                  new Address() {City = "izmir", Country = "turkey", Id = 6, Street = "konak"}              },              Addresses = new List&lt;Address&gt;()              {                  new Address() {City = "istanbul", Country = "turkey", Id = 3, Street = "istiklal cad."},                  new Address() {City = "izmir", Country = "turkey", Id = 4, Street = "konak"}              }.ToArray()          };          return _customer;      }  }</pre> </div> <p>运行效果：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/060a26ba95dabd17130ea6060d5f76cf.jpg"></p> <h2>3.如果更加灵活使用AutoMapper组件？</h2> <p>相信在第二章节时候，相信大家都会发现一个问题，如果生产场景业务越来越庞大，需创建对应业务对象也会越来越多，如果面对这样的业务场景难道要在Configure方法里面创建越来越多的映射关系吗？例：</p> <div class="ay1code"> <pre class="brush:csharp;">var expression = app.UseAutoMapper();  expression.CreateMap&lt;A, ADto&gt;();  expression.CreateMap&lt;B, BDto&gt;();  expression.CreateMap&lt;C, CDto&gt;();  expression.CreateMap&lt;D, DDto&gt;();  ......</pre> </div> <p>很显然这样子是不可行的，这样会导致后续代码越来越多，难以维护。那么现在让我们来解决这个问题。首先新建一个自动注入属性的AutoInjectAttribute密封类，具体代码如下：</p> <div class="ay1code"> <pre class="brush:csharp;">public sealed class AutoInjectAttribute : Attribute  {      public Type SourceType { get; }      public Type TargetType { get; }      public AutoInjectAttribute(Type sourceType, Type targetType)      {          SourceType = sourceType;          TargetType = targetType;      }  }</pre> </div> <p>新增这个AutoInjectAttribute密封类，目的是声明每个DTO对象（数据传输对象）与对应数据源对象是传输关系，方便在Configure里面自动注册创建映射关系，例：</p> <div class="ay1code"> <pre class="brush:csharp;">//声明源对象，目标对象  [AutoInject(sourceType: typeof(Customer),targetType:typeof(CustomerDto))]  public class CustomerDto  {      public int Id { get; set; }      public string Name { get; set; }      public Address Address { get; set; }      public AddressDto HomeAddress { get; set; }      public AddressDto[] Addresses { get; set; }      public List&lt;AddressDto&gt; WorkAddresses { get; set; }      public string AddressCity { get; set; }  }</pre> </div> <p>然后创建一个自动注入AutoInjectFactory工厂类，检测运行中的程序集是否有AutoInjectAttribute属性声明，如果有则插入一个类型数据集中返回，目的是把所有声明需要映射DTO对象跟数据源对象自动创建映射关系：</p> <div class="ay1code"> <pre class="brush:csharp;">public class AutoInjectFactory  {      public List&lt;(Type, Type)&gt; AddAssemblys      {          get          {              var assemblys =new List&lt;Assembly&gt;() { Assembly.GetExecutingAssembly() };              List&lt;(Type, Type)&gt; ConvertList = new List&lt;(Type, Type)&gt;();              foreach (var assembly in assemblys)              {                  var atributes = assembly.GetTypes()                      .Where(_type =&gt; _type.GetCustomAttribute&lt;AutoInjectAttribute&gt;() != null)                      .Select(_type =&gt; _type.GetCustomAttribute&lt;AutoInjectAttribute&gt;());                  foreach (var atribute in atributes)                  {                      ConvertList.Add((atribute.SourceType, atribute.TargetType));                  }              }              return ConvertList;          }      }  }</pre> </div> <p>在第2小节AutoMapperExtension静态类的AddAutoMapper方法内修改如下代码：</p> <div class="ay1code"> <pre class="brush:csharp;">#region 方案二  //注入AutoMapper配置扩展类服务  services.TryAddSingleton&lt;MapperConfigurationExpression&gt;();  //注入自动注入工厂类服务  services.TryAddSingleton&lt;AutoInjectFactory&gt;();  //注入AutoMapper配置扩展类到AutoMapper配置服务去  services.TryAddSingleton(serviceProvider =&gt;  {      var mapperConfigurationExpression = serviceProvider.GetRequiredService&lt;MapperConfigurationExpression&gt;();      //通过自动注入工厂类获取声明数据源对象与DTO对象自动创建映射关系      var factory = serviceProvider.GetRequiredService&lt;AutoInjectFactory&gt;();      foreach (var (sourceType, targetType) in factory.AddAssemblys)      {          mapperConfigurationExpression.CreateMap(sourceType, targetType);      }      var mapperConfiguration = new MapperConfiguration(mapperConfigurationExpression);      mapperConfiguration.AssertConfigurationIsValid();      return mapperConfiguration;  });  //注入IMapper接口DI服务  services.TryAddSingleton(serviceProvider =&gt;  {      var mapperConfiguration = serviceProvider.GetRequiredService&lt;MapperConfiguration&gt;();      return mapperConfiguration.CreateMapper();  });  return services;  #endregion</pre> </div> <p>再新增一个使用自动注入工厂类服务静态方法：</p> <div class="ay1code"> <pre class="brush:csharp;">/// &lt;summary&gt;  /// 使用自动注入工厂类  /// &lt;/summary&gt;  /// &lt;param name="applicationBuilder"&gt;&lt;/param&gt;  public static void UseAutoInject(this IApplicationBuilder applicationBuilder)  {     applicationBuilder.ApplicationServices.GetRequiredService&lt;AutoInjectFactory&gt;();  }</pre> </div> <p>然后在Startup.ConfigureServices注入AutoMapper组件服务，然后在Startup.Configure上调用UseAutoInject静态方法，具体代码如下：</p> <div class="ay1code"> <pre class="brush:csharp;">app.UseAutoInject();</pre> </div> <p>运行效果：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/b7e1132a67556aa6b2eac93b4f642f1a.jpg"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53478.htm">Vue2.0 Vue路由 全局后置路由守卫</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-53479.htm" title="ASP.NET Core使用AutoMapper组件_实用技巧">ASP.NET Core使用AutoMapper组件_实用技巧</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-kitsunebi-windows.htm" title="1月11日→22.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月11日→22.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23246.htm" title="饮料批发一手货源市场（饮料批发一手货源市场合肥）">饮料批发一手货源市场（饮料批发一手货源市场合肥）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-kitsunebi-node.htm" title="1月16日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月16日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-kitsunebi-node.htm" title="12月27日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月27日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45348.htm" title="动物接种疫苗的好处有哪些呢（动物疫苗接种禁忌症和注意事项）">动物接种疫苗的好处有哪些呢（动物疫苗接种禁忌症和注意事项）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-node-share.htm" title="11月25日→21.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月25日→21.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21876.htm" title="猫驱虫多少钱一只（猫驱虫多少钱一次）">猫驱虫多少钱一只（猫驱虫多少钱一次）</a></li>
+                        <li class="py-2"><a href="/news/article-18701.htm" title="自己在家怎么做电商该找哪个平台找货源（在家怎么做电商赚钱）">自己在家怎么做电商该找哪个平台找货源（在家怎么做电商赚钱）</a></li>
+                        <li class="py-2"><a href="/news/article-31676.htm" title="宠物店医疗许可证图片（宠物医疗许可证哪里办）">宠物店医疗许可证图片（宠物医疗许可证哪里办）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
