@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-54022.htm" />
+    <meta charset="utf-8">
+    <title>Docker基础 — 36、CMD指令和ENTRYPOINT指令的区别</title>
+        <meta name="description" content="目录  1、CMD指令和ENTRYPOINT指令说明 2、CMD指令只有最后一条生效的原因 3、CMD指令演示 4、ENTRYPOINT指令演示 5、总结   CMD指令和ENTRYPOINT指令作用" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-54022.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="Docker基础 — 36、CMD指令和ENTRYPOINT指令的区别" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/800c9d6b6fecfa4342344882367a8555.webp" />
+        <meta property="og:release_date" content="2025-02-10T07:36:56" />
+    <meta property="og:updated_time" content="2025-02-10T07:36:56" />
+        <meta property="og:description" content="目录  1、CMD指令和ENTRYPOINT指令说明 2、CMD指令只有最后一条生效的原因 3、CMD指令演示 4、ENTRYPOINT指令演示 5、总结   CMD指令和ENTRYPOINT指令作用" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Docker基础 — 36、CMD指令和ENTRYPOINT指令的区别">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">Docker基础 — 36、CMD指令和ENTRYPOINT指令的区别</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#1cmd%E6%8C%87%E4%BB%A4%E5%92%8Centrypoint%E6%8C%87%E4%BB%A4%E8%AF%B4%E6%98%8E" rel="nofollow">1、CMD指令和ENTRYPOINT指令说明</a></li> <li><a href="#2cmd%E6%8C%87%E4%BB%A4%E5%8F%AA%E6%9C%89%E6%9C%80%E5%90%8E%E4%B8%80%E6%9D%A1%E7%94%9F%E6%95%88%E7%9A%84%E5%8E%9F%E5%9B%A0" rel="nofollow">2、CMD指令只有最后一条生效的原因</a></li> <li><a href="#3cmd%E6%8C%87%E4%BB%A4%E6%BC%94%E7%A4%BA" rel="nofollow">3、CMD指令演示</a></li> <li><a href="#4entrypoint%E6%8C%87%E4%BB%A4%E6%BC%94%E7%A4%BA" rel="nofollow">4、ENTRYPOINT指令演示</a></li> <li><a href="#5%E6%80%BB%E7%BB%93" rel="nofollow">5、总结</a></li> </ul> </div> <p>CMD指令和ENTRYPOINT指令作用都是指定一个容器启动时要运行的命令。</p> <h2 id="1cmd指令和entrypoint指令说明">1、CMD指令和ENTRYPOINT指令说明</h2> <p><strong>CMD指令， 支持三种格式：</strong></p> <pre><code>CMD ["executable","param1","param2"] ：使用 exec 执行，推荐方式；  CMD command param1 param2 ：在 /bin/sh 中执行，提供给需要交互的应用；  CMD ["param1","param2"] ：提供给 ENTRYPOINT 的默认参数；</code></pre> <p>每个Dockerfile只能生效一条CMD指令。如果指定了多条CMD指令，只有最后一条生效。</p> <p>如果用户启动容器时候指定了运行的命令，则会覆盖掉CMD指定的命令。</p> <p><strong>ENTRYPOINT指令，支持两种格式：</strong></p> <pre><code>ENTRYPOINT ["executable", "param1", "param2"]  ENTRYPOINT command param1 param2 ：shell中执行</code></pre> <p>每个Dockerfile中只能生效一个ENTRYPOINT指令，当有多个ENTRYPOINT指令时，只有最后一个起效。</p> <p>如果用户启动容器时候指定了运行的命令，不会被<code>docker run</code>执行的命令参数覆盖。（追加效果：<code>docker run</code>命令之后的参数，会被当做参数传递给ENTRYPOINT，之后形成新的命令组合）</p> <h2 id="2cmd指令只有最后一条生效的原因">2、CMD指令只有最后一条生效的原因</h2> <p>CMD指令是一个容器中默认的可执行命令。也就是容器启动以后，默认执行的命令。（默认是重点）</p> <p>换句话说，给出了CMD指令的一个角色定位，它主要作用是<strong>定义默认的容器启动后执行的命令</strong>。</p> <blockquote> <p>提示：</p> <p>这也就是网上所说，只有最后一条CMD指令会生效，之前的都会被覆盖掉。</p> <p>就是因为CMD指令的角色定位就是默认，如果你不进行额外指定，那么就执行CMD指令。否则，你要自己指定了命令，那么就不会执行CMD指令，这也就是相当于CMD指令会被覆盖。</p> </blockquote> <p>而ENTRYPOINT指令，才是正统地用于定义容器启动以后的执行体，从名字上我们也可以看出，<code>entrypoint</code> 入口点的意思，一个容器的“入口”。</p> <h2 id="3cmd指令演示">3、CMD指令演示</h2> <p>我们以ContOS镜像为基础，对该镜像进行修改。</p> <p><strong>（1）准备测试环境</strong></p> <p>进入宿主机<code>/home/mydockerfile</code>目录中，创建Dockerfil文件<code>Dockerfile_cmd</code>。</p> <pre><code class="language-shell"># mydockerfile目录中创建Dockerfile_cmd文件 [root@192 mydockerfile]# pwd /home/mydockerfile [root@192 mydockerfile]# touch Dockerfile_cmd</code></pre> <p>编辑<code>Dockerfile_cmd</code>文件，内容如下：</p> <pre><code class="language-dockerfile">FROM centos # 继承了本地的centos镜像 CMD ["ls","-a"] # 执行ls -a 命令</code></pre> <blockquote> <p>说明：我们之前CMD执行都是<code>/bin/bash</code>，这回改成<code>ls -a</code>命令是一样的，就是启动容器后执行<code>ls -a</code>命令。</p> </blockquote> <p>根据<code>Dockerfile_cmd</code>生成<code>cmd</code>镜像。</p> <pre><code class="language-shell">[root@192 mydockerfile]# docker build -f /home/mydockerfile/Dockerfile_cmd -t wukong/cmd:1.0 . Sending build context to Docker daemon  3.072kB Step 1/2 : FROM centos  ---&gt; 300e315adb2f Step 2/2 : CMD ["ls","-a"]  ---&gt; Running in e34a0fc14329 Removing intermediate container e34a0fc14329  ---&gt; de211d4ca7f3 Successfully built de211d4ca7f3 Successfully tagged wukong/cmd:1.0</code></pre> <p><strong>（2）进行验证</strong></p> <p>运行<code>wukong/cmd</code>镜像，查看结果。</p> <pre><code class="language-shell"># 查看本地Docker镜像 [root@192 mydockerfile]# docker images REPOSITORY      TAG       IMAGE ID       CREATED         SIZE wukong/cmd      1.0       de211d4ca7f3   2 minutes ago   209MB wokong_centos   1.6       6441f63090d4   3 hours ago     291MB centos          latest    300e315adb2f   3 months ago    209MB  # 直接运行该容器，查看结果，输出了默认工作目录中的内容。 [root@192 mydockerfile]# docker run wukong/cmd:1.0 . .. .dockerenv bin dev etc home lib lib64 lost+found media mnt opt proc root run sbin srv sys tmp usr var  # 容器启动，执行完ls -a 命令后，就会停止。 [root@192 mydockerfile]# docker ps CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES</code></pre> <p>接下来，我们在<code>docker run</code>命令后，加入<code>-l</code>命令，我们再来查看一下结果。</p> <pre><code class="language-shell">[root@192 mydockerfile]# docker run wukong/cmd:1.0 -l docker: Error response from daemon: OCI runtime create failed: container_linux.go:367: starting container process caused: exec: "-l": executable file not found in $PATH: unknown.</code></pre> <p><strong>说明：</strong></p> <p><strong>我的意思是想追加一个<code>-l</code>参数，让容器启动后，执行<code>ls -al</code>命令。结果我们看到是，可执行文件找不到的报错，<code> exec: "-l":executable file not found</code>。</strong></p> <p><strong>这就是我们之前说过的，跟在镜像名后面的是<code>command</code>（命令），运行时会替换CMD的默认值。也就是<code>-l</code>参数替换了Dockerfile文件中的<code>CMD ["ls","-a"]</code>命令，而不是添加在原来的命令里。</strong></p> <p><strong>而单独的<code>-l</code>参数不是Linux命令，不能单独的命令，自然找不到，所以就报错了。</strong></p> <p><strong>所以综上所述，CMD指令会被<code>docker run</code>之后的参数替换。</strong></p> <p>那么如果我们希望加入<code>-l</code>这个参数，就必须重新完整的输入整个命令，如下：</p> <pre><code class="language-shell">[root@192 mydockerfile]# docker run wukong/cmd:1.0 ls -al total 0 drwxr-xr-x.   1 root root   6 Mar 20 11:13 . drwxr-xr-x.   1 root root   6 Mar 20 11:13 .. -rwxr-xr-x.   1 root root   0 Mar 20 11:13 .dockerenv lrwxrwxrwx.   1 root root   7 Nov  3 15:22 bin -&gt; usr/bin drwxr-xr-x.   5 root root 340 Mar 20 11:13 dev drwxr-xr-x.   1 root root  66 Mar 20 11:13 etc drwxr-xr-x.   2 root root   6 Nov  3 15:22 home lrwxrwxrwx.   1 root root   7 Nov  3 15:22 lib -&gt; usr/lib lrwxrwxrwx.   1 root root   9 Nov  3 15:22 lib64 -&gt; usr/lib64 drwx------.   2 root root   6 Dec  4 17:37 lost+found drwxr-xr-x.   2 root root   6 Nov  3 15:22 media drwxr-xr-x.   2 root root   6 Nov  3 15:22 mnt drwxr-xr-x.   2 root root   6 Nov  3 15:22 opt dr-xr-xr-x. 122 root root   0 Mar 20 11:13 proc dr-xr-x---.   2 root root 162 Dec  4 17:37 root drwxr-xr-x.  11 root root 163 Dec  4 17:37 run lrwxrwxrwx.   1 root root   8 Nov  3 15:22 sbin -&gt; usr/sbin drwxr-xr-x.   2 root root   6 Nov  3 15:22 srv dr-xr-xr-x.  13 root root   0 Mar 20 06:42 sys drwxrwxrwt.   7 root root 145 Dec  4 17:37 tmp drwxr-xr-x.  12 root root 144 Dec  4 17:37 usr drwxr-xr-x.  20 root root 262 Dec  4 17:37 var</code></pre> <h2 id="4entrypoint指令演示">4、ENTRYPOINT指令演示</h2> <p>和上面CMD指令演示相似。</p> <p>我们以ContOS镜像为基础，对该镜像进行修改。</p> <p><strong>（1）准备测试环境</strong></p> <p>进入宿主机<code>/home/mydockerfile</code>目录中，创建Dockerfil文件<code>Dockerfile_entrypoint</code>。</p> <pre><code class="language-shell"># mydockerfile目录中创建Dockerfile_entrypoint文件 [root@192 mydockerfile]# pwd /home/mydockerfile [root@192 mydockerfile]# touch Dockerfile_entrypoint</code></pre> <p>编辑<code>Dockerfile_entrypoint</code>文件，内容如下：</p> <pre><code class="language-dockerfile">FROM centos # 继承了本地的centos镜像 ENTRYPOINT ["ls","-a"] # 执行ls -a 命令</code></pre> <p>根据<code>Dockerfile_entrypoint</code>生成<code>entrypoint</code>镜像。</p> <pre><code class="language-shell">[root@192 mydockerfile]# docker build -f /home/mydockerfile/Dockerfile_entrypoint -t wukong/entrypoint:1.0 . Sending build context to Docker daemon  4.096kB Step 1/2 : FROM centos  ---&gt; 300e315adb2f Step 2/2 : ENTRYPOINT ["ls","-a"]  ---&gt; Running in ecd4a636d8be Removing intermediate container ecd4a636d8be  ---&gt; e641401b4ea5 Successfully built e641401b4ea5 Successfully tagged wukong/entrypoint:1.0</code></pre> <p><strong>（2）进行验证</strong></p> <p>运行<code>wukong/entrypoint</code>镜像，查看结果。</p> <pre><code class="language-shell"># 查看本地Docker镜像 [root@192 mydockerfile]# docker images REPOSITORY          TAG       IMAGE ID       CREATED         SIZE wukong/entrypoint   1.0       e641401b4ea5   2 minutes ago   209MB wukong/cmd          1.0       adda4543a402   3 minutes ago   209MB wokong_centos       1.6       6441f63090d4   4 hours ago     291MB centos              latest    300e315adb2f   3 months ago    209MB  # 直接运行该容器，查看结果，输出了默认工作目录中的内容。 [root@192 mydockerfile]# docker run wukong/entrypoint:1.0 . .. .dockerenv bin dev etc home lib lib64 lost+found media mnt opt proc root run sbin srv sys tmp usr var</code></pre> <p>接下来，我们在<code>docker run</code>命令后，加入<code>-l</code>命令，我们再来查看一下结果。</p> <pre><code class="language-shell">[root@192 mydockerfile]# docker run wukong/entrypoint:1.0 -l total 0 drwxr-xr-x.   1 root root   6 Mar 20 12:03 . drwxr-xr-x.   1 root root   6 Mar 20 12:03 .. -rwxr-xr-x.   1 root root   0 Mar 20 12:03 .dockerenv lrwxrwxrwx.   1 root root   7 Nov  3 15:22 bin -&gt; usr/bin drwxr-xr-x.   5 root root 340 Mar 20 12:03 dev drwxr-xr-x.   1 root root  66 Mar 20 12:03 etc drwxr-xr-x.   2 root root   6 Nov  3 15:22 home lrwxrwxrwx.   1 root root   7 Nov  3 15:22 lib -&gt; usr/lib lrwxrwxrwx.   1 root root   9 Nov  3 15:22 lib64 -&gt; usr/lib64 drwx------.   2 root root   6 Dec  4 17:37 lost+found drwxr-xr-x.   2 root root   6 Nov  3 15:22 media drwxr-xr-x.   2 root root   6 Nov  3 15:22 mnt drwxr-xr-x.   2 root root   6 Nov  3 15:22 opt dr-xr-xr-x. 124 root root   0 Mar 20 12:03 proc dr-xr-x---.   2 root root 162 Dec  4 17:37 root drwxr-xr-x.  11 root root 163 Dec  4 17:37 run lrwxrwxrwx.   1 root root   8 Nov  3 15:22 sbin -&gt; usr/sbin drwxr-xr-x.   2 root root   6 Nov  3 15:22 srv dr-xr-xr-x.  13 root root   0 Mar 20 06:42 sys drwxrwxrwt.   7 root root 145 Dec  4 17:37 tmp drwxr-xr-x.  12 root root 144 Dec  4 17:37 usr drwxr-xr-x.  20 root root 262 Dec  4 17:37 var</code></pre> <p><strong>说明：想给Dockerfile文件中的<code>ENTRYPOINT ["ls","-a"]</code>命令追加一个<code>-l</code>参数，让容器启动后执行<code>ls -al</code>命令，结果顺利执行。</strong></p> <p><strong>结论：这就说明了，ENTRYPOINT指令是可以在容器启动的时候追加命令。</strong></p> <h2 id="5总结">5、总结</h2> <ul> <li>CMD：CMD设置容器启动后默认执行的命令及其参数。但CMD设置的指令，能够被<code>docker run</code>命令后面的命令行参数替换（也就是可被重写覆盖）。</li> <li>ENTRYPOINT，表示镜像在初始化时需要执行的命令。不会被忽略，一定会被执行，即使运行<code>docker run</code>命令时指定了其他命令（也就是可被重写覆盖）。</li> <li>CMD和ENTRYPOINT都只能在文件中存在一次。如果多个存在，只有最后一个生效，其它无效！</li> <li>对于 CMD 和 ENTRYPOINT 的设计而言，多数情况下它们应该是单独使用的。当然，有一个例外是 CMD 为 ENTRYPOINT 提供默认的可选参数。</li> </ul> <blockquote> <p>说明：</p> <p>对于 Dockerfile 来说，CMD 和 ENTRYPOINT 是非常重要的指令。它们不是在构建镜像的过程中执行，而是在启动容器时执行，所以主要用来指定容器默认执行的命令。</p> <p>Dockerfile中很多命令的功能都十分的相似，我们需要了解它们的区别，我们最好的学习就是对比他们，然后测试效果。</p> <p>以上就是CMD指令和ENTRYPOINT指令的区别。</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53479.htm">ASP.NET Core使用AutoMapper组件_实用技巧</a></p>
+                                        <p>下一个：<a href="/news/article-54023.htm">弃养宠物协议范文 弃养宠物协议范文大全</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-subscribe-node.htm" title="1月23日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月23日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25575.htm" title="tensorflow根据输入更改tensor shape">tensorflow根据输入更改tensor shape</a></li>
+                        <li class="py-2"><a href="/news/article-26506.htm" title="maven生成war包的两种方式">maven生成war包的两种方式</a></li>
+                        <li class="py-2"><a href="/news/article-20047.htm" title="兽用冷藏疫苗被冷冻后还能用吗多久可以打（兽用疫苗放在冰箱对食物）">兽用冷藏疫苗被冷冻后还能用吗多久可以打（兽用疫苗放在冰箱对食物）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-node-share.htm" title="12月8日→18.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月8日→18.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-28359.htm" title="开宠物店亏本怎么办理（开宠物店亏本怎么办理营业执照）">开宠物店亏本怎么办理（开宠物店亏本怎么办理营业执照）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-today-kitsunebi-node.htm" title="12月26日→18.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月26日→18.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-kitsunebi-node.htm" title="2月11日→20.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月11日→20.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25110.htm" title="猫粮品牌推荐进口（猫粮进口什么牌子好）">猫粮品牌推荐进口（猫粮进口什么牌子好）</a></li>
+                        <li class="py-2"><a href="/news/article-18701.htm" title="自己在家怎么做电商该找哪个平台找货源（在家怎么做电商赚钱）">自己在家怎么做电商该找哪个平台找货源（在家怎么做电商赚钱）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
