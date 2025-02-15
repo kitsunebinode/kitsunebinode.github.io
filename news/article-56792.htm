@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-56792.htm" />
+    <meta charset="utf-8">
+    <title>[Kafka错误：window下运行一段时间后自动挂掉/宕机]&#8212;&#8211;kafka在window下出现另一个程序正在使用此文件,进程无法访问的错误</title>
+        <meta name="description" content="前言------对于只想解决这个问题的程序猿们，可以直接跳到"解决" 对于只想解决这个问题的程序猿们，可以直接跳到"解决" 对于只想解决这个问题的程序猿们，可以直接跳到"解决" 对于只想解决这个问题的" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-56792.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="[Kafka错误：window下运行一段时间后自动挂掉/宕机]&#8212;&#8211;kafka在window下出现另一个程序正在使用此文件,进程无法访问的错误" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/79d68e5cefec4ebab2eca4c6f7195c66.webp" />
+        <meta property="og:release_date" content="2025-02-15T05:21:13" />
+    <meta property="og:updated_time" content="2025-02-15T05:21:13" />
+        <meta property="og:description" content="前言------对于只想解决这个问题的程序猿们，可以直接跳到"解决" 对于只想解决这个问题的程序猿们，可以直接跳到"解决" 对于只想解决这个问题的程序猿们，可以直接跳到"解决" 对于只想解决这个问题的" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="[Kafka错误：window下运行一段时间后自动挂掉/宕机]&#8212;&#8211;kafka在window下出现另一个程序正在使用此文件,进程无法访问的错误">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">[Kafka错误：window下运行一段时间后自动挂掉/宕机]&#8212;&#8211;kafka在window下出现另一个程序正在使用此文件,进程无法访问的错误</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p id="main-toc"><strong>前言------对于只想解决这个问题的程序猿们，可以直接跳到"</strong><strong>解决"</strong></p> <p>对于只想解决这个问题的程序猿们，可以直接跳到"<strong>解决"</strong></p> <p>对于只想解决这个问题的程序猿们，可以直接跳到"<strong>解决"</strong></p> <p>对于只想解决这个问题的程序猿们，可以直接跳到"<strong>解决"</strong></p> </h1> <p>之前使用kafka都是在Linux环境下的，没有出现什么kafka本身的问题。但是，目前在做的一个项目需要兼容Window和Linux，在Window环境下使用Kafka时才发现kafka本身对于window的兼容不如Linux。</p> </h1> <p>window下对kafka进行测试的时候，发现kafka在上线一段时间之后，出现了错误：</p> <p>另一个程序正在使用文件，进程无法访问。</p> <p><img fetchpriority="high" decoding="async" alt="" height="92" src="http://img.555519.xyz/uploads3/20220824/9201feede8bb6512810f3305d0c2bf15.jpg"></p> </h1> <p>kafka日志清理策略触发，在window环境下，在打开需要清理的日志的同时，<strong>对该文件进行重命名操作是不被允许的</strong>（linux环境下可以），从而导致kafka宕机。</p> <p>网上的解决方案最多的就是“<strong>清空kafka的日志文件然后重启kafka</strong>”，这种解决方式在生产环境下显然是不现实的。所以在一开始我又针对情况得出以下两种解决方案：</p> <p>方案一：修改日志清理策略，将日志清理时间修改为无穷（-1），使kafka数据日志永久存储<br /> 缺点：（1）磁盘空间会不断增大<br /> 方案二：在window上搭建虚拟机（docker同理，且更麻烦），然后在虚拟机中部署kafka<br /> 缺点：（1）运维人员需要懂点linux运维知识（2）增加内存消耗</p> <p><strong>显然，这两种方案的缺点都让我无法忍受，所以我把视线转向kafka社区寻求帮助</strong>。<u><strong><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/apache/kafka/pull/6329"  rel="nofollow">点击此处膜拜大神们的探讨</a></strong></u></p> <p>据了解，原来kafka在window下的这个问题，还并不没有想象中的那么容易，官方目前为止也没有解决方案。换句话说（你们就不要在window下使用kafka啦！）</p> <p>方案三：不过即便如此，在window下使用kafka的需求还是存在的，所以还是有很多大神们在关注并提出一些解决方案的。其中就有一位大神针对这个问题对kafka源码进行了二次开发。经过测试，他的这个方案在window下确实解决了问题，使得kafka可以在window下使用。但是对于这个方案，kafka的contributor说可能不太安全（就是不能将该补丁整合到官方中）。</p> </h1> <p>虽然kafka官方说该补丁不太安全，但是官方在目前为止又没有什么作为。而需求确是实实在在存在的，所以在一番考虑之下，我还是打算采用方案三的方式，一劳永逸的解决问题，所以接下来我们就要将该补丁打进，并重新编译kafka。</p> <h2 id="4.1kafka%E8%A1%A5%E4%B8%81%E7%89%88%E6%9C%AC%E4%B8%8B%E8%BD%BD"><a name="t5" rel="nofollow"></a>4.1kafka补丁版本下载</h2> <p>下载该作者的kafka补丁版本</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/apache/kafka/tree/0baf9c158b5681a55df4de3a0e6193d32b1433ff"  rel="nofollow">https://github.com/apache/kafka/tree/0baf9c158b5681a55df4de3a0e6193d32b1433ff</a></p> <h2 id="4.2%E7%BC%96%E8%AF%91kafka%E8%A1%A5%E4%B8%81%E7%89%88%E6%9C%AC"><a name="t6" rel="nofollow"></a>4.2编译kafka补丁版本</h2> <p>由于kafka编译是通过gradle的，所以需要先配置好gradle</p> <p>关于如何配置gradle可以参考这篇文章（转载来的，侵权即删）------<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/zhaokai0130/article/details/81008719"  rel="nofollow">Windows下gradle的安装与配置</a></p> <p>关于如何编译kafka，可以参考github------<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/apache/kafka/tree/0baf9c158b5681a55df4de3a0e6193d32b1433ff"  rel="nofollow">如何使用gradle编译kafka</a></p> <p>编译完之后，就可以得到一个可以在window下使用的kafka包了。</p> <p>本着“复制-粘贴“的理念（毕竟编译源码还是挺耗时间的），这里提供一个我编译好的kafka包下载链接，下载直接使用即可</p> </h1> <p><strong>下载链接：https://pan.baidu.com/s/1loRZdolXE48Ugn4t7sEphg<br /> 提取码：90xz</strong></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-56234.htm">动物打预防针去哪里打的好（动物疫苗去哪里买）</a></p>
+                                        <p>下一个：<a href="/news/article-56793.htm">什么季节买狗最佳时间（买狗哪个季节买好）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-32635.htm" title="辽宁沈阳猫咪批发市场地址（沈阳最大猫市）">辽宁沈阳猫咪批发市场地址（沈阳最大猫市）</a></li>
+                        <li class="py-2"><a href="/news/article-24179.htm" title="动物疫苗审批流程图片（动物疫苗审批流程图片高清）">动物疫苗审批流程图片（动物疫苗审批流程图片高清）</a></li>
+                        <li class="py-2"><a href="/news/article-51882.htm" title="塞尔达传说荒野之息海拉鲁神庙（塞尔达海拉鲁遗迹在哪里）">塞尔达传说荒野之息海拉鲁神庙（塞尔达海拉鲁遗迹在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-subscribe-node.htm" title="1月23日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月23日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-node-subscribe-links.htm" title="11月20日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月20日→21.7M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-35667.htm" title="时间复杂度与空间复杂度">时间复杂度与空间复杂度</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-free-node-subscribe-links.htm" title="12月28日→21.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月28日→21.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-subscribe-node.htm" title="2月12日→22.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月12日→22.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-46321.htm" title="分布式缓存&#8211;缓存与数据库一致性方案">分布式缓存&#8211;缓存与数据库一致性方案</a></li>
+                        <li class="py-2"><a href="/news/article-26974.htm" title="将时间戳值增加微秒以将其转换为整数，MySQL将返回什么？">将时间戳值增加微秒以将其转换为整数，MySQL将返回什么？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
