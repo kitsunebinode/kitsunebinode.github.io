@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-58629.htm" />
+    <meta charset="utf-8">
+    <title>Spingboot Resttemplate连接池配置</title>
+        <meta name="description" content="Spingboot Resttemplate连接池配置   为什么要整合HttpClient RestTemplate是Spring自带的一个调用rest服务的客户端,它提供了多种便捷访问远程Http" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-58629.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="Spingboot Resttemplate连接池配置" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/f76182b93bb9f8e2898a09fd7036caf9.webp" />
+        <meta property="og:release_date" content="2025-02-18T09:44:27" />
+    <meta property="og:updated_time" content="2025-02-18T09:44:27" />
+        <meta property="og:description" content="Spingboot Resttemplate连接池配置   为什么要整合HttpClient RestTemplate是Spring自带的一个调用rest服务的客户端,它提供了多种便捷访问远程Http" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spingboot Resttemplate连接池配置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">Spingboot Resttemplate连接池配置</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="Spingboot_Resttemplate_0" rel="nofollow"></a>Spingboot Resttemplate连接池配置</h2> <ol> <li> <p>为什么要整合HttpClient<br /> RestTemplate是Spring自带的一个调用rest服务的客户端,它提供了多种便捷访问远程Http服务的方法,能够大大提高客户端的编写效率。<br /> RestTemplate默认是使用JDK原生的URLConnection,默认超时为-1, 也就表示是没有超时时间的,这个肯定不能满足复杂情况的使用需求, restTemplate的工厂是支持使用HttpClient和OkHttp来作为客户端实现的</p> </li> <li> <p>为什么要使用连接池<br /> 在调用rest请求时,每次请求都需要和服务端建立连接,也就是三次握手,这是一个费时费力的工作,如果我们需要频繁对一个服务端进行调用,难道需要一直去建立连接吗?<br /> 所以使用连接池,可以避免多次建立连接的操作,节省资源开支。</p> </li> </ol> <pre><code>package com.jshhxx.framework.config;  import org.apache.http.client.HttpClient; import org.apache.http.client.config.RequestConfig; import org.apache.http.config.Registry; import org.apache.http.config.RegistryBuilder; import org.apache.http.conn.socket.ConnectionSocketFactory; import org.apache.http.conn.socket.PlainConnectionSocketFactory; import org.apache.http.conn.ssl.SSLConnectionSocketFactory; import org.apache.http.impl.client.HttpClientBuilder; import org.apache.http.impl.conn.PoolingHttpClientConnectionManager; import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration; import org.springframework.http.client.ClientHttpRequestFactory; import org.springframework.http.client.HttpComponentsClientHttpRequestFactory; import org.springframework.web.client.RestTemplate; /**  * Restemplate 连接池配置  *  * */ @Configuration public class RestTemplateConfig {     @Bean     public RestTemplate restTemplate() {         return new RestTemplate(httpRequestFactory());     }      @Bean     public ClientHttpRequestFactory httpRequestFactory() {          return new HttpComponentsClientHttpRequestFactory(httpClient());      }      /**      * http链接池      * 服务器返回数据(response)的时间，超过该时间抛出read timeout      * @return      */     @Bean     public HttpClient httpClient() {         Registry&lt;ConnectionSocketFactory&gt; registry = RegistryBuilder.&lt;ConnectionSocketFactory&gt;create()                 .register("http", PlainConnectionSocketFactory.getSocketFactory())                 .register("https", SSLConnectionSocketFactory.getSocketFactory())                 .build();         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager(registry);         //设置整个连接池最大连接数 根据自己的场景决定         connectionManager.setMaxTotal(2000);         //路由是对maxTotal的细分         connectionManager.setDefaultMaxPerRoute(100);         RequestConfig requestConfig = RequestConfig.custom()                 .setSocketTimeout(100000) //服务器返回数据(response)的时间，超过该时间抛出read timeout                 .setConnectTimeout(50000)//连接上服务器(握手成功)的时间，超出该时间抛出connect timeout                 .setConnectionRequestTimeout(10000)//从连接池中获取连接的超时时间，超过该时间未拿到可用连接，会抛出org.apache.http.conn.ConnectionPoolTimeoutException: Timeout waiting for connection from pool                 .build();         return HttpClientBuilder.create()                 .setDefaultRequestConfig(requestConfig)                 .setConnectionManager(connectionManager)                 .build();     } } </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57922.htm">长沙宠物救助站在哪里（长沙宠物救助站领养宠物）</a></p>
+                                        <p>下一个：<a href="/news/article-58630.htm">大兴区动物检疫所（大兴区动物检疫所地址）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-node-share.htm" title="12月8日→18.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月8日→18.9M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-kitsunebi-node.htm" title="2月11日→20.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月11日→20.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-free-kitsunebi-node.htm" title="1月27日→19.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月27日→19.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-kitsunebi-windows.htm" title="12月18日→21.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月18日→21.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-34058.htm" title="想寄猫怎么寄（想寄猫怎么寄快递）">想寄猫怎么寄（想寄猫怎么寄快递）</a></li>
+                        <li class="py-2"><a href="/news/article-43350.htm" title="动物疫苗新法案例分析题及答案 动物疫苗新法案例分析题及答案解析">动物疫苗新法案例分析题及答案 动物疫苗新法案例分析题及答案解析</a></li>
+                        <li class="py-2"><a href="/news/article-57359.htm" title="宠物医院武汉（武汉宠物医院24小时营业）">宠物医院武汉（武汉宠物医院24小时营业）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-node-subscribe.htm" title="1月26日→20.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月26日→20.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32635.htm" title="辽宁沈阳猫咪批发市场地址（沈阳最大猫市）">辽宁沈阳猫咪批发市场地址（沈阳最大猫市）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-node-subscribe.htm" title="12月14日→20.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月14日→20.8M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
