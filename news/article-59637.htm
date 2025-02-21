@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-59637.htm" />
+    <meta charset="utf-8">
+    <title>利用QEMU+GDB搭建Linux内核调试环境</title>
+        <meta name="description" content="前言 对用户态进程，利用gdb调试代码是很方便的手段。而对于内核态的问题，可以利用crash等工具基于coredump文件进行调试。 其实我们也可以利用一些手段对Linux内核代码进行gdb调试，qe" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-59637.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="利用QEMU+GDB搭建Linux内核调试环境" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/9359846c43237d6697d0870cc4a3bb32.webp" />
+        <meta property="og:release_date" content="2025-02-20T09:55:06" />
+    <meta property="og:updated_time" content="2025-02-20T09:55:06" />
+        <meta property="og:description" content="前言 对用户态进程，利用gdb调试代码是很方便的手段。而对于内核态的问题，可以利用crash等工具基于coredump文件进行调试。 其实我们也可以利用一些手段对Linux内核代码进行gdb调试，qe" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="利用QEMU+GDB搭建Linux内核调试环境">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">利用QEMU+GDB搭建Linux内核调试环境</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<h2 id="前言">前言</h2> <p>对用户态进程，利用gdb调试代码是很方便的手段。而对于内核态的问题，可以利用crash等工具基于coredump文件进行调试。</p> <p>其实我们也可以利用一些手段对Linux内核代码进行gdb调试，qemu就是一种。</p> <p>qemu是一款完全软件模拟(Binary translation)的虚拟化软件，在虚拟化的实现中性能相对较差。但利用它在测试环境中gdb调试Linux内核代码，是熟悉Linux内核代码的一个好方法。</p> <p>本文实验环境：</p> <ul> <li>ubuntu 20.04</li> <li>busybox-1.32.1</li> <li>Linux kernel 4.9.3</li> <li>QEMU</li> <li>GDB 10.1</li> </ul> <h2 id="编译内核源码">编译内核源码</h2> <pre><code class="language-bash">git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git tar -xvzf linux-4.9.301.tar.gz cd linux-4.9.301 make menuconfig</code></pre> <p>在内核编译选项中，开启如下"Compile the kernel with debug info"</p> <pre><code class="language-bash">Kernel hacking ---&gt;   Compile-time checks and compiler options ---&gt;     [ ] Compile the kernel with debug info</code></pre> <p>示意图如下，利用键盘选中debug选项，然后敲"Y"勾选：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/06d7ee110d713ccbbc408806f329d7e3.jpg" alt="利用QEMU+GDB搭建Linux内核调试环境"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/539389e6d9b130f435696901288d63b8.jpg" alt="利用QEMU+GDB搭建Linux内核调试环境"></p> <p>以上配置完成后会在当前目录生成<code>.config</code> 文件，我们可以使用<code>grep</code> 进行验证：</p> <pre><code>grep CONFIG_DEBUG_INFO .config CONFIG_DEBUG_INFO=y</code></pre> <p>编译内核</p> <pre><code class="language-bash">make bzImage -j4</code></pre> <p>编译完成后，会在当前目录下生成vmlinux，这个在 gdb 的时候需要加载，用于读取 symbol 符号信息，包含了所有调试信息，所以比较大。</p> <p>压缩后的镜像文件为bzImage， 在arch/x86/boot/目录下。</p> <pre><code class="language-bash">➜  linux-4.9.301 ls -hl vmlinux -rwxrwxr-x 1 ubuntu ubuntu 578M Apr 15 08:14 vmlinux  ➜  linux-4.9.301 ls -hl ./arch/x86_64/boot/bzImage lrwxrwxrwx 1 ubuntu ubuntu 22 Apr 15 08:15 ./arch/x86_64/boot/bzImage -&gt; ../../x86/boot/bzImage  ➜  linux-4.9.301 ls -hl ./arch/x86/boot/bzImage  -rw-rw-r-- 1 ubuntu ubuntu 9.3M Apr 15 08:15 ./arch/x86/boot/bzImage</code></pre> <blockquote> <p>几种linux内核文件的区别:</p> <p>vmlinux 编译出来的最原始的内核文件，未压缩。</p> <p>zImage  是vmlinux经过gzip压缩后的文件。</p> <p>bzImage bz表示“big zImage”，不是用bzip2压缩的。两者的不同之处在于，zImage解压缩内核到低端内存(第一个640K)。</p> <p>bzImage解压缩内核到高端内 存(1M以上)。如果内核比较小，那么采用zImage或bzImage都行，如果比较大应该用bzImage。</p> <p>uImage  U-boot专用的映像文件，它是在zImage之前加上一个长度为0x40的tag。</p> <p>vmlinuz 是bzImage/zImage文件的拷贝或指向bzImage/zImage的链接。</p> <p>initrd  是“initial ramdisk”的简写。一般被用来临时的引导硬件到实际内核vmlinuz能够接管并继续引导的状态。</p> </blockquote> <h2 id="编译busybox">编译busybox</h2> <p>Linux系统启动阶段，boot loader加载完内核文件vmlinuz后，内核紧接着需要挂载磁盘根文件系统，但如果此时内核没有相应驱动，无法识别磁盘，就需要先加载驱动。</p> <p>而驱动又位于<code>/lib/modules</code>，得挂载根文件系统才能读取，这就陷入了一个两难境地，系统无法顺利启动。</p> <p>于是有了initramfs根文件系统，其中包含必要的设备驱动和工具，bootloader加载initramfs到内存中，内核会将其挂载到根目录<code>/</code>,然后运行<code>/init</code>脚本，挂载真正的磁盘根文件系统。</p> <p>这里借助BusyBox构建极简initramfs，提供基本的用户态可执行程序。</p> <p>可以从<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.busybox.net/"  target="_blank" rel="nofollow">busybox官网地址</a>下载最新版本，或者直接使用wget下载我使用的版本。</p> <pre><code class="language-bash">wget https://busybox.net/downloads/busybox-1.32.1.tar.bz2 $ tar -xvf busybox-1.32.1.tar.bz2 $ cd busybox-1.32.1/ $ make menuconfig</code></pre> <p>在编译busybox之前，我们需要对其进行设置，执行make menuconfig，如下</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/425a5e13c1b9a76dd891675e1dae268b.jpg" alt="利用QEMU+GDB搭建Linux内核调试环境"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d91a0ff286a37d79202bf88abef28859.jpg" alt="利用QEMU+GDB搭建Linux内核调试环境"></p> <p>这里一定要选择<strong>静态编译</strong>，编译好的可执行文件<code>busybox</code>不依赖动态链接库，可以独立运行，方便构建initramfs。</p> <p>之后选择Exit退出，到这里我们就可以编译busybox了，执行下面的命令</p> <pre><code class="language-bash">make -j 8 # 安装完成后生成的相关文件会在 _install 目录下 make &amp;&amp; make install</code></pre> <h3 id="构建initramfs根文件系统">构建initramfs根文件系统</h3> <pre><code class="language-bash">[root@localhost temp]# ls busybox-1.29.0  busybox-1.29.0.tar.bz2 [root@localhost temp]# mkdir initramfs [root@localhost temp]# cd initramfs [root@localhost initramfs]# cp ../busybox-1.32.1/_install/* -rf ./ [root@localhost initramfs]# mkdir dev proc sys [root@localhost initramfs]# sudo cp -a /dev/{null,console,tty,tty1,tty2,tty3,tty4} dev/ [root@localhost initramfs]# rm -f linuxrc [root@localhost initramfs]# vim init [root@localhost initramfs]# chmod a+x init [root@localhost initramfs]# ls bin  dev  init  proc  sbin  sys  usr</code></pre> <p>其中init的内容如下</p> <pre><code class="language-bash">#!/bin/busybox sh echo "{==DBG==} INIT SCRIPT" mount -t proc none /proc mount -t sysfs none /sys  echo -e "{==DBG==} Boot took $(cut -d' ' -f1 /proc/uptime) seconds" exec /sbin/init</code></pre> <h3 id="打包initramfs">打包initramfs</h3> <pre><code class="language-bash">find . -print0 | cpio --null -ov --format=newc | gzip -9 &gt; ../initramfs.cpio.gz [root@localhost initramfs]# ls ../ busybox-1.29.0  busybox-1.29.0.tar.bz2  initramfs  initramfs.cpio.gz</code></pre> <h2 id="安装qemu">安装QEMU</h2> <pre><code class="language-bash">apt install qemu qemu-utils qemu-kvm virt-manager libvirt-daemon-system libvirt-clients bridge-utils</code></pre> <h2 id="安装gdb">安装GDB</h2> <pre><code class="language-bash">wget https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.gz tar -xzvf gdb-10.1.tar.gz cd  gdb-10.1 ./configure # 必需要安装这两个库 sudo apt-get install texinfo sudo apt-get install build-essential make -j 8 sudo make install</code></pre> <h2 id="qemu启动调试内核">QEMU启动调试内核</h2> <pre><code class="language-bash">➜  linux-4.9.301 qemu-system-x86_64 -kernel ./arch/x86/boot/bzImage -initrd ../initramfs.cpio.gz -append "nokaslr console=ttyS0" -s -S -nographic</code></pre> <ul> <li><code>-kernel ./arch/x86/boot/bzImage</code>：指定启用的内核镜像；</li> <li><code>-initrd ../initramfs.cpio.gz</code>：指定启动的内存文件系统；</li> <li><code>-append "nokaslr console=ttyS0"</code> ：附加参数，其中<code>nokaslr</code> 参数<strong>必须添加进来</strong>，防止内核起始地址随机化，这样会导致 gdb 断点不能命中；</li> <li><code>-s</code> ：监听在 gdb 1234 端口；</li> <li><code>-S</code> ：表示启动后就挂起，等待 gdb 连接；</li> <li><code>-nographic</code>：不启动图形界面，调试信息输出到终端与参数<code>console=ttyS0</code> 组合使用；</li> </ul> <p>在另一个窗口中，输入gdb，即可开启调试。</p> <pre><code class="language-bash">(gdb) target remote localhost:1234 Remote debugging using localhost:1234 warning: Can not parse XML target description; XML support was disabled at compile time Remote 'g' packet reply is too long (expected 560 bytes, got 608 bytes): 0000000000000000000000000000000000000000000000006306000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f0ff0000000000000200000000f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000060000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007f0300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000801f0000 (gdb) Remote debugging using localhost:1234 Undefined command: "Remote".  Try "help". (gdb) warning: Can not parse XML target description; XML support was disabled at compile timeQuit</code></pre> <p>但是，在启动GDP调试时报错了，在查阅了诸多资料后，很多博客都给出了修复方法：源码重新安装gdb，并修改gdb/remote.c文件的一段代码。但是我尝试了，发现行不通。</p> <p>出现该问题的原因是：编译 的是64 位模式的内核代码，但是运行是在 32 位保护模式下。64 位代码将无法在该环境中正常运行。</p> <p>终于在stackflow上找到了修复方法：具体可以参考下面两篇文章。</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://stackoverflow.com/questions/48620622/how-to-solve-qemu-gdb-debug-error-remote-g-packet-reply-is-too-long"  target="_blank" rel="nofollow">https://stackoverflow.com/questions/48620622/how-to-solve-qemu-gdb-debug-error-remote-g-packet-reply-is-too-long</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://wiki.osdev.org/QEMU_and_GDB_in_long_mode"  target="_blank" rel="nofollow">https://wiki.osdev.org/QEMU_and_GDB_in_long_mode</a></p> <p>文章中给出了三种修复方法，我这里只列出了一种，即修改GDB源码，重新编译安装。</p> <pre><code class="language-c">--- gdb/remote.c  	2016-04-14 11:13:49.962628700 +0300 +++ gdb/remote.c	2016-04-14 11:15:38.257783400 +0300 @@ -7181,8 +7181,28 @@    buf_len = strlen (rs-&gt;buf);      /* Further sanity checks, with knowledge of the architecture.  */ +// HACKFIX for changing architectures for qemu. It's ugly. Don't use, unless you have to. +  // Just a tiny modification of the patch of Matias Vara (http://forum.osdev.org/viewtopic.php?f=13&amp;p=177644)    if (buf_len &gt; 2 * rsa-&gt;sizeof_g_packet) -    error (_("Remote 'g' packet reply is too long: %s"), rs-&gt;buf); +    { +      warning (_("Assuming long-mode change. [Remote 'g' packet reply is too long: %s]"), rs-&gt;buf); +      rsa-&gt;sizeof_g_packet = buf_len ; + +      for (i = 0; i &lt; gdbarch_num_regs (gdbarch); i++) +        { +          if (rsa-&gt;regs[i].pnum == -1) +            continue; + +          if (rsa-&gt;regs[i].offset &gt;= rsa-&gt;sizeof_g_packet) +            rsa-&gt;regs[i].in_g_packet = 0; +          else +            rsa-&gt;regs[i].in_g_packet = 1; +        } + +      // HACKFIX: Make sure at least the lower half of EIP is set correctly, so the proper +      // breakpoint is recognized (and triggered). +      rsa-&gt;regs[8].offset = 16*8; +    }      /* Save the size of the packet sent to us by the target.  It is used       as a heuristic when determining the max size of packets that the</code></pre> <pre><code class="language-bash">cd gdb-10.1 ./configure make -j 8 sudo make install</code></pre> <p>接着就可以敲gdb 启动调试。</p> <pre><code class="language-bash">➜  linux-4.9.301 gdb                                                                                                                              GNU gdb (GDB) 10.1 Copyright (C) 2020 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt; This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law. Type "show copying" and "show warranty" for details. This GDB was configured as "x86_64-pc-linux-gnu". Type "show configuration" for configuration details. For bug reporting instructions, please see: &lt;https://www.gnu.org/software/gdb/bugs/&gt;. Find the GDB manual and other documentation resources online at:     &lt;http://www.gnu.org/software/gdb/documentation/&gt;.  For help, type "help". Type "apropos word" to search for commands related to "word". (gdb) file vmlinux Reading symbols from vmlinux... (gdb) target remote localhost:1234 Remote debugging using localhost:1234 warning: Can not parse XML target description; XML support was disabled at compile time warning: Assuming long-mode change. [Remote 'g' packet reply is too long: PU] 0x000000000000fff0 in exception_stacks () (gdb) break start_kernel Breakpoint 1 at 0xffffffff81fc6a95: file init/main.c, line 486. (gdb) break  rest_init Breakpoint 2 at 0xffffffff818aa1e1: file init/main.c, line 385. (gdb) c Continuing.  Breakpoint 1, start_kernel () at init/main.c:486 486             set_task_stack_end_magic(&amp;init_task); (gdb) c Continuing.  Breakpoint 2, rest_init () at init/main.c:385 385     { (gdb)</code></pre> <p>在start_kernel 和 rest_init 打了两个断点， 两个断点都成功命中了。</p> <h2 id="本文参考">本文参考</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.shuzhiduo.com/A/kjdw2a2q5N/"  target="_blank" rel="nofollow">https://www.shuzhiduo.com/A/kjdw2a2q5N/</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://cloud.tencent.com/developer/article/1793157"  target="_blank" rel="nofollow">https://cloud.tencent.com/developer/article/1793157</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/alexanderwang7/article/details/113180447"  target="_blank" rel="nofollow">https://blog.csdn.net/alexanderwang7/article/details/113180447</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/sjc2870/article/details/122017247"  target="_blank" rel="nofollow">https://blog.csdn.net/sjc2870/article/details/122017247</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-59071.htm">宠物领养协议是啥意思啊怎么写 宠物领养协议是啥意思啊怎么写啊</a></p>
+                                        <p>下一个：<a href="/news/article-59638.htm">动物打疫苗打几次 动物打疫苗打几次有效</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-31169.htm" title="动物医院需要几个兽医资格证书呢怎么办（动物医院条件）">动物医院需要几个兽医资格证书呢怎么办（动物医院条件）</a></li>
+                        <li class="py-2"><a href="/news/article-36182.htm" title="未来10大暴利养殖股票（养殖行业股票）">未来10大暴利养殖股票（养殖行业股票）</a></li>
+                        <li class="py-2"><a href="/news/article-28358.htm" title="全国动物疫苗生产厂家有哪些公司上市（中国动物疫苗厂家排名）">全国动物疫苗生产厂家有哪些公司上市（中国动物疫苗厂家排名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-4-node-share-links.htm" title="2月4日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月4日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20967.htm" title="在我的城市里有一家宠物医院英语 在我的城市里有一家宠物医院英语翻译">在我的城市里有一家宠物医院英语 在我的城市里有一家宠物医院英语翻译</a></li>
+                        <li class="py-2"><a href="/news/article-52938.htm" title="妙三多猫三联好吗（妙三多 猫三联）">妙三多猫三联好吗（妙三多 猫三联）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-14-node-share-links.htm" title="2月14日→18.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月14日→18.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45817.htm" title="动物疫苗的使用方法及注意事项视频教程大全下载（动物疫苗注射注意事项）">动物疫苗的使用方法及注意事项视频教程大全下载（动物疫苗注射注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-46804.htm" title="小白学习MySQL &#8211; 闲聊聊">小白学习MySQL &#8211; 闲聊聊</a></li>
+                        <li class="py-2"><a href="/news/article-24177.htm" title="动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全">动物疫苗接种方法有几种图片 动物疫苗接种方法有几种图片大全</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

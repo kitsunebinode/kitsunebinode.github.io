@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-59070.htm" />
+    <meta charset="utf-8">
+    <title>git语法_在git-pandas中引入统一的glob语法</title>
+        <meta name="description" content="git语法 In an effort to improve the user interface to git-pandas, I’m introducing a new way of specify" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-59070.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="git语法_在git-pandas中引入统一的glob语法" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/adac0012693cfaf6e5396902806cd06b.webp" />
+        <meta property="og:release_date" content="2025-02-19T06:35:31" />
+    <meta property="og:updated_time" content="2025-02-19T06:35:31" />
+        <meta property="og:description" content="git语法 In an effort to improve the user interface to git-pandas, I’m introducing a new way of specify" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="git语法_在git-pandas中引入统一的glob语法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">git语法_在git-pandas中引入统一的glob语法</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size: 16px;"> <p>git语法</p> <p>In an effort to improve the user interface to git-pandas, I’m introducing a new way of specifying which files in a repository you care about, which will become the sole way of specifying this kind of thing in version 2.0.0. &nbsp;Currently, for any given function, you can specify a list of extensions you’d like to include, and a list of directories you’d like to exclude. &nbsp;A toy example would be:</p> <p> 为了改善git-pandas的用户界面，我引入了一种新的方式来指定您关心的存储库中的哪些文件，这将成为在2.0.0版中指定此类内容的唯一方式。 当前，对于任何给定的函数，您都可以指定要包括的扩展名列表以及要排除的目录列表。 一个玩具的例子是： </p> <pre><code class="has">df = repo.some_method(     extensions=['py', 'md', 'html'],     ignore_dir=['docs', 'tests'] )</code> </pre> <p>With this, you’d be looking at python, markdown and HTML files other than those in the docs or tests directories.</p> <p> 这样，您将可以查看docs，tests目录中的python，markdown和HTML文件。 </p> <p>For most use-cases, this is a pretty compact way to express what you need. &nbsp;But those little edge cases come up increasingly often where a more flexible method is needed. So now you can alternatively pass a parameter to any of these methods called ignore_globs:</p> <p> 对于大多数用例，这是表达所需内容的一种非常紧凑的方法。 但是那些小巧的案例越来越多地出现在需要更灵活的方法的地方。 因此，现在您可以将参数传递给以下任何一种方法，称为ignore_globs： </p> <pre><code class="has">df = repo.some_method(     ignore_globs=[        'docs*',        'tests*'     ] )</code> </pre> <p>Which will ignore any file that matches any single glob passed into that object. &nbsp;For now, this is limiting, because things like file extension matching for multiple file types is really hard to do in this notation. &nbsp;To simplify that, the next addition will be a corresponding ‘include_globs’. &nbsp;A full description of that is in the github issue found here:&nbsp;<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/wdm0006/git-pandas/issues/3"  class="external" target="_blank" rel="nofollow">https://github.com/wdm0006/git-pandas/issues/3</a></p> <p> 它将忽略与传递给该对象的任何单个glob匹配的任何文件。 目前，这是有限的，因为用这种表示法实际上很难完成诸如针对多种文件类型进行文件扩展名匹配之类的事情。 为简化起见，下一个添加项将是对应的“ include_globs”。 对此的完整描述位于github问题中，网址为： <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/wdm0006/git-pandas/issues/3"  class="external" target="_blank" rel="nofollow">https</a> : <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/wdm0006/git-pandas/issues/3"  class="external" target="_blank" rel="nofollow">//github.com/wdm0006/git-pandas/issues/3</a> </p> <p>Once added, the logic will be that for any given file, at least one pattern in the include_globs must match, and at most zero patterns from exclude_globs must match.</p> <p> 添加后，逻辑将是对于任何给定文件，include_glob中的至少一个模式必须匹配，exclude_globs中的至多零个模式必须匹配。 </p> <p>In that way, we could replicate the first example above with:</p> <p> 这样，我们可以复制上面的第一个示例： </p> <pre><code class="has">df = repo.some_method(     ignore_globs=[        'docs*',        'tests*'     ],    include_globs=[        '*.py',        '*.md',        '*.html'    ] )</code> </pre> <p>Which is about the same level of verbosity, and far more flexible.</p> <p> 冗长程度大致相同，而且更加灵活。 </p> <p>If you’re a user of git-pandas, I would love your feedback on this. &nbsp;If you’re a developer, I’d love your help. &nbsp;Any feedback is always welcome on the issue posted above.</p> <p> 如果您是git-pandas的用户，我希望收到您的反馈。 如果您是一名开发人员，我将很乐意为您提供帮助。 始终欢迎您对以上问题发表任何反馈。 </p> <blockquote> <p>翻译自: <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.pybloggers.com/2016/06/introducing-unified-glob-syntax-in-git-pandas/"  rel="nofollow">https://www.pybloggers.com/2016/06/introducing-unified-glob-syntax-in-git-pandas/</a></p> </blockquote> <p>git语法</p> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58630.htm">大兴区动物检疫所（大兴区动物检疫所地址）</a></p>
+                                        <p>下一个：<a href="/news/article-59071.htm">宠物领养协议是啥意思啊怎么写 宠物领养协议是啥意思啊怎么写啊</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-25576.htm" title="长期养猫人容易得啥病（猫跟人睡在一起吸阳气）">长期养猫人容易得啥病（猫跟人睡在一起吸阳气）</a></li>
+                        <li class="py-2"><a href="/news/article-55670.htm" title="宠物医院手续办理流程（宠物医院审批流程）">宠物医院手续办理流程（宠物医院审批流程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-free-node-subscribe.htm" title="2月8日→19M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月8日→19M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-58630.htm" title="大兴区动物检疫所（大兴区动物检疫所地址）">大兴区动物检疫所（大兴区动物检疫所地址）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-kitsunebi-node-github.htm" title="1月29日→20.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月29日→20.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-latest-kitsunebi-node.htm" title="1月13日→18.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月13日→18.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-56234.htm" title="动物打预防针去哪里打的好（动物疫苗去哪里买）">动物打预防针去哪里打的好（动物疫苗去哪里买）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-latest-kitsunebi-node.htm" title="1月20日→19.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月20日→19.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-latest-kitsunebi-node.htm" title="2月3日→18.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月3日→18.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30728.htm" title="南京寄养狗狗价格查询（南京宠物寄养价目表）">南京寄养狗狗价格查询（南京宠物寄养价目表）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
