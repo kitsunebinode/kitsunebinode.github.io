@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-60811.htm" />
+    <meta charset="utf-8">
+    <title>Vue watch中监听值的变化,判断后修改值方式_vue.js_</title>
+        <meta name="description" content="目录  watch监听值的变化,判断后修改值 watch监听data函数中数据改变的三种方式  1.常用型（浅层监听） 2.深层监听（利用deep属性） 3.深层监听某一个特定属性（用字符串表示对象属" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-60811.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="Vue watch中监听值的变化,判断后修改值方式_vue.js_" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/800c9d6b6fecfa4342344882367a8555.webp" />
+        <meta property="og:release_date" content="2025-02-22T07:10:14" />
+    <meta property="og:updated_time" content="2025-02-22T07:10:14" />
+        <meta property="og:description" content="目录  watch监听值的变化,判断后修改值 watch监听data函数中数据改变的三种方式  1.常用型（浅层监听） 2.深层监听（利用deep属性） 3.深层监听某一个特定属性（用字符串表示对象属" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vue watch中监听值的变化,判断后修改值方式_vue.js_">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">Vue watch中监听值的变化,判断后修改值方式_vue.js_</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">watch监听值的变化,判断后修改值</a></li> <li><a href="#_label1" rel="nofollow">watch监听data函数中数据改变的三种方式</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">1.常用型（浅层监听）</a></li> <li><a href="#_lab2_1_1" rel="nofollow">2.深层监听（利用deep属性）</a></li> <li><a href="#_lab2_1_2" rel="nofollow">3.深层监听某一个特定属性（用字符串表示对象属性的调用）</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>watch监听值的变化,判断后修改值</h2> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220413/b5e24fde9e9674356f4d24272ebd3c70.jpg"></p> <p>计数器有最小值与最大值的限制，且中间的文本输入框可自己输入值。</p> <p>实现方式是在watch中监听文本输入框绑定的v-model，跟最大最小值比较后，如果有需要，则改变值。</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;mu-text-field v-model.number="weightNum" solo full-width &gt;&lt;/mu-text-field&gt;  </pre> </div> <div class="ay1code"> <pre class="brush:js;">watch: {              //监听用户输入的重量值              //如果超过最大重量，弹出提示，并且将输入框重量置于最大值              //如果低于最小重量，弹出提示，并且将输入框重量置于最小值              weightNum(val){                  if(val&lt;this.weightLimit.minWeight){                      this.$toast.showWarn({message: 'You can only enter between ' +this.weightLimit.minWeight+ ' and ' +this.weightLimit.maxWeight});                      this.$data.weightNum = this.weightLimit.minWeight;                  }                  else if(val&gt;this.weightLimit.maxWeight){                      this.$toast.showWarn({message: 'You can only enter between ' +this.weightLimit.minWeight+ ' and ' +this.weightLimit.maxWeight});                      this.$data.weightNum = this.weightLimit.maxWeight;                  }              }                  },  </pre> </div> <p><strong>核心：</strong></p> <div class="ay1code"> <pre class="brush:js;">this.$data.weightNum = this.weightLimit.minWeight;  </pre> </div> <p>这里如果直接</p> <div class="ay1code"> <pre class="brush:js;">this.weightNum = this.weightLimit.minWeight;</pre> </div> <p>是没有用的。</p> <p>Vue_watch()方法，检测数据的改变。</p> <div class="ay1code"> <pre class="brush:js;"> &lt;script type="text/javascript"&gt;              var vm = new Vue({                  el: app01,                  data:{                      a:'test',                  }              })              // 检测数据'a'的改变，放数据改变时执行              vm.$watch('a', function(newval, oldval){                  console.log(newval, oldval);              })              vm.$data.a = 'wdc'          &lt;/script&gt;  </pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>watch监听data函数中数据改变的三种方式</h2> <p>在Vue中有一个watch方法可用于监听数据的改变，避免重复添加监听函数，watch中有三种监听数据的方式：</p> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>1.常用型（浅层监听）</h3> <p style="text-align:center"><img fetchpriority="high" decoding="async" alt="" height="396" src="http://img.555519.xyz/uploads3/20220413/5f1def6f1073084b59612b809b92953f.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" height="137" src="http://img.555519.xyz/uploads3/20220413/dd5c434514282cbbd78cc241e0193c72.jpg"></p> <p> 如此即可监听loading值的变化，并进行相应操作。</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>2.深层监听（利用deep属性）</h3> <p style="text-align:center"><img decoding="async" alt="" height="396" src="http://img.555519.xyz/uploads3/20220413/dd25e122410a0857f4be7da7a7762f0a.jpg"></p> <p style="text-align:center"><img loading="lazy" decoding="async" alt="" height="199" src="http://img.555519.xyz/uploads3/20220413/2afffe1949959c1ee119005433eb65c1.jpg"></p> <p> 这样利用deep属性，将deep设为true，则可进行深层监听，只要modalForm中任意一个属性的值发生改变，则都会调用handler函数，当然该函数名可随意。</p> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>3.深层监听某一个特定属性（用字符串表示对象属性的调用）</h3> <p style="text-align:center"><img decoding="async" alt="" height="396" src="http://img.555519.xyz/uploads3/20220413/dd25e122410a0857f4be7da7a7762f0a.jpg"></p> <p style="text-align:center"><img loading="lazy" decoding="async" alt="" height="143" src="http://img.555519.xyz/uploads3/20220413/a393bf1b8c29970f9ff1c61bf5b49c30.jpg"></p> <p>此时只会监听modalForm里面的model属性，当他的值发生改变时才会执行回调函数。</p> <p>4、利用computed计算属性</p> <p style="text-align:center"><img decoding="async" alt="" height="396" src="http://img.555519.xyz/uploads3/20220413/dd25e122410a0857f4be7da7a7762f0a.jpg"></p> <p style="text-align:center"><img loading="lazy" decoding="async" alt="" height="257" src="http://img.555519.xyz/uploads3/20220413/fd2a4bd3d2fceeccc05bdb7f6d28321f.jpg"></p> <p> 此时在添加了计算属性后，可以像浅层监听一样的方式监听深层的model属性值的改变。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-60810.htm">MySQL SELECT子句中如何使用Groups函数？</a></p>
+                                        <p>下一个：<a href="/news/article-61390.htm">SpringBoot测试失败并报错: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-kitsunebi-node-share.htm" title="1月1日→19M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月1日→19M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20967.htm" title="在我的城市里有一家宠物医院英语 在我的城市里有一家宠物医院英语翻译">在我的城市里有一家宠物医院英语 在我的城市里有一家宠物医院英语翻译</a></li>
+                        <li class="py-2"><a href="/news/article-50836.htm" title="宠物领养的平台有哪些呢（宠物领养的平台有哪些呢）">宠物领养的平台有哪些呢（宠物领养的平台有哪些呢）</a></li>
+                        <li class="py-2"><a href="/news/article-36445.htm" title="宠物粮食品牌取名大全四个字 宠物粮食品牌取名大全四个字">宠物粮食品牌取名大全四个字 宠物粮食品牌取名大全四个字</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-kitsunebi-node-github.htm" title="11月16日→20.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">11月16日→20.3M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-kitsunebi-node-github.htm" title="12月22日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月22日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-subscribe-node.htm" title="12月23日→22.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月23日→22.2M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-node-share.htm" title="12月4日→18.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月4日→18.5M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-kitsunebi-node.htm" title="2月11日→20.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月11日→20.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-kitsunebi-node.htm" title="12月2日→19.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月2日→19.1M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
