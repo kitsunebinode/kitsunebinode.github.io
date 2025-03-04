@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-65652.htm" />
+    <meta charset="utf-8">
+    <title>vue实现简单评论功能</title>
+        <meta name="description" content="先看效果图吧！！！！ 1.添加一条信息 接下来让我们看代码吧！ 	&lt;style type="text/css"&gt; 			*{ 				padding: 0;margin: 0; 			} " />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-65652.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="vue实现简单评论功能" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/1eb496a6cd382a122e41f0de054ab4d5.webp" />
+        <meta property="og:release_date" content="2025-03-02T09:36:15" />
+    <meta property="og:updated_time" content="2025-03-02T09:36:15" />
+        <meta property="og:description" content="先看效果图吧！！！！ 1.添加一条信息 接下来让我们看代码吧！ 	&lt;style type="text/css"&gt; 			*{ 				padding: 0;margin: 0; 			} " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue实现简单评论功能">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">vue实现简单评论功能</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>先看效果图吧！！！！<br /> 1.添加一条信息<img decoding="async" src="http://img.555519.xyz/uploads/20230109/b6d10f8e2036e19cba7b02b3a43bcaa5.jpg" alt="vue实现简单评论功能"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230109/3ba807925fb846ae1f4fbcb3ff545790.jpg" alt="vue实现简单评论功能"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230109/dd3d68fd321a692e05bfc1aab0ec9043.jpg" alt="vue实现简单评论功能"><br /> 接下来让我们看代码吧！</p> <pre><code class="prism language-//样式">	&lt;style type="text/css"&gt; 			*{ 				padding: 0;margin: 0; 			} 			.box{ 				margin: 30px; 				width: 500px; 				height: 500px; 				display: flex; 			} 			p{ 				margin-top: 10px; 			} 			a{ 				text-decoration: none; 				float: right; 			} 			ul{ 				margin-left: 30px; 			} 			li{ 				width: 300px; 				white-space: nowrap; 				overflow: hidden; 				text-overflow: ellipsis; 				height: 50px; 				line-height: 50px; 				border:1px solid #CCCCCC; 				padding: 0 20px; 				list-style: none; 			} 			.speak{ 				margin-left: 30px; 			} 		&lt;/style&gt; 	&lt;/head&gt; 	&lt;body&gt; 	//html 		&lt;div class="box"&gt; 			&lt;div class="user"&gt; 			&lt;p&gt;用户名&lt;/p&gt; 			&lt;!-- @keyup监听键盘事件 --&gt; 			&lt;!-- @keyup.enter回车键获取值 --&gt; 			&lt;p&gt;&lt;input v-model.trim="user" @keyup.enter="addItem()" type="text" placeholder="用户名" /&gt;&lt;/p&gt; 			&lt;p&gt;吐槽内容&lt;/p&gt; 			&lt;p&gt;&lt;textarea v-model="comm" @keyup.enter="addItem()" placeholder="吐槽内容"&gt;&lt;/textarea&gt;&lt;/p&gt; 			&lt;p&gt;&lt;button type="button" @click="btn"&gt;提交&lt;/button&gt;&lt;/p&gt; 			&lt;/div&gt; 			 			 			&lt;div class="speak"&gt; 				&lt;p&gt;吐槽回复：&lt;/p&gt; 				&lt;ul v-for="(item,index) in list" :key="item.name"&gt; 					&lt;li&gt;{<!-- -->{item.name}}说：{<!-- -->{item.txt}}&lt;a href="#" @click="delItem(item)"&gt;删除&lt;/a&gt;&lt;/li&gt; 				&lt;/ul&gt; 			&lt;/div&gt; 		&lt;/div&gt; 		//js 		&lt;script type="text/javascript"&gt; 			new Vue({ 				el:".box", 				data(){ 					return{ 						// 评论用户以及内容的数据 						// name评论的用户名字 txt评论的内容 						list:[ 							{name:"tom",txt:"笑不活了"}, 							{name:"jarry",txt:"买了吧"}, 							{name:"小爱同学",txt:"可恶，有被装到"}, 							{name:"小一",txt:"鹅鹅鹅，曲项向天歌"} 						], 						user:"",//输入的名字存入 						comm:"",//评论存入 					} 				}, 				methods:{ 					// 点击按钮提交 					btn(){ 						var usercom={ 							name:this.user, 							txt:this.comm 						} 						this.list.unshift(usercom) 						this.user=""; 						this.comm=""; 					}, 					// 用户名方法事件 					addItem(){ 						// 创建用户名 						var item={ 							// 用户名字 						name:this.user, 						// 用户评论 						txt:this.comm, 						}; 						 						// 在list前面添加 item    unshift在前面添加 						this.list.unshift(item) 						 						// 清空user 						this.user=""; 						// 清空评论 						this.comm=""; 					}, 					//删除点击事件  获取元素 					delItem(item){ 						// 查找元素item在list里的下标 						var ind=this.list.findIndex(value=&gt;value.name==item.name); 						//删除 						// splice 功能（从第几个元素，删除几个 添加内容） 						this.list.splice(ind,1); 					} 				} 			}) 		&lt;/script&gt; </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-65020.htm">兽用疫苗怎样查真伪（兽用疫苗查询）</a></p>
+                                        <p>下一个：<a href="/news/article-65653.htm">动物打防疫针多少钱一针（小动物打疫苗多少钱一只）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-3-node-share.htm" title="3月3日→18.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月3日→18.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-46321.htm" title="分布式缓存&#8211;缓存与数据库一致性方案">分布式缓存&#8211;缓存与数据库一致性方案</a></li>
+                        <li class="py-2"><a href="/news/article-55119.htm" title="南京宠物领养机构 南京宠物领养机构有哪些">南京宠物领养机构 南京宠物领养机构有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-today-kitsunebi-node.htm" title="2月9日→18.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月9日→18.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-kitsunebi-node-github.htm" title="12月22日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址">12月22日→19.4M/S|2024年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-57922.htm" title="长沙宠物救助站在哪里（长沙宠物救助站领养宠物）">长沙宠物救助站在哪里（长沙宠物救助站领养宠物）</a></li>
+                        <li class="py-2"><a href="/news/article-63788.htm" title="河南省动物疫苗管理系统官网查询（河南省动物疫病强制免疫疫苗信息管理系统）">河南省动物疫苗管理系统官网查询（河南省动物疫病强制免疫疫苗信息管理系统）</a></li>
+                        <li class="py-2"><a href="/news/article-45348.htm" title="动物接种疫苗的好处有哪些呢（动物疫苗接种禁忌症和注意事项）">动物接种疫苗的好处有哪些呢（动物疫苗接种禁忌症和注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-26055.htm" title="开个宠物店要投资多少钱（开个宠物店得多少钱）">开个宠物店要投资多少钱（开个宠物店得多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-32159.htm" title="被猫抓了一下一点点血（被猫抓了一下一点点血没事吧?）">被猫抓了一下一点点血（被猫抓了一下一点点血没事吧?）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
