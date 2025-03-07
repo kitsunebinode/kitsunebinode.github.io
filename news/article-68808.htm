@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-68808.htm" />
+    <meta charset="utf-8">
+    <title>详谈GoLang的panic和error</title>
+        <meta name="description" content="首先说一下：&nbsp;错误指的是可能出现问题的地方出现了问题。如打开件失败，这种情况在意料之中 。异常指的是不应该出现问题的地方出现了问题。如引用了空指针，这种情况在意料之外 Go&nbsp;提供两" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-68808.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="详谈GoLang的panic和error" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/fa9fc70f8b6d6c85b919e173dd49125d.webp" />
+        <meta property="og:release_date" content="2025-03-07T06:34:39" />
+    <meta property="og:updated_time" content="2025-03-07T06:34:39" />
+        <meta property="og:description" content="首先说一下：&nbsp;错误指的是可能出现问题的地方出现了问题。如打开件失败，这种情况在意料之中 。异常指的是不应该出现问题的地方出现了问题。如引用了空指针，这种情况在意料之外 Go&nbsp;提供两" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="详谈GoLang的panic和error">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">详谈GoLang的panic和error</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>首先说一下：&nbsp;错误指的是可能出现问题的地方出现了问题。如打开件失败，这种情况在意料之中 。异常指的是不应该出现问题的地方出现了问题。如引用了空指针，这种情况在意料之外</p> <p><code>Go</code>&nbsp;提供两种错误处理方式</p> <ul> <li>函数返回&nbsp;<code>error</code>&nbsp;类型对象判断错误</li> <li> <code>panic</code>&nbsp;异常</li> </ul> <h2>1. panic</h2> <p>Go的类型系统会在编译时捕获很多错误，但有些错误只能在运行时检查，如数组访问越界、空指针引用等。这些运行时错误会引起painc异常。</p> <p>一般而言，<strong>当panic异常发生时，程序会中断运行，并立即执行在该goroutine（可以先理解成线程）中被延迟的函数（defer 机制）</strong>。随后，程序崩溃并输出日志信息。日志信息包括panic value和函数调用的堆栈跟踪信息。panic value通常是某种错误信息。对于每个goroutine，日志信息中都会有与之相对的，发生panic时的函数调用堆栈跟踪信息。通常，我们不需要再次运行程序去定位问题，日志信息已经提供了足够的诊断依据。因此，在我们填写问题报告时，一般会将panic异常和日志信息一并记录。不是所有的panic异常都来自运行时，直接调用内置的panic函数也会引发panic异常；panic函数接受任何值作为参数。当某些不应该发生的场景发生时，我们就应该调用panic。虽然Go的panic机制类似于其他语言的异常，但panic的适用场景有一些不同。<strong>由于panic会引起程序的崩溃，因此panic一般用于严重错误</strong>，如程序内部的逻辑不一致。</p> <p><code>panic</code>可以手工调用，但是&nbsp;<code>Go</code>&nbsp;官方建议尽量不要使用<code>panic</code>，每一个异常都应该用&nbsp;<code>error</code>&nbsp;对象捕获。如果异常出现了，但没有被捕获并恢复，<code>Go</code>&nbsp;程序的执行就会被终止，即便出现异常的位置不在主&nbsp;<code>Goroutine</code>&nbsp;中也会这样。</p> <p>总结来说：</p> <p>panic是一个严重错误机制，它会导致程序终止，并<strong>依次逆序执行 panic 所在函数可能存在的 defer 函数列表</strong>，然后返回该函数的调用方。<strong>recover 内置函数可用于捕获 panic，重新恢复程序正常执行流程，但是 recover 函数只有在 defer 内部使用才有效</strong></p> <p><strong>此外，</strong>当&nbsp;<code>panic()</code>&nbsp;触发的宕机发生时，&nbsp;<code>panic()</code>&nbsp;后面的代码将不会被运行，但是在&nbsp;<code>panic()</code>&nbsp;函数前面已经运行过的&nbsp;<code>defer</code>&nbsp;语句依然会在宕机发生时发生作用</p> <h2>2. recover</h2> <p>1. <code>recover</code>&nbsp;是一个&nbsp;<code>Go</code>&nbsp;语言的内建函数，可以让进入宕机流程中的&nbsp;<code>goroutine</code>&nbsp;恢复过来。<br /> 2. 用来控制一个goroutine的panicking行为，捕获panic，从而影响应用的行为<br /> 3. 一般的调用建议<br /> a). 在defer函数中，通过recever来终止一个gojroutine的panicking过程，从而恢复正常代码的执行<br /> b). 可以获取通过panic传递的error<br /> 简单来讲：go中可以抛出一个panic的异常，然后在defer中通过recover捕获这个异常，然后正常处理。</p> <p>4.&nbsp;在正常的执行过程中，调用&nbsp;<code>recover</code>&nbsp;会返回&nbsp;<code>nil</code>&nbsp;并且没有其他任何效果；</p> <p>注意：利用recover处理panic指令，defer必须在panic之前声明，否则当panic时，recover无法捕获到panic．</p> <p>总结来说&nbsp;<strong><code>Go</code>&nbsp;语言没有异常系统，其使用&nbsp;<code>panic</code>&nbsp;触发宕机类似于其他语言的抛出异常，&nbsp;<code>recover</code>&nbsp;的宕机恢复机制就对应其它语言中的&nbsp;<code>try/catch</code>&nbsp;机制。</strong></p> <p><strong>panic 和 recover 的关系</strong></p> <p><strong>panic 和 recover 的组合有如下特性：</strong></p> <p><strong>有 panic 没 recover ，程序宕机。<br /> 有 panic 也有 recover ，程序不会宕机，执行完对应的 defer 后，从宕机点退出当前函数后继续执行。<br /> 注意：在 panic 触发的 defer 函数内，可以继续调用 panic ，进一步将错误外抛，直到程序整体崩溃。如果想在捕获错误时设置当前函数的返回值，可以对返回值使用命名返回值方式直接进行设置。</strong></p> <p>示例：</p> <pre><code>package main  func test() { 	defer func() { 		if err := recover(); err != nil { // recover 捕获错误。 			println(err.(string)) // 将 interface{} 转型为具体类型。 		} 	}() 	panic("panic error!")	// panic 抛出错误 } func main() { 	test() }  </code></pre> <h2>3. error</h2> <p>go中的错误处理，是通过返回值的形式来出来，要么你忽略，要么你处理（处理也可以是继续返回给调用者），对于golang这种设计方式，我们会在代码中写大量的if判断，以便做出决定。</p> <p>对于err如果是nil就代表没有错误，如果不是nil就代表程序出问题了，需要对错误进行处理了。</p> <p>示例：</p> <pre><code>func main() { 	conent,err:=ioutil.ReadFile("filepath") 	if err !=nil{ 		//错误处理 	}else { 		fmt.Println(string(conent)) 	} } </code></pre> <p>此外，error类型是go语言的一种内置类型，使用的时候不用特定去import,他本质上是一个接口,</p> <pre><code> type error interface{   Error() string //Error()是每一个订制的error对象需要填充的错误消息,可以理解成是一个字段Error }</code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-68167.htm">合肥宠物救助中心 合肥宠物救助中心电话</a></p>
+                                        <p>下一个：<a href="/news/article-68809.htm">宠物产品品牌调查（宠物产品市场调研报告）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-43349.htm" title="宠物店亏钱吗现在（宠物店到底挣不挣钱?）">宠物店亏钱吗现在（宠物店到底挣不挣钱?）</a></li>
+                        <li class="py-2"><a href="/news/article-56233.htm" title="SpringBoot教程SpringBoot统一结果封装">SpringBoot教程SpringBoot统一结果封装</a></li>
+                        <li class="py-2"><a href="/news/article-59637.htm" title="利用QEMU+GDB搭建Linux内核调试环境">利用QEMU+GDB搭建Linux内核调试环境</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-latest-kitsunebi-node.htm" title="1月9日→20.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月9日→20.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-26-kitsunebi-node-share.htm" title="2月26日→20.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月26日→20.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-latest-kitsunebi-node.htm" title="3月6日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月6日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-47289.htm" title="动物疾病预防控制中心可以打狂犬疫苗吗（动物防疫监督站可以打狂犬疫苗吗）">动物疾病预防控制中心可以打狂犬疫苗吗（动物防疫监督站可以打狂犬疫苗吗）</a></li>
+                        <li class="py-2"><a href="/news/article-36446.htm" title="益康动物医院地址（益康宠物诊所）">益康动物医院地址（益康宠物诊所）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-kitsunebi-node.htm" title="1月16日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月16日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-61993.htm" title="dell固态硬盘启动bios设置方法（dell bios设置固态硬盘启动）">dell固态硬盘启动bios设置方法（dell bios设置固态硬盘启动）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">20</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
