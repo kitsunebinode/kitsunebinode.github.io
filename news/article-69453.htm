@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-69453.htm" />
+    <meta charset="utf-8">
+    <title>vue3.0中对mapState,mapGetters封装</title>
+        <meta name="description" content="看例子，如果没封装，当我们获取state的时候需要这样一个个写 const sCounter=computed(()=&gt; store.state.counter)const sName=comp" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-69453.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="vue3.0中对mapState,mapGetters封装" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/7c5d8179923ce776d5042e68fd9a841c.webp" />
+        <meta property="og:release_date" content="2025-03-08T05:05:12" />
+    <meta property="og:updated_time" content="2025-03-08T05:05:12" />
+        <meta property="og:description" content="看例子，如果没封装，当我们获取state的时候需要这样一个个写 const sCounter=computed(()=&gt; store.state.counter)const sName=comp" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue3.0中对mapState,mapGetters封装">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">vue3.0中对mapState,mapGetters封装</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>看例子，如果没封装，当我们获取state的时候需要这样一个个写</p> <pre><code class="prism language-typescript"><span class="token keyword">const</span> sCounter<span class="token operator">=</span><span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>counter<span class="token punctuation">)</span><span class="token keyword">const</span> sName<span class="token operator">=</span><span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token keyword">const</span> sAge<span class="token operator">=</span><span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>age<span class="token punctuation">)</span></code></pre> <p>封装之后这样写</p> <pre><code class="prism language-typescript"><span class="token keyword">const</span> storeState<span class="token operator">=</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"counter"</span><span class="token punctuation">,</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"age"</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre> <p>开始封装创建一个useMapper.js文件</p> <pre><code class="prism language-typescript"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> computed<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> useStore<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vuex'</span><span class="token keyword">export</span><span class="token keyword">function</span><span class="token function">useMapper</span><span class="token punctuation">(</span>mapper<span class="token punctuation">,</span> mapFn<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 拿到store独享</span><span class="token keyword">const</span> store<span class="token operator">=</span><span class="token function">useStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">// 获取到对应的对象的functions: {name: function, age: function}</span><span class="token keyword">const</span> storeStateFns<span class="token operator">=</span><span class="token function">mapFn</span><span class="token punctuation">(</span>mapper<span class="token punctuation">)</span><span class="token comment">// 对数据进行转换</span><span class="token keyword">const</span> storeState<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span>   Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>storeStateFns<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>fnKey<span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token keyword">const</span> fn<span class="token operator">=</span> storeStateFns<span class="token punctuation">[</span>fnKey<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>$store<span class="token operator">:</span> store<span class="token punctuation">}</span><span class="token punctuation">)</span>     storeState<span class="token punctuation">[</span>fnKey<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">computed</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token keyword">return</span> storeState<span class="token punctuation">}</span></code></pre> <p>因为封装mapState和mapGetters逻辑差不多，先看useState.js</p> <pre><code class="prism language-typescript"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> mapState<span class="token punctuation">,</span> createNamespacedHelpers<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vuex'</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> useMapper<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'./useMapper'</span><span class="token keyword">export</span><span class="token keyword">function</span><span class="token function">useState</span><span class="token punctuation">(</span>moduleName<span class="token punctuation">,</span> mapper<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">let</span> mapperFn<span class="token operator">=</span> mapState<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> moduleName<span class="token operator">===</span><span class="token string">'string'</span><span class="token operator">&amp;&amp;</span> moduleName<span class="token punctuation">.</span>length<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     mapperFn<span class="token operator">=</span><span class="token function">createNamespacedHelpers</span><span class="token punctuation">(</span>moduleName<span class="token punctuation">)</span><span class="token punctuation">.</span>mapState<span class="token punctuation">}</span><span class="token keyword">return</span><span class="token function">useMapper</span><span class="token punctuation">(</span>mapper<span class="token punctuation">,</span> mapperFn<span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <p>useGetters.js</p> <pre><code class="prism language-typescript"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> mapGetters<span class="token punctuation">,</span> createNamespacedHelpers<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vuex'</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> useMapper<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'./useMapper'</span><span class="token keyword">export</span><span class="token keyword">function</span><span class="token function">useGetters</span><span class="token punctuation">(</span>moduleName<span class="token punctuation">,</span> mapper<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">let</span> mapperFn<span class="token operator">=</span> mapGetters<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> moduleName<span class="token operator">===</span><span class="token string">'string'</span><span class="token operator">&amp;&amp;</span> moduleName<span class="token punctuation">.</span>length<span class="token operator">&gt;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     mapperFn<span class="token operator">=</span><span class="token function">createNamespacedHelpers</span><span class="token punctuation">(</span>moduleName<span class="token punctuation">)</span><span class="token punctuation">.</span>mapGetters<span class="token punctuation">}</span><span class="token keyword">return</span><span class="token function">useMapper</span><span class="token punctuation">(</span>mapper<span class="token punctuation">,</span> mapperFn<span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <p><code>然后使用，当没有用module模块化的时候这样写，直接在页面上{<!-- -->{counter}}.....即可</code></p> <pre><code class="prism language-typescript"><span class="token keyword">const</span> storeState<span class="token operator">=</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"counter"</span><span class="token punctuation">,</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"age"</span><span class="token punctuation">,</span><span class="token string">"height"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">const</span> storeGetters<span class="token operator">=</span><span class="token function">useGetters</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"nameInfo"</span><span class="token punctuation">,</span><span class="token string">"ageInfo"</span><span class="token punctuation">,</span><span class="token string">"heightInfo"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token operator">...</span>storeState<span class="token punctuation">,</span><span class="token operator">...</span>storeGetters<span class="token punctuation">}</span></code></pre> <p><code>当用了模块化module之后这样写,假如你的modules有一个home，页面上还是这样用{<!-- -->{homeCounter}}....即可</code></p> <pre><code class="prism language-typescript"><span class="token keyword">const</span> state<span class="token operator">=</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token string">"home"</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"homeCounter"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">const</span> getters<span class="token operator">=</span><span class="token function">useGetters</span><span class="token punctuation">(</span><span class="token string">"home"</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">"doubleHomeCounter"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token operator">...</span>state<span class="token punctuation">,</span><span class="token operator">...</span>getters<span class="token punctuation">,</span><span class="token punctuation">}</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69452.htm">java中序列化如果有些字段不想进行序列化怎么办</a></p>
+                                        <p>下一个：<a href="/news/article-70093.htm">上海宠物领养平台电话号码（上海2020年宠物领养活动）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-60811.htm" title="Vue watch中监听值的变化,判断后修改值方式_vue.js_">Vue watch中监听值的变化,判断后修改值方式_vue.js_</a></li>
+                        <li class="py-2"><a href="/news/article-46320.htm" title="springboot简单实现redis商品秒杀功能，成功解决商品超售问题">springboot简单实现redis商品秒杀功能，成功解决商品超售问题</a></li>
+                        <li class="py-2"><a href="/news/article-41866.htm" title="长沙市宠物领养（长沙哪里有宠物领养）">长沙市宠物领养（长沙哪里有宠物领养）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-subscribe-node.htm" title="1月23日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月23日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-free-kitsunebi-node.htm" title="2月16日→19.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">2月16日→19.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-latest-kitsunebi-node.htm" title="1月13日→18.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月13日→18.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-59071.htm" title="宠物领养协议是啥意思啊怎么写 宠物领养协议是啥意思啊怎么写啊">宠物领养协议是啥意思啊怎么写 宠物领养协议是啥意思啊怎么写啊</a></li>
+                        <li class="py-2"><a href="/news/article-38890.htm" title="LevelDB 学习笔记2：合并">LevelDB 学习笔记2：合并</a></li>
+                        <li class="py-2"><a href="/news/article-35667.htm" title="时间复杂度与空间复杂度">时间复杂度与空间复杂度</a></li>
+                        <li class="py-2"><a href="/news/article-56793.htm" title="什么季节买狗最佳时间（买狗哪个季节买好）">什么季节买狗最佳时间（买狗哪个季节买好）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
