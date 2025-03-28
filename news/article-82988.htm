@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-82988.htm" />
+    <meta charset="utf-8">
+    <title>uni-app 63egg.js后端用户上线和下线深度剖析</title>
+        <meta name="description" content="router.js  'use strict';/**  * @param {Egg.Application} app - egg application  */ module.exports=app" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-82988.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="uni-app 63egg.js后端用户上线和下线深度剖析" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/87ba63da47b4da9e1647fd04947e2c3d.webp" />
+        <meta property="og:release_date" content="2025-03-28T09:52:41" />
+    <meta property="og:updated_time" content="2025-03-28T09:52:41" />
+        <meta property="og:description" content="router.js  'use strict';/**  * @param {Egg.Application} app - egg application  */ module.exports=app" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="uni-app 63egg.js后端用户上线和下线深度剖析">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">uni-app 63egg.js后端用户上线和下线深度剖析</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> <blockquote> <p>router.js</p> </blockquote> <pre><code class="prism language-js"><span class="token string">'use strict'</span><span class="token punctuation">;</span><span class="token comment">/**  * @param {Egg.Application} app - egg application  */</span> module<span class="token punctuation">.</span><span class="token function-variable function">exports</span><span class="token operator">=</span><span class="token parameter">app</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token keyword">const</span><span class="token punctuation">{<!-- --></span> router<span class="token punctuation">,</span> controller<span class="token punctuation">}</span><span class="token operator">=</span> app<span class="token punctuation">;</span>   router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>home<span class="token punctuation">.</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 用户注册</span>   router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/reg'</span><span class="token punctuation">,</span>controller<span class="token punctuation">.</span>user<span class="token punctuation">.</span>reg<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 登录</span>   router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">,</span>controller<span class="token punctuation">.</span>user<span class="token punctuation">.</span>login<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 退出登录</span>   router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/logout'</span><span class="token punctuation">,</span>controller<span class="token punctuation">.</span>user<span class="token punctuation">.</span>logout<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 搜索用户</span>   router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/search/user'</span><span class="token punctuation">,</span>controller<span class="token punctuation">.</span>search<span class="token punctuation">.</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 申请添加好友</span>   router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/apply/addfriend'</span><span class="token punctuation">,</span>controller<span class="token punctuation">.</span>apply<span class="token punctuation">.</span>addFriend<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 获取好友申请列表</span>   router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/apply/:page'</span><span class="token punctuation">,</span>controller<span class="token punctuation">.</span>apply<span class="token punctuation">.</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 处理好友申请</span>   router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/apply/handle/:id'</span><span class="token punctuation">,</span>controller<span class="token punctuation">.</span>apply<span class="token punctuation">.</span>handle<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 通讯录好友申请</span>   router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/friend/list'</span><span class="token punctuation">,</span>controller<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 查看好友资料</span>   router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/friend/read/:id'</span><span class="token punctuation">,</span>controller<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>read<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 移入/移除黑名单</span>   router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/friend/setblack/:id'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>setblack<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 设置/取消星标好友</span>   router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/friend/setstar/:id'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>setstar<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 设置朋友圈权限</span>   router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/friend/setmomentauth/:id'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>setMomentAuth<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 举报投诉好友/群组</span>   router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/report/save'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>report<span class="token punctuation">.</span>save<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 设置好友备注和标签</span>   router<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/friend/setremarktag/:id'</span><span class="token punctuation">,</span>controller<span class="token punctuation">.</span>friend<span class="token punctuation">.</span>setremarkTag<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// websocket</span>   app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span><span class="token function">route</span><span class="token punctuation">(</span><span class="token string">'/ws'</span><span class="token punctuation">,</span> controller<span class="token punctuation">.</span>chat<span class="token punctuation">.</span>connect<span class="token punctuation">)</span><span class="token punctuation">;</span>      app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token keyword">async</span><span class="token punctuation">(</span><span class="token parameter">ctx<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 获取参数 ws://localhost:7001/ws?token=123456</span><span class="token comment">// ctx.query.token</span><span class="token comment">// 验证用户token</span><span class="token keyword">let</span> user<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">let</span> token<span class="token operator">=</span> ctx<span class="token punctuation">.</span>query<span class="token punctuation">.</span>token<span class="token punctuation">;</span><span class="token keyword">try</span><span class="token punctuation">{<!-- --></span>         user<span class="token operator">=</span> ctx<span class="token punctuation">.</span><span class="token function">checkToken</span><span class="token punctuation">(</span>token<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 验证用户状态</span><span class="token keyword">let</span> userCheck<span class="token operator">=</span><span class="token keyword">await</span> app<span class="token punctuation">.</span>model<span class="token punctuation">.</span>User<span class="token punctuation">.</span><span class="token function">findByPk</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>userCheck<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>             ctx<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>                 msg<span class="token operator">:</span><span class="token string">"fail"</span><span class="token punctuation">,</span>                 data<span class="token operator">:</span><span class="token string">'用户不存在'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span> ctx<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>userCheck<span class="token punctuation">.</span>status<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>             ctx<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>                 msg<span class="token operator">:</span><span class="token string">"fail"</span><span class="token punctuation">,</span>                 data<span class="token operator">:</span><span class="token string">'你已被禁用'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span> ctx<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">// 用户上线</span>         app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>user<span class="token operator">=</span> app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>user<span class="token operator">?</span> app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>user<span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">// 下线其他设备</span><span class="token keyword">if</span><span class="token punctuation">(</span>app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>user<span class="token punctuation">[</span>user<span class="token punctuation">.</span>id<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>             app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>user<span class="token punctuation">[</span>user<span class="token punctuation">.</span>id<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>                 msg<span class="token operator">:</span><span class="token string">"fail"</span><span class="token punctuation">,</span>                 data<span class="token operator">:</span><span class="token string">'你的账号在其他设备登录'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>user<span class="token punctuation">[</span>user<span class="token punctuation">.</span>id<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">// 记录当前用户id</span>         ctx<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span>user_id<span class="token operator">=</span> user<span class="token punctuation">.</span>id<span class="token punctuation">;</span>         app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>user<span class="token punctuation">[</span>user<span class="token punctuation">.</span>id<span class="token punctuation">]</span><span class="token operator">=</span> ctx<span class="token punctuation">.</span>websocket<span class="token punctuation">;</span><span class="token keyword">await</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>             console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">let</span> fail<span class="token operator">=</span> err<span class="token punctuation">.</span>name<span class="token operator">===</span><span class="token string">'TokenExpiredError'</span><span class="token operator">?</span><span class="token string">'token 已过期! 请重新获取令牌'</span><span class="token operator">:</span><span class="token string">'Token 令牌不合法!'</span><span class="token punctuation">;</span>             ctx<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>                 msg<span class="token operator">:</span><span class="token string">"fail"</span><span class="token punctuation">,</span>                 data<span class="token operator">:</span> fail<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token comment">// 关闭连接</span>             ctx<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre> <blockquote> <p>chat.js</p> </blockquote> <pre><code class="prism language-js"><span class="token comment">// app/controller/chat.js</span><span class="token keyword">const</span> Controller<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'egg'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>Controller<span class="token punctuation">;</span><span class="token keyword">class</span><span class="token class-name">ChatController</span><span class="token keyword">extends</span><span class="token class-name">Controller</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 连接socket</span><span class="token keyword">async</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">const</span><span class="token punctuation">{<!-- --></span> ctx<span class="token punctuation">,</span> app<span class="token punctuation">}</span><span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">;</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>ctx<span class="token punctuation">.</span>websocket<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>             ctx<span class="token punctuation">.</span><span class="token function">throw</span><span class="token punctuation">(</span><span class="token number">400</span><span class="token punctuation">,</span><span class="token string">'非法访问'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">// console.log(`clients: ${app.ws.clients.size}`);</span><span class="token comment">// 监听接收消息和关闭socket</span>         ctx<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span><span class="token parameter">msg</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token comment">// console.log('接收消息', msg);</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token parameter">code<span class="token punctuation">,</span> reason</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 用户下线</span>             console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'用户下线'</span><span class="token punctuation">,</span> code<span class="token punctuation">,</span> reason<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">let</span> user_id<span class="token operator">=</span> ctx<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span>user_id<span class="token punctuation">;</span><span class="token keyword">if</span><span class="token punctuation">(</span>app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>user<span class="token operator">&amp;&amp;</span> app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>user<span class="token punctuation">[</span>user_id<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">delete</span> app<span class="token punctuation">.</span>ws<span class="token punctuation">.</span>user<span class="token punctuation">[</span>user_id<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span> module<span class="token punctuation">.</span>exports<span class="token operator">=</span> ChatController<span class="token punctuation">;</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82282.htm">动物疫苗的重要性有哪些（动物疫苗的重要性有哪些方面）</a></p>
+                                        <p>下一个：<a href="/news/article-82989.htm">人打动物疫苗有用吗 人打动物疫苗有用吗现在</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-76769.htm" title="安安宠医总部电话（安安宠医简介）">安安宠医总部电话（安安宠医简介）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-kitsunebi-node-share.htm" title="1月5日→21.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">1月5日→21.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-59638.htm" title="动物打疫苗打几次 动物打疫苗打几次有效">动物打疫苗打几次 动物打疫苗打几次有效</a></li>
+                        <li class="py-2"><a href="/news/article-49284.htm" title="上海宠物领养网点 上海宠物领养网点地址">上海宠物领养网点 上海宠物领养网点地址</a></li>
+                        <li class="py-2"><a href="/news/article-76098.htm" title="长春市领养猫咪去哪里领（长春市宠物猫领养）">长春市领养猫咪去哪里领（长春市宠物猫领养）</a></li>
+                        <li class="py-2"><a href="/news/article-45347.htm" title="宠物用品都有哪些产品图片（宠物用品图片头像）">宠物用品都有哪些产品图片（宠物用品图片头像）</a></li>
+                        <li class="py-2"><a href="/news/article-55118.htm" title="QQ截图工具截取">QQ截图工具截取</a></li>
+                        <li class="py-2"><a href="/news/article-72069.htm" title="动物医学开宠物医院（宠物医院开设条件）">动物医学开宠物医院（宠物医院开设条件）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-free-kitsunebi-node.htm" title="3月17日→22.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月17日→22.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-51881.htm" title="动物疫苗的种类有哪些,各有什么特点（动物疫苗的种类有哪些,各有什么特点呢）">动物疫苗的种类有哪些,各有什么特点（动物疫苗的种类有哪些,各有什么特点呢）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
