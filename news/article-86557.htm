@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-86557.htm" />
+    <meta charset="utf-8">
+    <title>Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型</title>
+        <meta name="description" content="1、MyBatis在xml中&lt;select&gt;标签不写接收参数parameterType 和 返回结果类型resultType会报异常。 2、当返回多条一个结果时，并不是在resultTyp" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-86557.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/9d39aef58c6508301d2cd6d712f1488b.webp" />
+        <meta property="og:release_date" content="2025-04-02T07:43:21" />
+    <meta property="og:updated_time" content="2025-04-02T07:43:21" />
+        <meta property="og:description" content="1、MyBatis在xml中&lt;select&gt;标签不写接收参数parameterType 和 返回结果类型resultType会报异常。 2、当返回多条一个结果时，并不是在resultTyp" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>1、MyBatis在xml中&lt;select&gt;标签不写接收参数parameterType 和 返回结果类型resultType会报异常。</p> <p>2、当返回多条一个结果时，并不是在resultType中写成List类型。如下图的错误xml中配置：</p> <pre class="has"><code class="language-html">&lt;select id="getUniqueAgencyCity" resultType="java.util.List"&gt; 		SELECT 			AgencyCity  		FROM 			agency_product  		WHERE 			ID IN ( SELECT DISTINCT SelectIDs FROM agency_information WHERE State = 0 )  &lt;/select&gt;</code></pre> <p>对应Mapper接口如下：</p> <pre>public List&lt;String&gt; getUniqueAgencyCity();</pre> <p>3、正确的写法如下，<span style="color:#3399ea;"><strong>resultType是集合中的元素的类型，并不是集合本身。</strong></span></p> <pre class="has"><code class="language-html">&lt;select id="getUniqueAgencyCity" resultType="String"&gt; 		SELECT 			AgencyCity  		FROM 			agency_product  		WHERE 			ID IN ( SELECT DISTINCT SelectIDs FROM agency_information WHERE State = 0 )  &lt;/select&gt;</code></pre> <p>&nbsp;</p> <p>4、如果不注意写错了，出现的异常大概是：</p> <pre><strong>Cause: java.lang.UnsupportedOperationException     at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)     at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:150)     at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:141)</strong></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85857.htm">兽用和人用针剂的区别 兽用和人用针剂的区别是什么</a></p>
+                                        <p>下一个：<a href="/news/article-86558.htm">做宠物繁殖赚钱吗养猫好吗（养宠物繁殖卖钱）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-kitsunebi-node.htm" title="3月12日→20.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月12日→20.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-86557.htm" title="Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型">Mybatis中，返回一个多条数据（List）时，resultType的值指定的不是List，而是List中的元素类型</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-today-kitsunebi-node.htm" title="3月23日→20.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月23日→20.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-78133.htm" title="宠物粮食生产厂家有哪些公司 宠物粮食生产厂家有哪些公司名称">宠物粮食生产厂家有哪些公司 宠物粮食生产厂家有哪些公司名称</a></li>
+                        <li class="py-2"><a href="/news/article-72070.htm" title="陈二狗的妖孽人生人物介绍简介（红娘子分集剧情介绍）深度揭秘，">陈二狗的妖孽人生人物介绍简介（红娘子分集剧情介绍）深度揭秘，</a></li>
+                        <li class="py-2"><a href="/news/article-88019.htm" title="SpringBoot项目使用EasyPoi实现导入导出，就是这么的丝滑">SpringBoot项目使用EasyPoi实现导入导出，就是这么的丝滑</a></li>
+                        <li class="py-2"><a href="/news/article-85129.htm" title="狗粮加工设备及配方赚钱吗（狗粮加工厂需要投资多少钱）">狗粮加工设备及配方赚钱吗（狗粮加工厂需要投资多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-today-kitsunebi-node.htm" title="3月5日→19.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月5日→19.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66896.htm" title="动物疫苗接种禁忌症和注意事项有哪些内容图片（动物疫苗注射注意事项）">动物疫苗接种禁忌症和注意事项有哪些内容图片（动物疫苗注射注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-71416.htm" title="流浪动物领养网站（流浪动物领养网站推荐）">流浪动物领养网站（流浪动物领养网站推荐）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
