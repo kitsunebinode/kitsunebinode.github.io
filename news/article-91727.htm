@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-91727.htm" />
+    <meta charset="utf-8">
+    <title>SpringCloud Feign客户端应用</title>
+        <meta name="description" content="一、在common项目里建一个service（实际项目肯定是多个service）作为Feign客户端，用Feign客户端来调用服务器提供者，当然可以配置负载均衡；Feign客户端定义的目的，就是为了方" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-91727.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="SpringCloud Feign客户端应用" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/78b4b0491940e2aca9da7957e22c08b7.webp" />
+        <meta property="og:release_date" content="2025-04-09T09:16:31" />
+    <meta property="og:updated_time" content="2025-04-09T09:16:31" />
+        <meta property="og:description" content="一、在common项目里建一个service（实际项目肯定是多个service）作为Feign客户端，用Feign客户端来调用服务器提供者，当然可以配置负载均衡；Feign客户端定义的目的，就是为了方" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringCloud Feign客户端应用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">SpringCloud Feign客户端应用</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><img decoding="async" alt="" class="has" height="53" src="http://img.555519.xyz/uploads3/20220602/6415c63d75af5653e1eaceae9f656676.jpg"></p> <p></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220602/cebc1e8fa39f64d4ae8568994b214829.jpg"></p> <p>一、在common项目里建一个service（实际项目肯定是多个service）作为Feign客户端，用Feign客户端来调用服务器提供者，当然可以配置负载均衡；Feign客户端定义的目的，就是为了方便给其他项目调用；</p> <p>二，修改 springcloud-common<br /> pom.xml引入Feign依赖：</p> <pre class="has"><code class="language-java">&lt;dependency&gt;         &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;         &lt;artifactId&gt;spring-cloud-starter-feign&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <p>三.创建FeignClientService服务接口：<br /> FeignClient，同时指定了调用的服务名称PROVIDER</p> <pre class="has"><code class="language-java">package com.li.springcloud.common.feign; import java.util.List; import java.util.Map; import org.springframework.cloud.netflix.feign.FeignClient; import org.springframework.web.bind.annotation.GetMapping; import com.li.springcloud.common.model.Student; /**  * Feign接口客户端  *   * @author Administrator  *  */  //value对应生产者提的服务名称 @FeignClient(value = "PROVIDER") public interface FeignClientService {     /**      * 查询用户信息      *       * @return      */     @GetMapping(value = "/provider/list")     public List&lt;Student&gt; list(); }</code></pre> <p>四、新建一个Feign消费者项目springcloud-consumer-feign-1<br /> 1.代码都复制springcloud-consumer-1项目一份，包括pom.xml，pom.xml里加下 feign依赖；<br /> 2.修改启动类名称，加注解启动类名称改下，改成ConsumerFeignApplication同时加个注解<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/EnableFeignClients"  rel="nofollow">@EnableFeignClients</a>支持下Feign（因为feign客户端是写到common项目中所以扫描的时候要指定扫描包目录：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/EnableFeignClients"  rel="nofollow">@EnableFeignClients</a>({“com.li.springcloud.common.feign”})）；<br /> 3.修改springcloud-consumer-feign-1项目中的Contrller类：</p> <pre class="has"><code class="language-java">package com.li.spingcloud.consumerfeign.controller; import java.util.List; import java.util.Map; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.web.bind.annotation.RequestMapping; import org.springframework.web.bind.annotation.RequestMethod; import org.springframework.web.bind.annotation.RestController; import org.springframework.web.client.RestTemplate; import com.li.springcloud.common.feign.FeignClientService; import com.li.springcloud.common.model.Student; @RestController public class ConsumerController {     @Autowired     private FeignClientService feignClientService;     /**      * 查询数据库      *       * @return      */     @RequestMapping(value = "/consumer/list", produces = "application/json; charset=utf-8", method = {             RequestMethod.POST, RequestMethod.GET })     public List&lt;Student&gt; list() {         System.out.println("调用消费者。。。。。");         return feignClientService.list();     } }</code></pre> <p>4.用Fiegn，所以把restTemplate去掉，改成注入service，调用service方法来实现服务的调用；<br /> 五、测试：<br /> 1.先启动Eureka集群或者单机；<br /> 2.在启动服务生产者集群或者单机；<br /> 3.然后启动springcloud-consumer-feign-1服务消费者；</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220602/c5460e5ec9073a2acc5f7bbe355cba67.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220602/227e6ef769900346f67a5eed8a52ff94.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220602/0a99d58737a00a93afe38123ab48c697.jpg"></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220602/a8f84bb198cdeec696702a7f0da979f9.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-91309.htm">动物防疫站给猫打疫苗贵吗现在多少钱（动物防疫站给猫打疫苗贵吗现在多少钱一针）</a></p>
+                                        <p>下一个：<a href="/news/article-91728.htm">动物疫苗接种禁忌症和注意事项有哪些呢 动物疫苗接种禁忌症和注意事项有哪些呢</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-74733.htm" title="哈尔滨东北农业大学宠物医院（东北农业大学动物医院门诊部怎么样）">哈尔滨东北农业大学宠物医院（东北农业大学动物医院门诊部怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-82988.htm" title="uni-app 63egg.js后端用户上线和下线深度剖析">uni-app 63egg.js后端用户上线和下线深度剖析</a></li>
+                        <li class="py-2"><a href="/news/article-78820.htm" title="宠物粮销售好做吗现在（宠物粮卖点）">宠物粮销售好做吗现在（宠物粮卖点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-kitsunebi-windows.htm" title="3月13日→19.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月13日→19.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-5-free-node-subscribe.htm" title="4月5日→20.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月5日→20.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-free-subscribe-node.htm" title="3月19日→18.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月19日→18.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-68167.htm" title="合肥宠物救助中心 合肥宠物救助中心电话">合肥宠物救助中心 合肥宠物救助中心电话</a></li>
+                        <li class="py-2"><a href="/news/article-66275.htm" title="动物疫苗打到人身上有事吗会传染吗（动物疫苗打到人身上有事吗会传染吗图片）">动物疫苗打到人身上有事吗会传染吗（动物疫苗打到人身上有事吗会传染吗图片）</a></li>
+                        <li class="py-2"><a href="/news/article-83702.htm" title="猫咪领养协议书下载电子版（宠物猫领养协议书范本）">猫咪领养协议书下载电子版（宠物猫领养协议书范本）</a></li>
+                        <li class="py-2"><a href="/news/article-65652.htm" title="vue实现简单评论功能">vue实现简单评论功能</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
