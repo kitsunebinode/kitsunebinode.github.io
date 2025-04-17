@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-96931.htm" />
+    <meta charset="utf-8">
+    <title>Java之LocalDate,LocalTime，LocalDateTime等时间</title>
+        <meta name="description" content="一、介绍   LocalDate：是一个不可变的日期时间对象，代表一个日期，通常被视为年-月-日；此类是不可变的并且是线程安全的。   LocalTime：是一个不可变的日期时间对象，代表一个时间，通" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-96931.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="Java之LocalDate,LocalTime，LocalDateTime等时间" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/78b4b0491940e2aca9da7957e22c08b7.webp" />
+        <meta property="og:release_date" content="2025-04-16T08:37:46" />
+    <meta property="og:updated_time" content="2025-04-16T08:37:46" />
+        <meta property="og:description" content="一、介绍   LocalDate：是一个不可变的日期时间对象，代表一个日期，通常被视为年-月-日；此类是不可变的并且是线程安全的。   LocalTime：是一个不可变的日期时间对象，代表一个时间，通" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java之LocalDate,LocalTime，LocalDateTime等时间">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">Java之LocalDate,LocalTime，LocalDateTime等时间</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>一、介绍</p> <ul> <li> <p>LocalDate：是一个不可变的日期时间对象，代表一个日期，通常被视为年-月-日；此类是不可变的并且是线程安全的。</p> </li> <li> <p>LocalTime：是一个不可变的日期时间对象，代表一个时间，通常被视为时分秒。时间以纳秒精度表示；此类是不可变的并且是线程安全的。</p> </li> <li> <p>LocalDateTime：是一个不变的日期时间对象，代表一个日期时间，通常被视为年-月-日-时-分-秒。也可以访问其他日期和时间字段，例如，一年中的某天，一周中的某天和一周中的某周。时间以纳秒精度表示；此类是不可变的并且是线程安全的。</p> </li> </ul> <p>二、具体例子如下：</p> <p>1.获取当前时间</p> <pre><code>public static void main(String[] args) { //获取当前时间 LocalDateTime localDateTime = LocalDateTime.now(); System.out.println("本地当前日期时间："+localDateTime); System.out.println(); //设置时区为美国纽约 System.out.println("美国当前日期时间："+LocalDateTime.now(ZoneId.of("America/New_York"))); System.out.println();}</code></pre> <p>2.获取当前时间毫秒数/时间戳</p> <pre><code>public static void main(String[] args) {   //获取当前时间   LocalDateTime localDateTime = LocalDateTime.now();   System.out.println("本地当前日期时间："+localDateTime);      long millisecond = localDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();   System.out.println("获取时间戳："+millisecond/1000);   System.out.println("获取毫秒数："+millisecond);   System.out.println(); }</code></pre> <p>3.获取年，月，日或者星期几</p> <pre><code>public static void main(String[] args) {   //获取当前时间   LocalDateTime  localDateTime = LocalDateTime.now();   System.out.println("本地当前日期时间："+localDateTime);      //获取年、月、日、星期几   int year = localDateTime.getYear();   System.out.println("获取年份（第一种方式）："+year);   year = localDateTime.get(ChronoField.YEAR);   System.out.println("获取年份（第二种方式）："+year);   System.out.println();       int month = localDateTime.getMonthValue();   System.out.println("获取月份（第一种方式）："+month);   month = localDateTime.getMonth().getValue();   System.out.println("获取月份（第二种方式）："+month);   month = localDateTime.get(ChronoField.MONTH_OF_YEAR);   System.out.println("获取月份（第三种方式）："+month);   System.out.println();      int dayOfWeek = localDateTime.getDayOfWeek().getValue();   System.out.println("获取星期几(第一种方式)："+dayOfWeek);   dayOfWeek = localDateTime.get(ChronoField.DAY_OF_WEEK);   System.out.println("获取星期几(第二种方式)："+dayOfWeek);   System.out.println();      int dayOfMonth = localDateTime.getDayOfMonth();   System.out.println("获取本月当日(第一种方式)："+dayOfMonth);   dayOfMonth = localDateTime.get(ChronoField.DAY_OF_MONTH);   System.out.println("获取本月当日(第二种方式)："+dayOfMonth);   System.out.println();      int dayOfYear = localDateTime.getDayOfYear();   System.out.println("获取本年当日(第一种方式)："+dayOfYear);   dayOfYear = localDateTime.get(ChronoField.DAY_OF_YEAR);   System.out.println("获取本年当日(第二种方式)："+dayOfYear);    }</code></pre> <p>4.日期时间与字符串相互转换</p> <pre><code>private static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss"; private static final String YYYYMMDD_HH_MM_SS = "yyyy/MM/dd HH:mm:ss";  public static void main(String[] args) { //获取当前时间 LocalDateTime  localDateTime = LocalDateTime.now(); System.out.println("本地当前日期时间："+localDateTime); //日期与字符串相互转换 //日期转字符串 String dateTimeStr = localDateTime.format(DateTimeFormatter.ofPattern(YYYY_MM_DD_HH_MM_SS)); System.out.println("日期时间格式化成字符串后："+dateTimeStr); //字符串转日期 String convertTime = "2020/12/12 12:12:12"; LocalDateTime convertLocalDateTime = LocalDateTime.parse(convertTime,DateTimeFormatter.ofPattern(YYYYMMDD_HH_MM_SS)); System.out.println("由字符串转换成的日期时间为："+convertLocalDateTime); }</code></pre> <p>5.Date与LocalDateTime相互转换</p> <pre><code>private static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss"; private static final String YYYYMMDD_HH_MM_SS = "yyyy/MM/dd HH:mm:ss";  public static void main(String[] args) { //获取当前时间 LocalDateTime  localDateTime = LocalDateTime.now(); System.out.println("本地当前日期时间："+localDateTime); //Date转换成LocalDateTime Date date = new Date(); LocalDateTime  date2LocalDateTime = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime(); System.out.println("Date转换成LocalDateTime后&gt;&gt;&gt;&gt;"+date2LocalDateTime);    //LocalDateTime转换成Date Date localDateTime2Date = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant()); System.out.println("LocalDateTime转换成Date后&gt;&gt;&gt;&gt;"+localDateTime2Date); System.out.println("格式化一下&gt;&gt;&gt;&gt;"+FastDateFormat.getInstance(YYYY_MM_DD_HH_MM_SS).format(localDateTime2Date)); }</code></pre> <p>6.获取偏移日期时间</p> <div> <pre><code>public static void main(String[] args) { //获取当前时间 LocalDateTime localDateTime = LocalDateTime.now(ZoneId.systemDefault()); System.out.println("本地当前日期时间："+localDateTime); //获取偏移时间 //偏移天(正数：往后偏移；负数：往过去时间偏移) System.out.println("明日此时："+localDateTime.plusDays(1)); System.out.println("明日此时1："+localDateTime.minusDays(-1)); System.out.println("前天此时："+localDateTime.plusDays(-2)); //偏移时 System.out.println("当前时间后2个小时："+localDateTime.plusHours(2)); System.out.println("当前时间前5个小时："+localDateTime.plusHours(-5)); //偏移年 System.out.println("去年此时："+localDateTime.plusYears(-1)); //偏移月 System.out.println("下月此时："+localDateTime.plusMonths(1)); //偏移周 System.out.println("上周此时："+localDateTime.plusWeeks(-1)); }   //不可变性LocalDateTime  localDateTime2 = localDateTime.plusMonths(3);System.out.println(localDateTime);//默认输出当前时间System.out.println(localDateTime2);//默认输出当前时间的月份+3//with表示带属性LocalDateTime localDateTime3 =localDateTime.withHour(4);System.out.println(localDateTime);//输出当前时间System,out,println(LocalDateTime3);当前时间的小时数为4.</code></pre> <p>三、SimpleDataFormat</p> <p>关于时间对象,我们在页面展示时,可能会想要不同的格式输出,常用的就是通过java.text.SimpleDateFormat设置不同的格式:</p> <p>yyyy:年</p> <p>MM:月</p> <p>z:时区</p> <p>dd : 日</p> <p>HH : 小时(24小时制)</p> <p>hh : 小时(12小时制)</p> <p>mm : 分钟</p> <p>ss : 秒</p> <p>S : 毫秒</p> <p>D : 一年中的第一几天</p> <p>F : 一个月中的第几个星期(通过这个月的天数除7,例如5号那就是属于第一个星期)</p> <p>W : 一个月中的第几个星期(根据实际情况计算)</p> <p>w : 一年中的第几个星期</p> <pre><code>SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); System.out.println(sdf.format(new Date()));//2019-08-05 14:56:23 sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a"); System.out.println(sdf.format(new Date()));//2019-08-05 02:56:23 下午 sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");// System.out.println(sdf.format(new Date()));//2019-08-05 03:10:32 下午 sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:S"); System.out.println(sdf.format(new Date()));//2019-08-05 15:10:32:186 sdf = new SimpleDateFormat("yyyy-MM-dd 一年中的第D天"); System.out.println(sdf.format(new Date()));//2019-08-05 一年中的第217天 sdf = new SimpleDateFormat("yyyy-MM-dd E"); System.out.println(sdf.format(new Date()));//2019-08-05 星期一 sdf = new SimpleDateFormat("yyyy-MM-dd M月中的第W个星期"); System.out.println(sdf.format(new Date()));//2019-08-05 8月中的第2个星期 sdf = new SimpleDateFormat("yyyy-MM-dd M月中的第F个星期"); System.out.println(sdf.format(new Date()));//2019-08-05 8月中的第1个星期 sdf = new SimpleDateFormat("yyyy-MM-dd 一年中的第w个星期"); System.out.println(sdf.format(new Date()));//2019-08-05 一年中的第32个星期 sdf = new SimpleDateFormat("yyyy-MM-dd z"); System.out.println(sdf.format(new Date()));//2019-08-05 CST</code></pre> <p>四、DataTimeFormat</p> <p>&nbsp;例如：将字符串“2017-08-18”转化为对应的Java.sql.Date类的对象。</p> <p>.. 类似于SimpleDateFormat</p> <p>方式一：预定义的标准格式。如：ISO_LOCAL_DATE_TIME;ISO_LOCAL_DATE;</p> <p>方式二:本地化相关的格式。如：ofLocalizedDateTime(FormatStyle.LONG);</p> <p>方式三：自定义的格式。如：ofPattern("yyyy-MM-dd hh:mm:ss E");</p> <pre><code>public void test3(){ //方式一：预定义的标准格式 DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME; //格式化：日期--&gt;字符串 DateTimeFormatter localDateTime = DateTimeFormatter.now(); String str1 = formatter.format(localDateTime); } //解析：字符串--&gt;日期 TemporalAccessor parse = formatter.parse(test:"当前时间")； System.out.println(parse);   //方式二： 本地化相关的格式，如：ofLocalizedDateTime() FormatStyle.Long/FormatStyle.MEDIUM/FormatStyle.SHORT:适用于LocalDateTime DateTimeFormatter formatter2 = DateTimeFormatter.ofLocalizedDate(FormatStyle,Full); String str2=formatter2.format(LocalDate.now()); System.out.println(str2); //只输出当前日期  //自定义的格式 ofpattern("yyyy-MM-dd hh:mm:ss E")//里面字符串形式 DateTimeFormatter formatter3=DateTimeFormattern.ofPattern("yyyy-MM-dd hh:mm:ss E"); //格式化 String str3 = formatter3.format(LocalDateTime.now()); System.out.println(str3); formatter3.parse("时间")；</code></pre> <p>get!</p> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-96221.htm">立德动物医院大良分院（立德动物医院大良分院怎么样）</a></p>
+                                        <p>下一个：<a href="/news/article-96933.htm">广州哪里有批发衣服（广州哪里有批发衣服的地方）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-68166.htm" title="宠物粮生产基地大多在郊区吗 宠物粮生产基地大多在郊区吗为什么">宠物粮生产基地大多在郊区吗 宠物粮生产基地大多在郊区吗为什么</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-kitsunebi-windows.htm" title="3月9日→22.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月9日→22.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-27-kitsunebi-windows.htm" title="3月27日→19.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月27日→19.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-29-kitsunebi-github.htm" title="3月29日→19.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月29日→19.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-93207.htm" title="怎样去除猫身上的跳蚤（怎样去除猫身上的跳蚤最有效）">怎样去除猫身上的跳蚤（怎样去除猫身上的跳蚤最有效）</a></li>
+                        <li class="py-2"><a href="/news/article-67532.htm" title="宠物粮食的品牌形象有哪些（宠物粮品牌名称）">宠物粮食的品牌形象有哪些（宠物粮品牌名称）</a></li>
+                        <li class="py-2"><a href="/news/article-94727.htm" title="没经验的新手开宠物店怎么样?（零基础开宠物店）">没经验的新手开宠物店怎么样?（零基础开宠物店）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-free-kitsunebi-node.htm" title="3月25日→20.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月25日→20.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-82281.htm" title="广州宠物粮食批发市场（广州宠物粮食批发市场在哪里）">广州宠物粮食批发市场（广州宠物粮食批发市场在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-94200.htm" title="怎么开宠物店需要些什么（怎么何能开一家宠物店）">怎么开宠物店需要些什么（怎么何能开一家宠物店）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
