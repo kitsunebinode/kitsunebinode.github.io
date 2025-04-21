@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-99136.htm" />
+    <meta charset="utf-8">
+    <title>Java-多线程-线程安全-同步代码块</title>
+        <meta name="description" content="在多个线程都在争抢公共资源的时候，可能会出现抢到公共资源后，还没有完成所有操作就被其他线程抢走了，这可能导致程序运行结果不符合我们的意愿的情况 例如示例所示，在没有加同步代码块的时候，可能出现买到重复" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-99136.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="Java-多线程-线程安全-同步代码块" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/ccc671fa99c8a486e85337ec06d944c8.webp" />
+        <meta property="og:release_date" content="2025-04-19T08:57:02" />
+    <meta property="og:updated_time" content="2025-04-19T08:57:02" />
+        <meta property="og:description" content="在多个线程都在争抢公共资源的时候，可能会出现抢到公共资源后，还没有完成所有操作就被其他线程抢走了，这可能导致程序运行结果不符合我们的意愿的情况 例如示例所示，在没有加同步代码块的时候，可能出现买到重复" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java-多线程-线程安全-同步代码块">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">Java-多线程-线程安全-同步代码块</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                <div class="xcblog-blog-detail">
+                      				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown" style="font-size: 16px;"> </h1> <ul> <li>在多个线程都在争抢公共资源的时候，可能会出现抢到公共资源后，还没有完成所有操作就被其他线程抢走了，这可能导致程序运行结果不符合我们的意愿的情况</li> <li>例如示例所示，在没有加同步代码块的时候，可能出现买到重复的票或者买到第0、-1张票的情况</li> <li>为了解决线程安全的问题，可以在可能出现线程危险的地方加上同步代码块，就是使用<code>synchronized(this){}</code>将可能出现问题的代码包裹住</li> <li>但是在使用的时候也要注意，在使用同步代码块的时候，不要多包了代码，不然影响代码的执行效率</li> <li>示例：</li> </ul> <pre class="has"><code class="language-java">public class BuyTicketThread implements Runnable{     private int ticketNum = 10;     @Override     public void run() {         for (int i = 0; i &lt; 100; i++) {             synchronized (this) {                 // 加上了同步代码块之后，相当于在各个争抢公共资源的时候，一个线程抢到了，那么其他线程至少要等这个线程完成一次代码块中的语句，才能继续争抢资源                 // 相当于抢到资源后就加了一把锁，不让其他线程抢公共资源了                 if (ticketNum &gt; 0) {                     System.out.println("我在" + Thread.currentThread().getName() + "买到了西藏到成都的第" + ticketNum-- + "张机票");                 }             }         }     } }</code></pre> </div></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-98403.htm">上海宠物医院价目表（上海良心的宠物医院）</a></p>
+                                        <p>下一个：<a href="/news/article-99137.htm">Spring Ioc源码分析系列&#8211;Ioc的基础知识准备_在线工具</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-29-kitsunebi-github.htm" title="3月29日→19.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月29日→19.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70756.htm" title="宠物领养app设计（宠物领养app该如何设计）">宠物领养app设计（宠物领养app该如何设计）</a></li>
+                        <li class="py-2"><a href="/news/article-76098.htm" title="长春市领养猫咪去哪里领（长春市宠物猫领养）">长春市领养猫咪去哪里领（长春市宠物猫领养）</a></li>
+                        <li class="py-2"><a href="/news/article-89462.htm" title="内江宠物店哪家便宜又好（内江宠物店哪家便宜又好看）">内江宠物店哪家便宜又好（内江宠物店哪家便宜又好看）</a></li>
+                        <li class="py-2"><a href="/news/article-77445.htm" title="宠物批发渠道策划方案怎么写（宠物批发货源）">宠物批发渠道策划方案怎么写（宠物批发货源）</a></li>
+                        <li class="py-2"><a href="/news/article-69453.htm" title="vue3.0中对mapState,mapGetters封装">vue3.0中对mapState,mapGetters封装</a></li>
+                        <li class="py-2"><a href="/news/article-92453.htm" title="动物打疫苗有什么作用吗（动物打的疫苗是什么）">动物打疫苗有什么作用吗（动物打的疫苗是什么）</a></li>
+                        <li class="py-2"><a href="/news/article-82282.htm" title="动物疫苗的重要性有哪些（动物疫苗的重要性有哪些方面）">动物疫苗的重要性有哪些（动物疫苗的重要性有哪些方面）</a></li>
+                        <li class="py-2"><a href="/news/article-71414.htm" title="网络协议之:socket协议详解之Unix domain Socket">网络协议之:socket协议详解之Unix domain Socket</a></li>
+                        <li class="py-2"><a href="/news/article-91309.htm" title="动物防疫站给猫打疫苗贵吗现在多少钱（动物防疫站给猫打疫苗贵吗现在多少钱一针）">动物防疫站给猫打疫苗贵吗现在多少钱（动物防疫站给猫打疫苗贵吗现在多少钱一针）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
