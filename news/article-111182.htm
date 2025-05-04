@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://kitsunebinode.github.io/news/article-111182.htm" />
+    <meta charset="utf-8">
+    <title>Java中的公平锁和非公平锁实现详解</title>
+        <meta name="description" content="文章目录  前言 ReentrantLock的可重入性分析   synchronized的可重入性 ReentrantLock的可重入性   ReentrantLock锁的实现分析   公平锁和非公平" />
+        <link rel="icon" href="/assets/website/img/kitsunebinode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Kitsunebi Node机场节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kitsunebinode.github.io/news/article-111182.htm" />
+    <meta property="og:site_name" content="Kitsunebi Node机场节点订阅官网" />
+    <meta property="og:title" content="Java中的公平锁和非公平锁实现详解" />
+    <meta property="og:image" content="https://kitsunebinode.github.io/uploads/20240907/adac0012693cfaf6e5396902806cd06b.webp" />
+        <meta property="og:release_date" content="2025-05-04T09:27:24" />
+    <meta property="og:updated_time" content="2025-05-04T09:27:24" />
+        <meta property="og:description" content="文章目录  前言 ReentrantLock的可重入性分析   synchronized的可重入性 ReentrantLock的可重入性   ReentrantLock锁的实现分析   公平锁和非公平" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java中的公平锁和非公平锁实现详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- theme meta -->
+    <meta name="theme-name" content="Kitsunebi Node机场节点订阅官网" />
+    <!-- ** Plugins Needed for the Project ** -->
+    <!-- plugins -->
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/kitsunebinode/themify-icons/themify-icons.css">
+    <!-- Main Stylesheet -->
+    <link href="/assets/website/css/kitsunebinode/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G227LMQD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K0G227LMQD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="sticky-top navigation">
+        <div class=container>
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="/">
+                                <span>Kitsunebi Node</span>
+                                </a>
+                <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+                    <i class="ti-align-right h4 text-dark"></i></button>
+                <div class="collapse navbar-collapse text-center" id=navigation>
+                    <ul class="navbar-nav mx-auto align-items-center">
+                                                <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- details page -->
+    <section class="pt-5">
+        <div class="container shadow section-sm rounded">
+            <div class="row">
+                <div class="col-md-12 pb-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </div>
+                <div class="col-md-9">
+                    <h1 class="mb-4">Java中的公平锁和非公平锁实现详解</h1>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li>前言</li> <li>ReentrantLock的可重入性分析</li> <li> <ul> <li>synchronized的可重入性</li> <li>ReentrantLock的可重入性</li> </ul> </li> <li>ReentrantLock锁的实现分析</li> <li> <ul> <li>公平锁和非公平锁</li> <li>公平锁FairSync</li> <li>非公平锁NonfairSync</li> </ul> </li> <li>ReentrantLock锁的释放</li> <li> <ul> <li>ReentrantLock等待队列中元素的唤醒</li> </ul> </li> <li>ReentrantLock内存可见性分析</li> <li> <ul> <li>CAS和volatile， Java并发的基石</li> <li>JSR-133编译器编写手册</li> <li>ReentrantLock内存可见性</li> <li>CAS的类似volatile内存屏障原理</li> </ul> </li> </ul> </div> </h1> <p>Java语言中有许多原生线程安全的数据结构，比如<code>ArrayBlockingQueue</code>、<code>CopyOnWriteArrayList</code>、<code>LinkedBlockingQueue</code>，它们线程安全的实现方式并非通过<code>synchronized</code>关键字，而是通过<code>java.util.concurrent.locks.ReentrantLock</code>来实现。 刚好对这个很感兴趣， 因此写一篇博客详细分析此 “可重入锁实现原理”。<br /><code>ReentrantLock</code>的实现是基于其内部类<code>FairSync</code>(公平锁)和<code>NonFairSync</code>(非公平锁)实现的。 其可重入性是基于<code>Thread.currentThread()</code>实现的: 如果当前线程已经获得了执行序列中的锁， 那执行序列之后的所有方法都可以获得这个锁。</p> <hr/> <p>公平锁：</p> <ul> <li>公平和非公平锁的队列都基于锁内部维护的一个双向链表，表结点Node的值就是每一个请求当前锁的线程。公平锁则在于每次都是依次从队首取值。</li> <li>锁的实现方式是基于如下几点： <ul> <li>表结点<code>Node</code>和状态<code>state</code>的<code>volatile</code>关键字。</li> <li><code>sum.misc.Unsafe.compareAndSet</code>的原子操作(见附录)。</li> </ul> </li> </ul> <p>非公平锁：</p> <ul> <li>在等待锁的过程中， 如果有任意新的线程妄图获取锁，都是有很大的几率直接获取到锁的。</li> </ul> <blockquote> <p><code>ReentrantLock</code>锁都**<em>不会<em><em><em>使得线程中断，除非开发者自己设置了中断位。<br /><code>ReentrantLock</code>获取锁里面有</em>看似</em>自旋的代码，但是它</em>不是</em>自旋锁。<br /><code>ReentrantLock</code>公平与非公平锁都是属于排它锁。</p> </blockquote> </h1> <p>这里有一篇对锁介绍甚为详细的文章朱小厮的博客-Java中的锁.</p> <h2>synchronized的可重入性</h2> <p>参考这篇文章： synchronized 锁实现。</p> <hr/> <p>两者的原理基本类似，<code>synchronized</code>在不同的锁级别下， 重入的实现不一样。</p> <ul> <li>偏向锁：<code>Mark Word</code> 中记录的<code>ThreadId</code>。</li> <li>轻量级锁：<code>Mark Word</code> 指向的当前线程的锁记录。</li> <li>重量级锁：采用<code>Mark Word</code> 指向对比和<code>_recursions</code>累增加锁、减锁。</li> </ul> <p><code>ReentrantLock</code> 基于当前锁持有的线程对象<code>thread</code>， 然后对<code>state</code> 进行累计或者累减。和重量级锁的实现比较像。</p> <h2>ReentrantLock的可重入性</h2> <p>前言里面提到，<code>ReentrantLock</code>重入性是基于<code>Thread.currentThread()</code>实现的: 如果当前线程已经获得了锁， 那该线程下的所有方法都可以获得这个锁。<code>ReentrantLock</code>的锁依赖只有<code>NonfairSync</code>和<code>FairSync</code>两个实现类， 他们的锁获取方式大同小异。</p> <blockquote> <p>可重入性的实现基于下面代码片段的<code>else if</code> 语句</p> </blockquote> <pre><code>protected final boolean tryAcquire(int acquires) {     final Thread current = Thread.currentThread();     int c = getState();     if (c == 0) {         ...         // 尝试获取锁成功     }     else if (current == getExclusiveOwnerThread()) { 	    // 是当前线程，直接获取到锁。实现可重入性。         int nextc = c + acquires;         if (nextc &lt; 0)             throw new Error("Maximum lock count exceeded");         setState(nextc);         return true;     }     return false; }</code></pre> <p>此处有两个值需要关心：</p> <pre><code>    /**      * The current owner of exclusive mode synchronization.      * 持有该锁的当前线程      */     private transient Thread exclusiveOwnerThread;       -----------------两个值不在同一个类----------------           /**      * The synchronization state.      * 0： 初始状态-无任何线程得到了锁      * &gt; 0: 被线程持有， 具体值表示被当前线程持有的执行次数      *       * 这个字段在解锁的时候也需要用到。      * 注意这个字段的修饰词: volatile      */     private volatile int state;</code></pre> </h1> <h2>公平锁和非公平锁</h2> <p><code>ReentrantLock</code> 的公平锁和非公平锁都委托了<code>AbstractQueuedSynchronizer#acquire</code> 去请求获取。</p> <pre><code>public final void acquire(int arg) {     if (!tryAcquire(arg) &amp;&amp;         acquireQueued(addWaiter(Node.EXCLUSIVE), arg))         selfInterrupt(); }</code></pre> <ul> <li><code>tryAcquire</code> 是一个抽象方法，是***公平与非公平***的实现原理所在。</li> <li><code>addWaiter</code> 是将当前线程结点加入等待队列之中。<strong>公平锁在锁释放后会严格按照等到队列去取后续值</strong>，<em>而非公平锁在对于新晋线程有很大优势</em>。</li> <li><code>acquireQueued</code> 在多次循环中尝试获取到锁或者将当前线程阻塞。</li> <li><code>selfInterrupt</code> 如果线程在阻塞期间发生了中断，调用<code>Thread.currentThread().interrupt()</code> 中断当前线程。</li> </ul> <blockquote> <p><code>ReentrantLock</code> 对线程的阻塞是基于<code>LockSupport.park(this);</code> (见<code>AbstractQueuedSynchronizer#parkAndCheckInterrupt</code>)。 先决条件是当前节点有限次尝试获取锁失败。</p> </blockquote> <p><strong>公平锁和非公平锁在说的获取上都使用到了<code>volatile</code> 关键字修饰的<code>state</code>字段， 这是保证多线程环境下锁的获取与否的核心。</strong><br /><strong>但是当并发情况下多个线程都读取到<code>state == 0</code>时，则必须用到CAS技术，一门CPU的原子锁技术，可通过CPU对共享变量加锁的形式，实现数据变更的原子操作。</strong><br /><strong>volatile 和 CAS的结合是并发抢占的关键。</strong></p> <h2>公平锁FairSync</h2> <p>公平锁的实现机理在于每次有线程来抢占锁的时候，都会检查一遍有没有等待队列，如果有， 当前线程会执行如下步骤：</p> <pre><code>if (!hasQueuedPredecessors() &amp;&amp;     compareAndSetState(0, acquires)) {     setExclusiveOwnerThread(current);     return true; }</code></pre> <p>其中<code>hasQueuedPredecessors</code>是用于检查是否有等待队列的。</p> <pre><code>    public final boolean hasQueuedPredecessors() {         Node t = tail; // Read fields in reverse initialization order         Node h = head;         Node s;         return h != t &amp;&amp;             ((s = h.next) == null || s.thread != Thread.currentThread());     }</code></pre> <h2>非公平锁NonfairSync</h2> <p>非公平锁在实现的时候多次强调随机抢占：</p> <pre><code>if (c == 0) {     if (compareAndSetState(0, acquires)) {         setExclusiveOwnerThread(current);         return true;     } }</code></pre> <p>与公平锁的区别在于新晋获取锁的进程会有多次机会去抢占锁。如果被加入了等待队列后则跟公平锁没有区别。</p> </h1> <p>ReentrantLock锁的释放是逐级释放的，也就是说在 可重入性 场景中，必须要等到场景内所有的加锁的方法都释放了锁， 当前线程持有的锁才会被释放！<br /> 释放的方式很简单， state字段减一即可：</p> <pre><code>protected final boolean tryRelease(int releases) {     //  releases = 1     int c = getState() - releases;     if (Thread.currentThread() != getExclusiveOwnerThread())         throw new IllegalMonitorStateException();     boolean free = false;     if (c == 0) {         free = true;         setExclusiveOwnerThread(null);     }     setState(c);     return free; }</code></pre> <h2>ReentrantLock等待队列中元素的唤醒</h2> <p>当当前拥有锁的线程释放锁之后， 且非公平锁无线程抢占，就开始线程唤醒的流程。<br /> 通过<code>tryRelease</code>释放锁成功，调用<code>LockSupport.unpark(s.thread);</code> 终止线程阻塞。<br /> 见代码：</p> <pre><code>private void unparkSuccessor(Node node) {     // 强行回写将被唤醒线程的状态     int ws = node.waitStatus;     if (ws &lt; 0)         compareAndSetWaitStatus(node, ws, 0);     Node s = node.next;     // s为h的下一个Node, 一般情况下都是非Null的     if (s == null || s.waitStatus &gt; 0) {         s = null;         // 否则按照FIFO原则寻找最先入队列的并且没有被Cancel的Node         for (Node t = tail; t != null &amp;&amp; t != node; t = t.prev)             if (t.waitStatus &lt;= 0)                 s = t;     }     // 再唤醒它     if (s != null)         LockSupport.unpark(s.thread); }</code></pre> </h1> <p>针对如下代码：</p> <pre><code>try {     lock.lock();     i ++; } finally {     lock.unlock(); }</code></pre> <p>可以发现哪怕在不使用<code>volatile</code>关键字修饰元素<code>i</code>的时候， 这里的<code>i</code> 也是没有并发问题的。</p> <h2>CAS和volatile， Java并发的基石</h2> <p>volatile 是Java语言的关键字， 功能是保证被修饰的元素(共享变量):</p> <blockquote> <p>任何进程在读取的时候，都会清空本进程里面持有的共享变量的值，强制从主存里面获取；<br /> 任何进程在写入完毕的时候，都会强制将共享变量的值写会主存。<br /> volatile 会干预指令重排。<br /> volatile 实现了JMM规范的 happen-before 原则。</p> </blockquote> <p>在多核多线程CPU环境下， CPU为了提升指令执行速度，在保证程序语义正确的前提下，允许编译器对指令进行重排序。也就是说这种指令重排序对于上层代码是感知不到的，我们称之为 processor ordering.</p> <p>JMM 允许编译器在指令重排上自由发挥，除非程序员通过<strong>volatile</strong>等 显式干预这种重排机制，建立起同步机制，保证多线程代码正确运行。见文章：Java并发：volatile内存可见性和指令重排。</p> <p><strong>当多个线程之间有互相的数据依赖的之后， 就必须显式的干预这个指令重排机制</strong>。</p> <hr/> <p>CAS是CPU提供的一门技术。在单核单线程处理器上，所有的指令允许都是顺序操作；但是在多核多线程处理器上，多线程访问同一个共享变量的时候，可能存在并发问题。</p> <blockquote> <p>使用CAS技术可以锁定住元素的值。Intel开发文档, 第八章<br /> 编译器在将线程持有的值与被锁定的值进行比较，相同则更新为更新的值。<br /> CAS同样遵循JMM规范的 happen-before 原则。<br /> 看JAVA CAS原理深度分析博客</p> </blockquote> <p><strong>公平锁和非公平锁在说的获取上都使用到了<code>volatile</code> 关键字修饰的<code>state</code>字段， 这是保证多线程环境下锁的获取与否的核心。</strong><br /><strong>但是当并发情况下多个线程都读取到<code>state == 0</code>时，则必须用到CAS技术，一门CPU的原子锁技术，可通过CPU对共享变量加锁的形式，实现数据变更的原子操作。</strong><br /><strong>volatile 和 CAS的结合是并发抢占的关键。</strong></p> <h2>JSR-133编译器编写手册</h2> <p>JMM规范经历了多代迭代， JSR-133为较为通用的一版规范。</p> <blockquote> <p>编译器编写手册文档见:The JSR-133 Cookbook for Compiler Writers (非官方指南)</p> </blockquote> <p>上面小章节描述到了<code>volatile</code>可以避免掉的指令重排， 那它怎么避免的呢？</p> <p>在内存的读写过程中， 无非 读/写 两者操作的四种组合：</p> <ul> <li>LoadStore</li> <li>LoadLoad</li> <li>StoreStore</li> <li>StoreLoad</li> </ul> <blockquote> <p>volatile关键字通过提供“内存屏障”的方式来防止指令被重排序，为了实现volatile的内存语义，编译器在生成字节码时，会在指令序列中插入内存屏障来禁止特定类型的处理器重排序。而大多数的处理器都支持内存屏障的指令。</p> </blockquote> <ul> <li>volatile读操作的后面插入一个LoadLoad屏障。</li> <li>volatile写操作的后面插入一个StoreLoad屏障。</li> </ul> <p>那这个<code>StoreLoad</code> /<code>LoadLoad</code>有什么用处呢？ 见Intel开发文档, 第八章。 简单的说<code>StoreLoad</code>就是触发后续指令中的线程缓存回写到内存; 而<code>LoadLoad</code>会触发线程重新从主存里面读数据进行处理。</p> <blockquote> <p>Synchronization mechanisms in multiple-processor systems may depend upon a strong memory-ordering model. Here, a program can use a locking instruction such as the XCHG instruction or the LOCK prefix to ensure that a read-modify-write operation on memory is carried out atomically. Locking operations typically operate like I/O operations in that they wait for all previous instructions to complete and for all buffered writes to drain to memory.</p> </blockquote> <h2>ReentrantLock内存可见性</h2> <p>在上述博客中的： ReentrantLock锁的实现分析#公平锁和非公平锁 中讲到：ReentrantLock 通过<code>volatile</code> 和<code>CAS</code> 的搭配实现锁的功能。</p> <p>顺带的，<code>volatile</code> 关键字修饰的<code>state</code> 字段读和后续的锁释放中的<code>state</code> 字段写， 共同组成了保证ReentrantLock内存可见性的内存屏障。 此屏障保证了ReentrantLock的内存可见性</p> <h2>CAS的类似volatile内存屏障原理</h2> <p>参见文章深入理解Java内存模型（五）——锁<br /><strong>如下文档部分摘录</strong></p> <p>volatile是通过在Java编译时，添加字节码来实现内存屏障功能。</p> <p>CAS通过本地JNI调用，Java代码为 Unsafe.java， 层次调用为：unsafe.cpp &gt; atomic.cpp &gt; atomicwindowsx86.inline.hpp。调用的代码如是：</p> <pre><code>#define LOCK_IF_MP(mp) __asm cmp mp, 0  \                        __asm je L0      \                        __asm _emit 0xF0 \                        __asm L0:  inline jint     Atomic::cmpxchg    (jint     exchange_value, volatile jint*     dest, jint     compare_value) {   // alternative for InterlockedCompareExchange   int mp = os::is_MP();   __asm {     mov edx, dest     mov ecx, exchange_value     mov eax, compare_value     LOCK_IF_MP(mp)     cmpxchg dword ptr [edx], ecx   } }</code></pre> <blockquote> <p>如上面源代码所示，程序会根据当前处理器的类型来决定是否为cmpxchg指令添加lock前缀。如果程序是在多处理器上运行，就为cmpxchg指令加上lock前缀（lock cmpxchg）。反之，如果程序是在单处理器上运行，就省略lock前缀（单处理器自身会维护单处理器内的顺序一致性，不需要lock前缀提供的内存屏障效果）。</p> </blockquote> <p>intel的手册对lock前缀的说明如下：</p> <ol> <li>确保对内存的读-改-写操作原子执行。在Pentium及Pentium之前的处理器中，带有lock前缀的指令在执行期间会锁住总线，使得其他处理器暂时无法通过总线访问内存。很显然，这会带来昂贵的开销。从Pentium 4，Intel Xeon及P6处理器开始，intel在原有总线锁的基础上做了一个很有意义的优化：如果要访问的内存区域（area of memory）在lock前缀指令执行期间已经在处理器内部的缓存中被锁定（即包含该内存区域的缓存行当前处于独占或以修改状态），并且该内存区域被完全包含在单个缓存行（cache line）中，那么处理器将直接执行该指令。由于在指令执行期间该缓存行会一直被锁定，其它处理器无法读/写该指令要访问的内存区域，因此能保证指令执行的原子性。这个操作过程叫做缓存锁定（cache locking），缓存锁定将大大降低lock前缀指令的执行开销，但是当多处理器之间的竞争程度很高或者指令访问的内存地址未对齐时，仍然会锁住总线。</li> <li>禁止该指令与之前和之后的读和写指令重排序。</li> <li>把写缓冲区中的所有数据刷新到内存中。</li> </ol> <p>上面的第2点和第3点所具有的内存屏障效果，足以同时实现volatile读和volatile写的内存语义。</p> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-110336.htm">三国杀金牌特效（三国杀特效皮肤有哪些）</a></p>
+                                        <p>下一个：<a href="/news/article-111184.htm">宠物粮食生意怎么样赚钱的呢（宠物粮食利润大吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-104496.htm" title="猫的疫苗可以自己打吗?（猫的疫苗可以自己打吗安全吗）">猫的疫苗可以自己打吗?（猫的疫苗可以自己打吗安全吗）</a></li>
+                        <li class="py-2"><a href="/news/article-106110.htm" title="宠物领养证办理日期有要求吗知乎怎么写（宠物领养登记表）">宠物领养证办理日期有要求吗知乎怎么写（宠物领养登记表）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-24-today-kitsunebi-node.htm" title="4月24日→18M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月24日→18M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-96931.htm" title="Java之LocalDate,LocalTime，LocalDateTime等时间">Java之LocalDate,LocalTime，LocalDateTime等时间</a></li>
+                        <li class="py-2"><a href="/news/article-99136.htm" title="Java-多线程-线程安全-同步代码块">Java-多线程-线程安全-同步代码块</a></li>
+                        <li class="py-2"><a href="/news/article-91309.htm" title="动物防疫站给猫打疫苗贵吗现在多少钱（动物防疫站给猫打疫苗贵吗现在多少钱一针）">动物防疫站给猫打疫苗贵吗现在多少钱（动物防疫站给猫打疫苗贵吗现在多少钱一针）</a></li>
+                        <li class="py-2"><a href="/news/article-110336.htm" title="三国杀金牌特效（三国杀特效皮肤有哪些）">三国杀金牌特效（三国杀特效皮肤有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-94200.htm" title="怎么开宠物店需要些什么（怎么何能开一家宠物店）">怎么开宠物店需要些什么（怎么何能开一家宠物店）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-4-free-high-speed-nodes.htm" title="5月4日→19M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">5月4日→19M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-90212.htm" title="动物医院诊疗活动范围包括哪些方面（动物医院诊室设计图）">动物医院诊疗活动范围包括哪些方面（动物医院诊室设计图）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /details page -->
+        <footer>
+        <div class="container">
+            <div class="py-4 text-center">
+                <p class="text-light">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <a href="/">Kitsunebi Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- plugins -->
+    <script src="/assets/website/js/frontend/kitsunebinode/jQuery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/bootstrap/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/masonry/masonry.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/clipboard/clipboard.min.js"></script>
+    <script src="/assets/website/js/frontend/kitsunebinode/match-height/jquery.matchHeight-min.js"></script>
+    <!-- Main Script -->
+    <script src="/assets/website/js/frontend/kitsunebinode/script.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
