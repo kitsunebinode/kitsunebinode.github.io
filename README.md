@@ -1,4 +1,4 @@
-# 10月8日→19.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址  更新时间 2025-10-08 10:10:46
+# 10月14日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址  更新时间 2025-10-14 06:18:00
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://kitsunebinode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://kitsunebinode.github.io/uploads/2025/10/0-20251008.yaml
-- https://kitsunebinode.github.io/uploads/2025/10/1-20251008.yaml
-- https://kitsunebinode.github.io/uploads/2025/10/2-20251008.yaml
-- https://kitsunebinode.github.io/uploads/2025/10/3-20251008.yaml
-- https://kitsunebinode.github.io/uploads/2025/10/4-20251008.yaml
+- https://kitsunebinode.github.io/uploads/2025/10/0-20251014.yaml
+- https://kitsunebinode.github.io/uploads/2025/10/1-20251014.yaml
+- https://kitsunebinode.github.io/uploads/2025/10/2-20251014.yaml
+- https://kitsunebinode.github.io/uploads/2025/10/3-20251014.yaml
+- https://kitsunebinode.github.io/uploads/2025/10/4-20251014.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://kitsunebinode.github.io/uploads/2025/10/0-20251008.txt
-- https://kitsunebinode.github.io/uploads/2025/10/1-20251008.txt
-- https://kitsunebinode.github.io/uploads/2025/10/2-20251008.txt
-- https://kitsunebinode.github.io/uploads/2025/10/3-20251008.txt
-- https://kitsunebinode.github.io/uploads/2025/10/4-20251008.txt
+- https://kitsunebinode.github.io/uploads/2025/10/0-20251014.txt
+- https://kitsunebinode.github.io/uploads/2025/10/1-20251014.txt
+- https://kitsunebinode.github.io/uploads/2025/10/2-20251014.txt
+- https://kitsunebinode.github.io/uploads/2025/10/3-20251014.txt
+- https://kitsunebinode.github.io/uploads/2025/10/4-20251014.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://kitsunebinode.github.io/uploads/2025/10/20251008.json
+- https://kitsunebinode.github.io/uploads/2025/10/20251014.json
 
 ## 更多Clash节点订阅 ：
 
