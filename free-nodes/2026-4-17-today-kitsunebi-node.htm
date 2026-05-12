@@ -332,24 +332,9 @@ clash
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + Reality 模式如何隐藏流量特征？</h5></div>
-    <div class="panel-body">
-        Reality 模式通过伪装握手和真实网站特征，使流量难以被 DPI 检测。结合策略组使用，可有效隐藏节点通信特征，同时保持安全和高速传输，适合高封锁环境。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 的多出口节点如何优化访问速度？</h5></div>
     <div class="panel-body">
         通过为不同流量类型设置不同出口节点，WinXray 可以自动选择延迟最低的节点处理请求。结合策略组，可提高网页访问、视频播放和游戏等应用的速度与稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray QUIC 传输适合什么网络环境？</h5></div>
-    <div class="panel-body">
-        QUIC 基于 UDP 支持多路复用和零握手，降低延迟，提高吞吐量。适合高丢包、不稳定网络环境，可保证视频、游戏和即时通讯流量的稳定性和流畅体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密能防止哪些风险？</h5></div>
-    <div class="panel-body">
-        AEAD 加密可防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下使用，有助于保持节点长期可用，保证数据安全和连接稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 如何在 Windows 上加速游戏？</h5></div>
@@ -357,19 +342,24 @@ clash
         Netch 使用 TUN/TAP 模式将特定进程流量通过代理转发，常用于游戏加速。用户只需将游戏进程添加到列表，选择合适的代理节点，即可降低延迟并绕过地理限制。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的延迟检测如何帮助节点选择？</h5></div>
-    <div class="panel-body">
-        Clash 会定期测速节点延迟，并根据策略组自动选择延迟最低节点处理流量。可避免访问高延迟或失效节点，提高网页、视频和游戏访问速度及稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 的节点测速如何优化策略组选择？</h5></div>
     <div class="panel-body">
         Shadowrocket 会测量节点延迟和丢包率，将低延迟节点优先使用。结合策略组和规则文件，可保证网页、视频和游戏流量走最佳节点，提高访问速度和连接稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 节点延迟排序功能如何使用？</h5></div>
+    <div class="panel-heading"><h5>VMess AEAD 加密能防止哪些风险？</h5></div>
     <div class="panel-body">
-        Matsuri 会自动测试节点延迟，并根据结果排序。用户可以选择延迟最低的节点使用，从而优化访问速度和稳定性，尤其适合游戏、视频和海外网站加速。<hr />    </div>
+        AEAD 加密可防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下使用，有助于保持节点长期可用，保证数据安全和连接稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 运行在低配设备上卡顿，如何减轻资源占用？</h5></div>
+    <div class="panel-body">
+        减少 rule-provider 数量、关闭不必要的日志与统计、降低 DNS 轮询频率并禁用内置测速；若使用 TUN 模式，可改为代理模式减少内核负担。必要时升级到更高性能的设备或使用更轻量内核。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + Reality 模式如何隐藏流量特征？</h5></div>
+    <div class="panel-body">
+        Reality 模式通过伪装握手和真实网站特征，使流量难以被 DPI 检测。结合策略组使用，可有效隐藏节点通信特征，同时保持安全和高速传输，适合高封锁环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + Reality 模式相比普通 TLS 有什么优势？</h5></div>
@@ -377,9 +367,19 @@ clash
         Reality 模式通过伪装握手和真实网站特征，提高流量隐蔽性，难以被 DPI 检测。TLS 模式更侧重加密和传输效率，Reality 更适合高封锁网络环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 运行在低配设备上卡顿，如何减轻资源占用？</h5></div>
+    <div class="panel-heading"><h5>V2Ray QUIC 传输适合什么网络环境？</h5></div>
     <div class="panel-body">
-        减少 rule-provider 数量、关闭不必要的日志与统计、降低 DNS 轮询频率并禁用内置测速；若使用 TUN 模式，可改为代理模式减少内核负担。必要时升级到更高性能的设备或使用更轻量内核。    </div>
+        QUIC 基于 UDP 支持多路复用和零握手，降低延迟，提高吞吐量。适合高丢包、不稳定网络环境，可保证视频、游戏和即时通讯流量的稳定性和流畅体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Matsuri 节点延迟排序功能如何使用？</h5></div>
+    <div class="panel-body">
+        Matsuri 会自动测试节点延迟，并根据结果排序。用户可以选择延迟最低的节点使用，从而优化访问速度和稳定性，尤其适合游戏、视频和海外网站加速。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 的延迟检测如何帮助节点选择？</h5></div>
+    <div class="panel-body">
+        Clash 会定期测速节点延迟，并根据策略组自动选择延迟最低节点处理流量。可避免访问高延迟或失效节点，提高网页、视频和游戏访问速度及稳定性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -408,16 +408,16 @@ clash
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-30-kitsunebi-github.htm" title="3月30日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月30日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-11-kitsunebi-github.htm" title="4月11日→19.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月11日→19.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-17-free-kitsunebi-node.htm" title="3月17日→21.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月17日→21.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-12-kitsunebi-windows.htm" title="3月12日→20.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月12日→20.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-16-kitsunebi-windows.htm" title="3月16日→21M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月16日→21M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-13-node-share-links.htm" title="4月13日→21.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月13日→21.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-27-latest-kitsunebi-node.htm" title="4月27日→18.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月27日→18.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-4-16-today-kitsunebi-node.htm" title="4月16日→22.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月16日→22.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-18-node-share.htm" title="4月18日→22.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月18日→22.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-26-today-kitsunebi-node.htm" title="3月26日→20.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月26日→20.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-3-18-kitsunebi-node-share.htm" title="3月18日→20.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">3月18日→20.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-30-today-kitsunebi-node.htm" title="4月30日→19.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月30日→19.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-28-kitsunebi-node-github.htm" title="4月28日→18M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月28日→18M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-13-node-share-links.htm" title="4月13日→21.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月13日→21.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-8-kitsunebi-node-github.htm" title="5月8日→18.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">5月8日→18.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-5-kitsunebi-github.htm" title="5月5日→19.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">5月5日→19.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-20-free-subscribe-node.htm" title="4月20日→19.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月20日→19.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-15-latest-kitsunebi-node.htm" title="4月15日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月15日→21.5M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-17-today-kitsunebi-node.htm" title="4月17日→22.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">4月17日→22.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -429,10 +429,10 @@ clash
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                     </ul>
     </div>
