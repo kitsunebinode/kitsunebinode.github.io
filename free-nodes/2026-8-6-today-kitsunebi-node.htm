@@ -340,32 +340,13 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/free-node-subscribe-links-2026-8-5.htm">8月5日→21.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></p>
+        <p>下一个：<a href="/free-nodes/latest-kitsunebi-node-2026-8-7.htm">8月7日→21.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 在路由器上使用 TUN 模式会有什么影响？</h5></div>
+    <div class="panel-heading"><h5>Clash 的配置文件是 YAML 格式吗？</h5></div>
     <div class="panel-body">
-        启用 TUN 模式会拦截并转发路由器上全部或选定流量，这会增加路由器 CPU 与内存负担，可能影响路由器其他服务表现。建议在性能足够的设备上启用，或仅对特定设备/端口进行分流。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 支持多配置文件加载吗？</h5></div>
-    <div class="panel-body">
-        Clash 支持多配置切换，用户可在图形界面中导入多个 YAML 文件，并通过选择不同配置快速切换使用场景。例如家用模式、移动模式或公司网络模式。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密在封锁网络中有什么优势？</h5></div>
-    <div class="panel-body">
-        AEAD 加密可以防止数据被篡改和流量特征泄露，降低被检测风险。在封锁较高的网络环境中，保证节点长期可用，提高数据传输安全性和访问可靠性，增强用户体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 的内置延迟测试为什么与系统 ping 不同？</h5></div>
-    <div class="panel-body">
-        客户端的延迟测试通常基于 TCP 或特定探测包，而系统 ping 使用 ICMP，两者网络路径与优先级可能不同。此外，防火墙或服务器对 ICMP 的响应可能被限制，导致测试结果存在差异。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 的 Reality 模式需要额外配置吗？</h5></div>
-    <div class="panel-body">
-        Reality 模式需要配置伪装域名、公钥和服务器指纹等参数。正确配置后，可有效隐藏流量特征，提高在高封锁环境下的可用性和安全性。<hr />    </div>
+        是的。Clash 的配置文件采用 YAML 格式，结构清晰易读。用户可以通过编辑 proxies、proxy-groups 和 rules 部分来自定义节点列表、分组策略和分流规则，非常灵活。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 的 QUIC 协议如何降低延迟？</h5></div>
@@ -373,9 +354,9 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
         QUIC 协议基于 UDP，多路复用和拥塞控制优化，可减少握手延迟和包重传次数。Hysteria2 利用 QUIC 的特性，使高延迟或丢包网络下依然保持低延迟和高稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 如何通过策略组优化访问速度？</h5></div>
+    <div class="panel-heading"><h5>VLESS 的 Reality 模式需要额外配置吗？</h5></div>
     <div class="panel-body">
-        策略组允许用户将节点按延迟、地域或用途分组。结合路由规则，V2Ray 会自动选择最优节点处理流量，提升访问速度并降低延迟，尤其在访问海外网站时效果明显。<hr />    </div>
+        Reality 模式需要配置伪装域名、公钥和服务器指纹等参数。正确配置后，可有效隐藏流量特征，提高在高封锁环境下的可用性和安全性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 使用 TAP 驱动时 Windows 弹出网络变更提示，该如何处理？</h5></div>
@@ -383,14 +364,34 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
         这是正常现象，TAP 虚拟网卡会改变系统网络状态。建议在首次启用时允许驱动安装并授予网络权限，若频繁弹窗可在网络设置中调整网络识别类型或将 TAP 设为非计量连接。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 如何通过策略组优化访问速度？</h5></div>
+    <div class="panel-body">
+        策略组允许用户将节点按延迟、地域或用途分组。结合路由规则，V2Ray 会自动选择最优节点处理流量，提升访问速度并降低延迟，尤其在访问海外网站时效果明显。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 支持多配置文件加载吗？</h5></div>
+    <div class="panel-body">
+        Clash 支持多配置切换，用户可在图形界面中导入多个 YAML 文件，并通过选择不同配置快速切换使用场景。例如家用模式、移动模式或公司网络模式。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 的内置延迟测试为什么与系统 ping 不同？</h5></div>
+    <div class="panel-body">
+        客户端的延迟测试通常基于 TCP 或特定探测包，而系统 ping 使用 ICMP，两者网络路径与优先级可能不同。此外，防火墙或服务器对 ICMP 的响应可能被限制，导致测试结果存在差异。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess AEAD 加密在封锁网络中有什么优势？</h5></div>
+    <div class="panel-body">
+        AEAD 加密可以防止数据被篡改和流量特征泄露，降低被检测风险。在封锁较高的网络环境中，保证节点长期可用，提高数据传输安全性和访问可靠性，增强用户体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 如何实现延迟最低节点自动切换？</h5></div>
     <div class="panel-body">
         WinXray 支持节点延迟检测和策略组配置，可自动将流量切换至延迟最低的节点。用户无需手动选择，提高游戏、视频和网页访问速度及稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的配置文件是 YAML 格式吗？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 在路由器上使用 TUN 模式会有什么影响？</h5></div>
     <div class="panel-body">
-        是的。Clash 的配置文件采用 YAML 格式，结构清晰易读。用户可以通过编辑 proxies、proxy-groups 和 rules 部分来自定义节点列表、分组策略和分流规则，非常灵活。    </div>
+        启用 TUN 模式会拦截并转发路由器上全部或选定流量，这会增加路由器 CPU 与内存负担，可能影响路由器其他服务表现。建议在性能足够的设备上启用，或仅对特定设备/端口进行分流。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -438,16 +439,16 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-7-30-kitsunebi-github.htm" title="7月30日→22.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">7月30日→22.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-10-free-kitsunebi-node.htm" title="6月10日→19M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">6月10日→19M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-20-free-subscribe-node.htm" title="7月20日→20.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">7月20日→20.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-16-free-subscribe-node.htm" title="7月16日→20.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">7月16日→20.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-14-kitsunebi-node.htm" title="6月14日→22.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">6月14日→22.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-6-19-latest-kitsunebi-node.htm" title="6月19日→20.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">6月19日→20.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-6-today-kitsunebi-node.htm" title="8月6日→22.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月6日→22.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-7-27-kitsunebi-windows.htm" title="7月27日→21.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">7月27日→21.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-7-31.htm" title="7月31日→21.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">7月31日→21.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-4-node-share.htm" title="8月4日→21.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月4日→21.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-25-kitsunebi-node-share.htm" title="7月25日→19M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">7月25日→19M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-16-free-subscribe-node.htm" title="7月16日→20.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">7月16日→20.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/kitsunebi-windows-2026-8-11.htm" title="8月11日→19.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月11日→19.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-2-kitsunebi-github.htm" title="8月2日→19.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月2日→19.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/latest-kitsunebi-node-2026-8-9.htm" title="8月9日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月9日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-26-node-share.htm" title="7月26日→20.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">7月26日→20.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/kitsunebi-windows-2026-8-3.htm" title="8月3日→18.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月3日→18.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-19-free-node-subscribe-links.htm" title="7月19日→19.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">7月19日→19.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-7-20-free-subscribe-node.htm" title="7月20日→20.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">7月20日→20.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -459,13 +460,10 @@ A：请避免多重系统代理设置，例如Clash、Surge等并行运行时可
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
             </li>
                     </ul>
     </div>
