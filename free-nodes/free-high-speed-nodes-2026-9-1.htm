@@ -243,9 +243,14 @@ VPN服务商理论上可见用户数据，需选择信赖的服务商；Tor网�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 是否支持延迟排序节点？</h5></div>
+    <div class="panel-heading"><h5>Hysteria2 多路复用如何降低延迟？</h5></div>
     <div class="panel-body">
-        支持。Matsuri 会自动测试节点延迟并按结果排序。用户可快速选择延迟最低或速度最快的节点，提高网络访问速度，尤其适合游戏或视频场景。<hr />    </div>
+        多路复用允许多个短连接共享同一通道，减少握手和加密开销，降低延迟。适用于高频短连接场景，如游戏和即时通讯，提升吞吐量和网络稳定性，保证流量快速传输。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + Reality 模式相比普通 TLS 有什么优势？</h5></div>
+    <div class="panel-body">
+        Reality 模式通过伪装握手和真实网站特征，提高流量隐蔽性，难以被 DPI 检测。TLS 模式更侧重加密和传输效率，Reality 更适合高封锁网络环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 支持游戏加速吗？</h5></div>
@@ -253,14 +258,9 @@ VPN服务商理论上可见用户数据，需选择信赖的服务商；Tor网�
         Netch 专为游戏加速设计，支持 UDP 转发和 TAP 驱动，可有效降低延迟。用户可以为特定游戏添加路由规则，实现分流加速，从而提升国际游戏体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的测速功能如何使用？</h5></div>
+    <div class="panel-heading"><h5>Clash 的 Rule Provider 功能有哪些好处？</h5></div>
     <div class="panel-body">
-        WinXray 内置节点测速工具，可以通过延迟测试（ping）或带宽测试判断节点质量。用户只需右键节点选择“测速”即可，测试结果将显示在列表中，帮助快速挑选最佳线路。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash Premium 与普通版本有什么区别？</h5></div>
-    <div class="panel-body">
-        Clash Premium 是增强版，支持更多功能如 TUN 模式、本地 DNS 解析、脚本规则和自定义代理链。它能实现更细致的流量控制和兼容更多协议，适合对网络有高级需求的用户使用。<hr />    </div>
+        Rule Provider 可通过远程订阅自动更新规则和节点，减少手动维护。结合策略组，可实现分流规则和节点的自动同步，保证分流效率和网络可用性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 的流量分流规则支持哪些条件？</h5></div>
@@ -273,24 +273,24 @@ VPN服务商理论上可见用户数据，需选择信赖的服务商；Tor网�
         Clash Premium 版本支持系统级 TUN 模式，可将所有 UDP 流量转发至代理节点。启用该模式后需管理员权限，并在配置文件中添加 dns 与 tun 模块，选择低延迟节点即可实现游戏加速。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 多路复用如何降低延迟？</h5></div>
-    <div class="panel-body">
-        多路复用允许多个短连接共享同一通道，减少握手和加密开销，降低延迟。适用于高频短连接场景，如游戏和即时通讯，提升吞吐量和网络稳定性，保证流量快速传输。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + Reality 模式相比普通 TLS 有什么优势？</h5></div>
-    <div class="panel-body">
-        Reality 模式通过伪装握手和真实网站特征，提高流量隐蔽性，难以被 DPI 检测。TLS 模式更侧重加密和传输效率，Reality 更适合高封锁网络环境。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 的 Rule Provider 功能有哪些好处？</h5></div>
-    <div class="panel-body">
-        Rule Provider 可通过远程订阅自动更新规则和节点，减少手动维护。结合策略组，可实现分流规则和节点的自动同步，保证分流效率和网络可用性。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 如何实现按协议类型分流？</h5></div>
     <div class="panel-body">
-        QuantumultX 可根据 TCP、UDP 或特定应用协议分流流量，结合策略组选择节点。这样可以为游戏、视频或广告屏蔽等应用提供最佳网络体验，提高访问速度和稳定性。    </div>
+        QuantumultX 可根据 TCP、UDP 或特定应用协议分流流量，结合策略组选择节点。这样可以为游戏、视频或广告屏蔽等应用提供最佳网络体验，提高访问速度和稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash Premium 与普通版本有什么区别？</h5></div>
+    <div class="panel-body">
+        Clash Premium 是增强版，支持更多功能如 TUN 模式、本地 DNS 解析、脚本规则和自定义代理链。它能实现更细致的流量控制和兼容更多协议，适合对网络有高级需求的用户使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的测速功能如何使用？</h5></div>
+    <div class="panel-body">
+        WinXray 内置节点测速工具，可以通过延迟测试（ping）或带宽测试判断节点质量。用户只需右键节点选择“测速”即可，测试结果将显示在列表中，帮助快速挑选最佳线路。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Matsuri 是否支持延迟排序节点？</h5></div>
+    <div class="panel-body">
+        支持。Matsuri 会自动测试节点延迟并按结果排序。用户可快速选择延迟最低或速度最快的节点，提高网络访问速度，尤其适合游戏或视频场景。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -338,16 +338,16 @@ VPN服务商理论上可见用户数据，需选择信赖的服务商；Tor网�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-16-today-kitsunebi-node.htm" title="8月16日→18.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月16日→18.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-20-free-subscribe-node.htm" title="8月20日→22.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月20日→22.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-6-today-kitsunebi-node.htm" title="8月6日→22.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月6日→22.7M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-21.htm" title="8月21日→21.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月21日→21.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-31.htm" title="8月31日→22.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月31日→22.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-4-free-node-subscribe.htm" title="9月4日→21.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">9月4日→21.3M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-23.htm" title="8月23日→20M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月23日→20M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/kitsunebi-windows-2026-9-5.htm" title="9月5日→22.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">9月5日→22.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-16-today-kitsunebi-node.htm" title="8月16日→18.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月16日→18.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-10-kitsunebi-node.htm" title="9月10日→21.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">9月10日→21.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-12-today-kitsunebi-node.htm" title="8月12日→19.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月12日→19.6M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-15.htm" title="8月15日→19.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月15日→19.4M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-18-free-node-subscribe.htm" title="8月18日→21.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月18日→21.1M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/kitsunebi-windows-2026-9-3.htm" title="9月3日→22.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">9月3日→22.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-28-node-share.htm" title="8月28日→20.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月28日→20.9M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/kitsunebi-windows-2026-8-11.htm" title="8月11日→19.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月11日→19.8M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-26-free-node-subscribe.htm" title="8月26日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">8月26日→23M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/latest-kitsunebi-node-2026-9-7.htm" title="9月7日→19.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址">9月7日→19.2M/S|2025年最新免费节点Kitsunebi Node订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -359,10 +359,10 @@ VPN服务商理论上可见用户数据，需选择信赖的服务商；Tor网�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
